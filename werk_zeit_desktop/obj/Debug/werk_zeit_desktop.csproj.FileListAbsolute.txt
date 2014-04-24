@@ -1,0 +1,3 @@
+C:\Users\stefan\Documents\Visual Studio 2013\Projects\werk_zeit_desktop\werk_zeit_desktop\bin\Debug\WpfApplication3.exe.config
+C:\Users\stefan\Documents\Visual Studio 2013\Projects\werk_zeit_desktop\werk_zeit_desktop\obj\Debug\WpfApplication3.exe
+C:\Users\stefan\Documents\Visual Studio 2013\Projects\werk_zeit_desktop\werk_zeit_desktop\obj\Debug\WpfApplication3.pdb

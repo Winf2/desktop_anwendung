@@ -1,0 +1,146 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="WpfApplication3.MainWindow"
+        Title="Werk-Zeit" Height="658.956" Width="988.433" WindowStartupLocation="CenterScreen" WindowState="Maximized" Icon="Ressources/logo_ersatz_klein.png">
+    <Grid>
+        <TabControl VerticalAlignment="Top" Height="565" TabStripPlacement="Left" Margin="10,40,10,0">
+            <TabItem HorizontalAlignment="Right" Margin="0,0,0,0">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="140">
+                        <Image Source="Ressources/icons/103390-3d-glossy-green-orb-icon-business-home7.png" Height="35" Width="35" />
+                        <TextBlock Text="Projekte" TextAlignment="Center" VerticalAlignment="Center" FontSize="20" />
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <TabControl Margin="10,40,10,-30">
+                        <TabItem Header="Tag">
+                            <Grid Background="#FFE5E5E5">
+                                <DatePicker Width="140" Height="30" Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Monat">
+                            <Grid Background="#FFE5E5E5"/>
+                        </TabItem>
+                        <TabItem Header="Jahr">
+                            <Grid Background="#FFE5E5E5"/>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+            </TabItem>
+            <TabItem HorizontalAlignment="Right" Margin="0,0,0,0">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" Width="130">
+                        <Image Source="Ressources/icons/103001-3d-glossy-green-orb-icon-alphanumeric-plus-sign-simple.png" Height="35" Width="35" />
+                        <TextBlock Text="Anlegen" TextAlignment="Center" VerticalAlignment="Center" />
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid/>
+            </TabItem>
+            <TabItem HorizontalAlignment="Right" Margin="0,0,0,0">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" Width="130">
+                        <Image Source="Ressources/icons/103444-3d-glossy-green-orb-icon-business-pencil7-sc49.png" Height="35" Width="35" />
+                        <TextBlock Text="Bearbeiten" TextAlignment="Center" VerticalAlignment="Center" />
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid/>
+            </TabItem>
+            <TabItem HorizontalAlignment="Right" Margin="0,0,0,0">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" Width="140">
+                        <Image Source="Ressources/icons/103373-3d-glossy-green-orb-icon-business-gear4.png" Height="35" Width="35" />
+                        <TextBlock Text="Aktivitäten" TextAlignment="Center" VerticalAlignment="Center" FontSize="16" />
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid/>
+            </TabItem>
+            <TabItem HorizontalAlignment="Right" Margin="0,0,0,0">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" Width="130">
+                        <Image Source="Ressources/icons/103001-3d-glossy-green-orb-icon-alphanumeric-plus-sign-simple.png" Height="35" Width="35" />
+                        <TextBlock Text="Anlegen" TextAlignment="Center" VerticalAlignment="Center" />
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid/>
+            </TabItem>
+            <TabItem HorizontalAlignment="Right" Margin="0,0,0,0">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" Width="130">
+                        <Image Source="Ressources/icons/103444-3d-glossy-green-orb-icon-business-pencil7-sc49.png" Height="35" Width="35" />
+                        <TextBlock Text="Bearbeiten" TextAlignment="Center" VerticalAlignment="Center" />
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid/>
+            </TabItem>
+
+            <TabItem HorizontalAlignment="Right" Margin="0,0,0,0">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" Width="140">
+                        <Image Source="Ressources/icons/103373-3d-glossy-green-orb-icon-business-gear4.png" Height="35" Width="35" />
+                        <TextBlock Text="Kunden" TextAlignment="Center" VerticalAlignment="Center" FontSize="20" />
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid/>
+            </TabItem>
+            <TabItem HorizontalAlignment="Right" Margin="0,0,0,0">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" Width="130">
+                        <Image Source="Ressources/icons/103001-3d-glossy-green-orb-icon-alphanumeric-plus-sign-simple.png" Height="35" Width="35" />
+                        <TextBlock Text="Anlegen" TextAlignment="Center" VerticalAlignment="Center" />
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid/>
+            </TabItem>
+            <TabItem HorizontalAlignment="Right" Margin="0,0,0,0">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" Width="130">
+                        <Image Source="Ressources/icons/103444-3d-glossy-green-orb-icon-business-pencil7-sc49.png" Height="35" Width="35" />
+                        <TextBlock Text="Bearbeiten" TextAlignment="Center" VerticalAlignment="Center" />
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid/>
+            </TabItem>
+            <TabItem HorizontalAlignment="Right" Margin="0,0,0,0">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" Width="140">
+                        <Image Source="Ressources/icons/103373-3d-glossy-green-orb-icon-business-gear4.png" Height="35" Width="35" />
+                        <TextBlock Text="Mitarbeiter" TextAlignment="Center" VerticalAlignment="Center" FontSize="20" />
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid/>
+            </TabItem>
+            <TabItem HorizontalAlignment="Right" Margin="0,0,0,0">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" Width="130" Height="35">
+                        <Image Source="Ressources/icons/103001-3d-glossy-green-orb-icon-alphanumeric-plus-sign-simple.png" Height="35" Width="35" />
+                        <TextBlock Text="Anlegen" TextAlignment="Center" VerticalAlignment="Center" />
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid/>
+            </TabItem>
+            <TabItem HorizontalAlignment="Right" Margin="0,0,0,0">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" Width="130">
+                        <Image Source="Ressources/icons/103444-3d-glossy-green-orb-icon-business-pencil7-sc49.png" Height="35" Width="35" />
+                        <TextBlock Text="Bearbeiten" TextAlignment="Center" VerticalAlignment="Center" />
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid/>
+            </TabItem>
+            <TabItem HorizontalAlignment="Right" Margin="0,0,0,0">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" Width="130">
+                        <Image Source="Ressources/icons/103403-3d-glossy-green-orb-icon-business-key7.png" Height="35" Width="35" />
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Passwörter" TextAlignment="Center" VerticalAlignment="Center" />
+                            <TextBlock Text="verwalten" />
+                        </StackPanel>
+
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid/>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
