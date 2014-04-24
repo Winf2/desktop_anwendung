@@ -25,10 +25,11 @@ namespace WpfApplication3
         public MainWindow()
         {
             InitializeComponent();
-            OleDbDataAdapter da = new OleDbDataAdapter("SELECT * FROM Mitarbeiter", "Provider=Microsoft.JET.OLEDB.4.0;data source=E:\\neu.accdb");
-            DataSet ds = new DataSet();
-            da.Fill(ds, "Student");
-            dataGrid1.DataContext = ds.Tables["Student"].DefaultView;
+        }
+
+        private void mit_exit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }

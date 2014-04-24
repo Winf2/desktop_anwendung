@@ -65,7 +65,8 @@ namespace WpfApplication3
             //Benutzername und Passwort überprüfen
             this.Hide();
             MainWindow mw = new MainWindow();
-            mw.Show();
+            mw.ShowDialog();
+            this.Show();
         }
 
 

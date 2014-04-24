@@ -2,9 +2,25 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="WpfApplication3.MainWindow"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         Title="Werk-Zeit" Height="658.956" Width="988.433" WindowStartupLocation="CenterScreen" WindowState="Maximized" Icon="Ressources/logo_ersatz_klein.png">
     <Grid>
-        <TabControl VerticalAlignment="Top" Height="565" TabStripPlacement="Left" Margin="10,40,10,0">
+        <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="Datei">
+                    <MenuItem x:Name="mi_exit" Header="Beenden" Click="mit_exit_Click"/>
+                </MenuItem>
+                <MenuItem Header="Optionen">
+                    <MenuItem Header="Einstellungen"/>
+                </MenuItem>
+                <MenuItem Header="Extras">
+                    <MenuItem Header="Island Software Solutions"/>
+                </MenuItem>
+                    
+            </Menu>
+            <StackPanel></StackPanel>
+        </DockPanel>
+        <TabControl VerticalAlignment="Top" Height="565" TabStripPlacement="Left" Margin="10,64,10,0">
             <TabItem HorizontalAlignment="Right" Margin="0,0,0,0">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="140">
@@ -13,19 +29,11 @@
                     </StackPanel>
                 </TabItem.Header>
                 <Grid>
-                    <TabControl Margin="10,40,10,-30">
-                        <TabItem Header="Tag">
-                            <Grid Background="#FFE5E5E5">
-                                <DatePicker Width="140" Height="30" Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                            </Grid>
-                        </TabItem>
-                        <TabItem Header="Monat">
-                            <Grid Background="#FFE5E5E5"/>
-                        </TabItem>
-                        <TabItem Header="Jahr">
-                            <Grid Background="#FFE5E5E5"/>
-                        </TabItem>
-                    </TabControl>
+                    <Label Content="Von:" Margin="20,10,0,0" Height="30" Width="30" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <DatePicker Width="140" Height="30" Margin="55,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" SelectedDate="{x:Static sys:DateTime.Today}"/>
+                    <Label Content="Bis:" Margin="200,9,0,0" Height="30" Width="30" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <DatePicker Width="140" Height="30" Margin="235,9,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" SelectedDate="{x:Static sys:DateTime.Today}"/>
+
                 </Grid>
             </TabItem>
             <TabItem HorizontalAlignment="Right" Margin="0,0,0,0">
@@ -136,11 +144,36 @@
                             <TextBlock Text="Passwörter" TextAlignment="Center" VerticalAlignment="Center" />
                             <TextBlock Text="verwalten" />
                         </StackPanel>
-
                     </StackPanel>
                 </TabItem.Header>
                 <Grid/>
             </TabItem>
         </TabControl>
+        <DockPanel  Height="40" VerticalAlignment="Top" Margin="0,19,0,0">
+            <Border BorderThickness="1" CornerRadius="8" Margin="1">
+                <ToolBarTray HorizontalAlignment="Left" VerticalAlignment="Center"  >
+                    <ToolBar ToolBarTray.IsLocked="True" Background="Transparent" VerticalAlignment="Center"  VerticalContentAlignment="Center">
+                        <Button Name="tool_button_refresh" ToolTip="Clear" VerticalAlignment="Center">
+                            <TextBlock>
+                                <Image Source="Ressources\icons\103149-3d-glossy-green-orb-icon-arrows-arrow-circle-refresh.png" Height="25" Width="25"/>
+                                <Label>Aktuallisieren</Label>
+                            </TextBlock>
+                        </Button>
+                        <Button Name="tool_button_new" ToolTip="Clear" VerticalAlignment="Center">
+                            <TextBlock>
+                                <Image Source="Ressources\icons\103001-3d-glossy-green-orb-icon-alphanumeric-plus-sign-simple.png" Height="25" Width="25"/>
+                                <Label>Anlegen</Label>
+                            </TextBlock>
+                        </Button>
+                        <Button Name="tool_button_edit" ToolTip="Clear" VerticalAlignment="Center">
+                            <TextBlock>
+                                <Image Source="Ressources\icons\103444-3d-glossy-green-orb-icon-business-pencil7-sc49.png" Height="25" Width="25"/>
+                                <Label>Bearbeiten</Label>
+                            </TextBlock>
+                        </Button>
+                    </ToolBar>
+                </ToolBarTray>
+            </Border>
+        </DockPanel>
     </Grid>
 </Window>
