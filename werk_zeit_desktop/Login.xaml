@@ -1,7 +1,7 @@
 ﻿<Window x:Class="WpfApplication3.Login"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Werk-Zeit - Anmeldung" Height="479.787" Width="300" Icon="Ressources/logo_ersatz_klein.png" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow" ResizeMode="NoResize">
+        Title="Werk-Zeit - Anmeldung" Height="480" Width="300" Icon="Ressources/logo_ersatz_klein.png" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow" ResizeMode="NoResize">
     <Grid>
         <TextBox x:Name="textBoxUsername" HorizontalAlignment="Left" Height="23" Margin="46,233,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" GotFocus="TextBox_GotFocus" Text="Benutzername" LostFocus="textBoxUsername_LostFocus" TabIndex="1">
         </TextBox>
@@ -20,7 +20,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Image Margin="46,10,46,240" Source="logo_gross.png"/>
+        <Image Margin="46,10,46,240" Source="Ressources/logo_gross.png"/>
         <PasswordBox x:Name="textBoxPassword" HorizontalAlignment="Left" Margin="46,261,0,0" VerticalAlignment="Top" Width="200" Password="********" GotFocus="PasswordBox_GotFocus" LostFocus="textBoxPassword_LostFocus" TabIndex="2"/>
     </Grid>
 </Window>

@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("neu.accdb")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("ressources/icons/103393-3d-glossy-green-orb-icon-business-hourglass.png")]
 
 
