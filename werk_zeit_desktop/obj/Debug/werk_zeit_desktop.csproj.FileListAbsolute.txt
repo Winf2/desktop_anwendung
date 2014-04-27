@@ -16,3 +16,13 @@ C:\Users\stefan\Documents\Visual Studio 2013\Projects\desktop_anwendung.git\trun
 C:\Users\stefan\Documents\Visual Studio 2013\Projects\desktop_anwendung.git\trunk\werk_zeit_desktop\obj\Debug\werk_zeit_desktop.csproj.GenerateResource.Cache
 C:\Users\stefan\Documents\Visual Studio 2013\Projects\desktop_anwendung.git\trunk\werk_zeit_desktop\bin\Debug\WpfApplication3.exe
 C:\Users\stefan\Documents\Visual Studio 2013\Projects\desktop_anwendung.git\trunk\werk_zeit_desktop\bin\Debug\WpfApplication3.pdb
+C:\Users\stefan\Documents\Visual Studio 2013\Projects\desktop_anwendung.git\trunk\werk_zeit_desktop\obj\Debug\CreateEditWindows\WorkingTimeWindow.baml
+C:\Users\stefan\Documents\Visual Studio 2013\Projects\desktop_anwendung.git\trunk\werk_zeit_desktop\obj\Debug\CreateEditWindows\ActivityWindow.baml
+C:\Users\stefan\Documents\Visual Studio 2013\Projects\desktop_anwendung.git\trunk\werk_zeit_desktop\obj\Debug\CreateEditWindows\CustomerWindow.baml
+C:\Users\stefan\Documents\Visual Studio 2013\Projects\desktop_anwendung.git\trunk\werk_zeit_desktop\obj\Debug\CreateEditWindows\EmployeeWindow.baml
+C:\Users\stefan\Documents\Visual Studio 2013\Projects\desktop_anwendung.git\trunk\werk_zeit_desktop\obj\Debug\CreateEditWindows\ProjectWindow.baml
+C:\Users\stefan\Documents\Visual Studio 2013\Projects\desktop_anwendung.git\trunk\werk_zeit_desktop\obj\Debug\CreateEditWindows\WorkingTimeWindow.g.cs
+C:\Users\stefan\Documents\Visual Studio 2013\Projects\desktop_anwendung.git\trunk\werk_zeit_desktop\obj\Debug\CreateEditWindows\ActivityWindow.g.cs
+C:\Users\stefan\Documents\Visual Studio 2013\Projects\desktop_anwendung.git\trunk\werk_zeit_desktop\obj\Debug\CreateEditWindows\CustomerWindow.g.cs
+C:\Users\stefan\Documents\Visual Studio 2013\Projects\desktop_anwendung.git\trunk\werk_zeit_desktop\obj\Debug\CreateEditWindows\EmployeeWindow.g.cs
+C:\Users\stefan\Documents\Visual Studio 2013\Projects\desktop_anwendung.git\trunk\werk_zeit_desktop\obj\Debug\CreateEditWindows\ProjectWindow.g.cs

@@ -68,6 +68,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="CreateEditWindows\WorkingTimeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -80,6 +84,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CreateEditWindows\WorkingTimeWindow.xaml.cs">
+      <DependentUpon>WorkingTimeWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -87,8 +94,36 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="CreateEditWindows\ActivityWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CreateEditWindows\CustomerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CreateEditWindows\EmployeeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CreateEditWindows\ProjectWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreateEditWindows\ActivityWindow.xaml.cs">
+      <DependentUpon>ActivityWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CreateEditWindows\CustomerWindow.xaml.cs">
+      <DependentUpon>CustomerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CreateEditWindows\EmployeeWindow.xaml.cs">
+      <DependentUpon>EmployeeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CreateEditWindows\ProjectWindow.xaml.cs">
+      <DependentUpon>ProjectWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -116,9 +151,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="logo_gross.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Ressources\logo_gross.png" />
   </ItemGroup>
   <ItemGroup>
@@ -142,25 +174,34 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Ressources\icons\103390-3d-glossy-green-orb-icon-business-home7.png" />
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Ressources\icons\103149-3d-glossy-green-orb-icon-arrows-arrow-circle-refresh.png" />
+    <Resource Include="Ressources\icons\chart-flipped-icon.png" />
+    <Resource Include="Ressources\icons\clock-icon.png" />
+    <Resource Include="Ressources\icons\hammer-icon.png" />
+    <Resource Include="Ressources\icons\search-icon.png" />
+    <Resource Include="Ressources\icons\user-blue-icon.png" />
+    <Resource Include="Ressources\icons\user-business-icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Ressources\icons\103001-3d-glossy-green-orb-icon-alphanumeric-plus-sign-simple.png" />
+    <Resource Include="Ressources\icons\book-icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Ressources\icons\103444-3d-glossy-green-orb-icon-business-pencil7-sc49.png" />
+    <Resource Include="Ressources\icons\folder-icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Ressources\icons\103403-3d-glossy-green-orb-icon-business-key7.png" />
+    <Resource Include="Ressources\icons\Deep_Add.png" />
+    <Resource Include="Ressources\icons\Deep_Delete.png" />
+    <Resource Include="Ressources\icons\edit.png" />
+    <Resource Include="Ressources\icons\export.png" />
+    <Resource Include="Ressources\icons\refresh.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Ressources\icons\103373-3d-glossy-green-orb-icon-business-gear4.png" />
+    <Resource Include="Ressources\icons\Deep_Folder.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Ressources\icons\103393-3d-glossy-green-orb-icon-business-hourglass.png" />
+    <Resource Include="Ressources\icons\Deep_Search.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

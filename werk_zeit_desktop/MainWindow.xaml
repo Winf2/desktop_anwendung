@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="WpfApplication3.MainWindow"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
-        Title="Werk-Zeit" Height="658.956" Width="988.433" WindowStartupLocation="CenterScreen" WindowState="Maximized" Icon="Ressources/logo_ersatz_klein.png">
+        Title="Werk-Zeit" Height="666.956" Width="1239.433" WindowStartupLocation="CenterScreen" WindowState="Maximized" Icon="Ressources/logo_ersatz_klein.png">
     <Grid>
         <DockPanel>
             <Menu DockPanel.Dock="Top">
@@ -16,164 +16,195 @@
                 <MenuItem Header="Extras">
                     <MenuItem Header="Island Software Solutions"/>
                 </MenuItem>
-                    
             </Menu>
             <StackPanel></StackPanel>
         </DockPanel>
-        <TabControl VerticalAlignment="Top" Height="565" TabStripPlacement="Left" Margin="10,64,10,0">
-            <TabItem HorizontalAlignment="Right" Margin="0,0,0,0">
+        <TabControl x:Name="tab_control" VerticalAlignment="Top" Height="Auto" TabStripPlacement="Left" Margin="0,65,5,0" SelectionChanged="tab_control_SelectionChanged">
+            <TabItem x:Name="tab_overview" HorizontalAlignment="Right" Margin="0,0,0,0" GotFocus="tab_overview_GotFocus">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" Width="140">
+                        <Image Source="Ressources/icons/clock-icon.png" Height="35" Width="35" />
+                        <TextBlock Text="Zeiten" TextAlignment="Center" VerticalAlignment="Center" FontSize="20" />
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <StackPanel>
+                        <Expander x:Name="expander_workingTime" Header="Filtern..." Expanded="expander_workingTime_Expanded" Collapsed="expander_workingTime_Collapsed">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <GroupBox Height="Auto">
+                                        <GroupBox.Header>
+                                            <CheckBox x:Name="checkbox_TimeInterval" FontSize="14">Zeitraum</CheckBox>
+                                        </GroupBox.Header>
+                                        <StackPanel>
+                                            <TextBlock Margin="0,5">
+                                                <Label Content="Von:"  Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                                <DatePicker Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" SelectedDate="{x:Static sys:DateTime.Today}"/>
+                                            </TextBlock>
+                                            <TextBlock>
+                                                <Label Content="Bis:" Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                                <DatePicker Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" SelectedDate="{x:Static sys:DateTime.Today}"/>
+                                            </TextBlock>
+                                        </StackPanel>
+                                    </GroupBox>
+                                    <GroupBox MinHeight="100">
+                                        <GroupBox.Header>
+                                            <CheckBox x:Name="checkboxProject" FontSize="14" Content="Projekte"/>
+                                        </GroupBox.Header>
+                                        <ListBox HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" MinWidth="200" MinHeight="60"/>
+                                    </GroupBox>
+                                    <GroupBox MinHeight="100">
+                                        <GroupBox.Header>
+                                            <CheckBox x:Name="checkboxActivity" FontSize="14" Content="Aktivitäten"/>
+                                        </GroupBox.Header>
+                                        <ListBox HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" MinWidth="200" MinHeight="60"/>
+                                    </GroupBox>
+                                    <GroupBox MinHeight="100">
+                                        <GroupBox.Header>
+                                            <CheckBox x:Name="checkboxCustomer" FontSize="14" Content="Kunden"/>
+                                        </GroupBox.Header>
+                                        <ListBox HorizontalAlignment="Left" Height="62" Margin="5,10,0,0" VerticalAlignment="Top" MinWidth="180" MinHeight="60"/>
+                                    </GroupBox>
+                                    <GroupBox MinHeight="100">
+                                        <GroupBox.Header>
+                                            <CheckBox x:Name="checkboxEmployee" FontSize="14" Content="Mitarbeiter"/>
+                                        </GroupBox.Header>
+                                        <ListBox HorizontalAlignment="Left" Height="62" Margin="5,10,0,0" VerticalAlignment="Top" MinWidth="180" MinHeight="60"/>
+                                    </GroupBox>
+                                </StackPanel>
+                            </StackPanel>
+                        </Expander>
+                        <Label Content="Zeitenübersicht" FontSize="20"/>
+                        <DataGrid Margin="10">
+                           
+                        </DataGrid>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tab_projects" HorizontalAlignment="Right" Margin="0,0,0,0" GotFocus="tab_projects_GotFocus">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="140">
-                        <Image Source="Ressources/icons/103390-3d-glossy-green-orb-icon-business-home7.png" Height="35" Width="35" />
+                        <Image Source="Ressources/icons/folder-icon.png" Height="35" Width="35" />
                         <TextBlock Text="Projekte" TextAlignment="Center" VerticalAlignment="Center" FontSize="20" />
                     </StackPanel>
                 </TabItem.Header>
                 <Grid>
-                    <Label Content="Von:" Margin="20,10,0,0" Height="30" Width="30" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <DatePicker Width="140" Height="30" Margin="55,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" SelectedDate="{x:Static sys:DateTime.Today}"/>
-                    <Label Content="Bis:" Margin="200,9,0,0" Height="30" Width="30" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <DatePicker Width="140" Height="30" Margin="235,9,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" SelectedDate="{x:Static sys:DateTime.Today}"/>
 
                 </Grid>
             </TabItem>
-            <TabItem HorizontalAlignment="Right" Margin="0,0,0,0">
-                <TabItem.Header>
-                    <StackPanel Orientation="Horizontal" Width="130">
-                        <Image Source="Ressources/icons/103001-3d-glossy-green-orb-icon-alphanumeric-plus-sign-simple.png" Height="35" Width="35" />
-                        <TextBlock Text="Anlegen" TextAlignment="Center" VerticalAlignment="Center" />
-                    </StackPanel>
-                </TabItem.Header>
-                <Grid/>
-            </TabItem>
-            <TabItem HorizontalAlignment="Right" Margin="0,0,0,0">
-                <TabItem.Header>
-                    <StackPanel Orientation="Horizontal" Width="130">
-                        <Image Source="Ressources/icons/103444-3d-glossy-green-orb-icon-business-pencil7-sc49.png" Height="35" Width="35" />
-                        <TextBlock Text="Bearbeiten" TextAlignment="Center" VerticalAlignment="Center" />
-                    </StackPanel>
-                </TabItem.Header>
-                <Grid/>
-            </TabItem>
-            <TabItem HorizontalAlignment="Right" Margin="0,0,0,0">
+            <TabItem x:Name="tab_activities" HorizontalAlignment="Right" Margin="0,0,0,0" GotFocus="tab_activities_GotFocus">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal" Width="140">
-                        <Image Source="Ressources/icons/103373-3d-glossy-green-orb-icon-business-gear4.png" Height="35" Width="35" />
-                        <TextBlock Text="Aktivitäten" TextAlignment="Center" VerticalAlignment="Center" FontSize="16" />
+                        <Image Source="Ressources/icons/hammer-icon.png" Height="35" Width="35" />
+                        <TextBlock Text="Aktivitäten" TextAlignment="Center" VerticalAlignment="Center" FontSize="20" />
                     </StackPanel>
                 </TabItem.Header>
                 <Grid/>
             </TabItem>
-            <TabItem HorizontalAlignment="Right" Margin="0,0,0,0">
-                <TabItem.Header>
-                    <StackPanel Orientation="Horizontal" Width="130">
-                        <Image Source="Ressources/icons/103001-3d-glossy-green-orb-icon-alphanumeric-plus-sign-simple.png" Height="35" Width="35" />
-                        <TextBlock Text="Anlegen" TextAlignment="Center" VerticalAlignment="Center" />
-                    </StackPanel>
-                </TabItem.Header>
-                <Grid/>
-            </TabItem>
-            <TabItem HorizontalAlignment="Right" Margin="0,0,0,0">
-                <TabItem.Header>
-                    <StackPanel Orientation="Horizontal" Width="130">
-                        <Image Source="Ressources/icons/103444-3d-glossy-green-orb-icon-business-pencil7-sc49.png" Height="35" Width="35" />
-                        <TextBlock Text="Bearbeiten" TextAlignment="Center" VerticalAlignment="Center" />
-                    </StackPanel>
-                </TabItem.Header>
-                <Grid/>
-            </TabItem>
-
-            <TabItem HorizontalAlignment="Right" Margin="0,0,0,0">
+            <TabItem x:Name="tab_customers" HorizontalAlignment="Right" Margin="0,0,0,0" GotFocus="tab_customers_GotFocus">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal" Width="140">
-                        <Image Source="Ressources/icons/103373-3d-glossy-green-orb-icon-business-gear4.png" Height="35" Width="35" />
+                        <Image Source="Ressources/icons/user-business-icon.png" Height="35" Width="35" />
                         <TextBlock Text="Kunden" TextAlignment="Center" VerticalAlignment="Center" FontSize="20" />
                     </StackPanel>
                 </TabItem.Header>
                 <Grid/>
             </TabItem>
-            <TabItem HorizontalAlignment="Right" Margin="0,0,0,0">
-                <TabItem.Header>
-                    <StackPanel Orientation="Horizontal" Width="130">
-                        <Image Source="Ressources/icons/103001-3d-glossy-green-orb-icon-alphanumeric-plus-sign-simple.png" Height="35" Width="35" />
-                        <TextBlock Text="Anlegen" TextAlignment="Center" VerticalAlignment="Center" />
-                    </StackPanel>
-                </TabItem.Header>
-                <Grid/>
-            </TabItem>
-            <TabItem HorizontalAlignment="Right" Margin="0,0,0,0">
-                <TabItem.Header>
-                    <StackPanel Orientation="Horizontal" Width="130">
-                        <Image Source="Ressources/icons/103444-3d-glossy-green-orb-icon-business-pencil7-sc49.png" Height="35" Width="35" />
-                        <TextBlock Text="Bearbeiten" TextAlignment="Center" VerticalAlignment="Center" />
-                    </StackPanel>
-                </TabItem.Header>
-                <Grid/>
-            </TabItem>
-            <TabItem HorizontalAlignment="Right" Margin="0,0,0,0">
+            <TabItem x:Name="tab_employee" HorizontalAlignment="Right" Margin="0,0,0,0" GotFocus="tab_employee_GotFocus">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal" Width="140">
-                        <Image Source="Ressources/icons/103373-3d-glossy-green-orb-icon-business-gear4.png" Height="35" Width="35" />
+                        <Image Source="Ressources/icons/user-blue-icon.png" Height="35" Width="35" />
                         <TextBlock Text="Mitarbeiter" TextAlignment="Center" VerticalAlignment="Center" FontSize="20" />
                     </StackPanel>
                 </TabItem.Header>
                 <Grid/>
             </TabItem>
-            <TabItem HorizontalAlignment="Right" Margin="0,0,0,0">
+            <TabItem x:Name="tab_analysis" HorizontalAlignment="Right" Margin="0,0,0,0" GotFocus="tab_analysis_GotFocus">
                 <TabItem.Header>
-                    <StackPanel Orientation="Horizontal" Width="130" Height="35">
-                        <Image Source="Ressources/icons/103001-3d-glossy-green-orb-icon-alphanumeric-plus-sign-simple.png" Height="35" Width="35" />
-                        <TextBlock Text="Anlegen" TextAlignment="Center" VerticalAlignment="Center" />
+                    <StackPanel Orientation="Horizontal" Width="140">
+                        <Image Source="Ressources/icons/chart-flipped-icon.png" Height="35" Width="35" />
+                        <TextBlock Text="Auswertung" TextAlignment="Center" VerticalAlignment="Center" FontSize="20" GotFocus="textblock_analysis_GotFocus" />
                     </StackPanel>
                 </TabItem.Header>
                 <Grid/>
             </TabItem>
-            <TabItem HorizontalAlignment="Right" Margin="0,0,0,0">
+            <TabItem x:Name="tab_archiv" HorizontalAlignment="Right" Margin="0,0,0,0" GotFocus="tab_archiv_GotFocus">
                 <TabItem.Header>
-                    <StackPanel Orientation="Horizontal" Width="130">
-                        <Image Source="Ressources/icons/103444-3d-glossy-green-orb-icon-business-pencil7-sc49.png" Height="35" Width="35" />
-                        <TextBlock Text="Bearbeiten" TextAlignment="Center" VerticalAlignment="Center" />
-                    </StackPanel>
-                </TabItem.Header>
-                <Grid/>
-            </TabItem>
-            <TabItem HorizontalAlignment="Right" Margin="0,0,0,0">
-                <TabItem.Header>
-                    <StackPanel Orientation="Horizontal" Width="130">
-                        <Image Source="Ressources/icons/103403-3d-glossy-green-orb-icon-business-key7.png" Height="35" Width="35" />
-                        <StackPanel Orientation="Vertical">
-                            <TextBlock Text="Passwörter" TextAlignment="Center" VerticalAlignment="Center" />
-                            <TextBlock Text="verwalten" />
-                        </StackPanel>
+                    <StackPanel Orientation="Horizontal" Width="140">
+                        <Image Source="Ressources/icons/book-icon.png" Height="35" Width="35" />
+                        <TextBlock Text="Archiv" TextAlignment="Center" VerticalAlignment="Center" FontSize="20" />
                     </StackPanel>
                 </TabItem.Header>
                 <Grid/>
             </TabItem>
         </TabControl>
-        <DockPanel  Height="40" VerticalAlignment="Top" Margin="0,19,0,0">
-            <Border BorderThickness="1" CornerRadius="8" Margin="1">
-                <ToolBarTray HorizontalAlignment="Left" VerticalAlignment="Center"  >
-                    <ToolBar ToolBarTray.IsLocked="True" Background="Transparent" VerticalAlignment="Center"  VerticalContentAlignment="Center">
-                        <Button Name="tool_button_refresh" ToolTip="Clear" VerticalAlignment="Center">
-                            <TextBlock>
-                                <Image Source="Ressources\icons\103149-3d-glossy-green-orb-icon-arrows-arrow-circle-refresh.png" Height="25" Width="25"/>
-                                <Label>Aktuallisieren</Label>
-                            </TextBlock>
-                        </Button>
-                        <Button Name="tool_button_new" ToolTip="Clear" VerticalAlignment="Center">
-                            <TextBlock>
-                                <Image Source="Ressources\icons\103001-3d-glossy-green-orb-icon-alphanumeric-plus-sign-simple.png" Height="25" Width="25"/>
-                                <Label>Anlegen</Label>
-                            </TextBlock>
-                        </Button>
-                        <Button Name="tool_button_edit" ToolTip="Clear" VerticalAlignment="Center">
-                            <TextBlock>
-                                <Image Source="Ressources\icons\103444-3d-glossy-green-orb-icon-business-pencil7-sc49.png" Height="25" Width="25"/>
-                                <Label>Bearbeiten</Label>
-                            </TextBlock>
-                        </Button>
-                    </ToolBar>
-                </ToolBarTray>
-            </Border>
+        <DockPanel  Height="40" VerticalAlignment="Top" Margin="0,20,0,0">
+            <ToolBarTray HorizontalAlignment="Left" VerticalAlignment="Center" Background="{x:Null}"  >
+                <ToolBar ToolBarTray.IsLocked="True" VerticalAlignment="Center"  VerticalContentAlignment="Stretch" Background="{x:Null}">
+                    <Button Name="tool_button_refresh" VerticalAlignment="Stretch" HorizontalAlignment="Center" BorderThickness="3">
+                        <TextBlock>
+                                <Image Source="Ressources/icons/refresh.png" Width="20"/>
+                                <Label Content="Aktualisieren"/>
+                        </TextBlock>
+                    </Button>
+                    <Separator>
+                        <Separator.LayoutTransform>
+                            <RotateTransform Angle="90" />
+                        </Separator.LayoutTransform>
+                    </Separator>
+                    <Button Name="tool_button_new" ToolTip="Anlegen" VerticalAlignment="Stretch"  Click="tool_button_new_Click" HorizontalAlignment="Center" BorderThickness="3">
+                        <TextBlock>
+                                <Image Source="Ressources/icons/deep_add.png" Width="20"/>
+                                <Label Content="Erstellen"/>
+                        </TextBlock>
+                    </Button>
+                    <Button Name="tool_button_edit" VerticalAlignment="Stretch" HorizontalAlignment="Center" BorderThickness="3">
+                        <TextBlock>
+                                <Image Source="Ressources/icons/edit.png" Width="20"/>
+                                <Label Content="Bearbeiten"/>
+                        </TextBlock>
+                    </Button>
+                    <Separator>
+                        <Separator.LayoutTransform>
+                            <RotateTransform Angle="90" />
+                        </Separator.LayoutTransform>
+                    </Separator>
+                    <Button Name="tool_button_export" VerticalAlignment="Stretch" HorizontalAlignment="Center" BorderThickness="3">
+                        <TextBlock>
+                                <Image Source="Ressources/icons/export.png" Width="20"/>
+                                <Label Content="Exportieren"/>
+                        </TextBlock>
+                    </Button>
+                    <Separator>
+                        <Separator.LayoutTransform>
+                            <RotateTransform Angle="90" />
+                        </Separator.LayoutTransform>
+                    </Separator>
+                    <Button Name="tool_button_archiv" VerticalAlignment="Stretch" HorizontalAlignment="Center" BorderThickness="3">
+                        <TextBlock>
+                                <Image Source="Ressources/icons/deep_folder.png" Width="20"/>
+                                <Label Content="Archivieren"/>
+                        </TextBlock>
+                    </Button>
+                    <Button Name="tool_button_delete" VerticalAlignment="Stretch" HorizontalAlignment="Center" BorderThickness="3">
+                        <TextBlock>
+                                <Image Source="Ressources/icons/deep_delete.png" Width="20"/>
+                                <Label Content="Löschen"/>
+                        </TextBlock>
+                    </Button>
+                    <Separator>
+                        <Separator.LayoutTransform>
+                            <RotateTransform Angle="90" />
+                        </Separator.LayoutTransform>
+                    </Separator>
+                    <Button Name="tool_button_userFilter" VerticalAlignment="Stretch" HorizontalAlignment="Right" BorderThickness="3" Visibility="Collapsed">
+                        <TextBlock>
+                            <Image Source="Ressources/icons/deep_search.png" Width="20"/>
+                            <Label Content="Filter anwenden"/>
+                        </TextBlock>
+                    </Button>
+                </ToolBar>
+            </ToolBarTray>
         </DockPanel>
     </Grid>
 </Window>

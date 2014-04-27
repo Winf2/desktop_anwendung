@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\stefan\Documents\Visual Studio 2013\Projects\desktop_anwendung.git\trunk\werk_zeit_desktop\App.xaml
-2-419086188
+71425247894
 
-10-24559539
+15-439294106
 12-1401562060
-Login.xaml;MainWindow.xaml;
+CreateEditWindows\WorkingTimeWindow.xaml;Login.xaml;MainWindow.xaml;CreateEditWindows\ActivityWindow.xaml;CreateEditWindows\CustomerWindow.xaml;CreateEditWindows\EmployeeWindow.xaml;CreateEditWindows\ProjectWindow.xaml;
 
 False
 
