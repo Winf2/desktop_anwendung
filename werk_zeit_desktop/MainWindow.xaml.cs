@@ -171,9 +171,31 @@ namespace WpfApplication3
             tool_button_userFilter.Visibility = Visibility.Collapsed;
         }
 
+        private void expander_projects_Expanded(object sender, RoutedEventArgs e)
+        {
+            tool_button_userFilter.Visibility = Visibility.Visible;
+        }
+
+        private void expander_projects_Collapsed(object sender, RoutedEventArgs e)
+        {
+            tool_button_userFilter.Visibility = Visibility.Collapsed;
+        }
+
+        private void expander_activities_Expanded(object sender, RoutedEventArgs e)
+        {
+            tool_button_userFilter.Visibility = Visibility.Visible;
+        }
+
+        private void expander_activities_Collapsed(object sender, RoutedEventArgs e)
+        {
+            tool_button_userFilter.Visibility = Visibility.Collapsed;
+        }
+
         private void tab_control_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             expander_workingTime.IsExpanded = false;
+            expander_projects.IsExpanded = false;
+            expander_activities.IsExpanded = false;
         }
     }
 }

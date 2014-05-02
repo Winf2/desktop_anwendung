@@ -28,7 +28,11 @@
                     </StackPanel>
                 </TabItem.Header>
                 <Grid>
-                    <StackPanel>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="33*"/>
+                        <RowDefinition Height="56*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.RowSpan="2">
                         <Expander x:Name="expander_workingTime" Header="Filtern..." Expanded="expander_workingTime_Expanded" Collapsed="expander_workingTime_Collapsed">
                             <StackPanel>
                                 <StackPanel Orientation="Horizontal">
@@ -76,7 +80,7 @@
                         </Expander>
                         <Label Content="Zeitenübersicht" FontSize="20"/>
                         <DataGrid Margin="10">
-                           
+
                         </DataGrid>
                     </StackPanel>
                 </Grid>
@@ -89,7 +93,49 @@
                     </StackPanel>
                 </TabItem.Header>
                 <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="33*"/>
+                        <RowDefinition Height="56*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.RowSpan="2">
+                        <Expander x:Name="expander_projects" Header="Filtern..." Expanded="expander_projects_Expanded" Collapsed="expander_projects_Collapsed">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <GroupBox Height="Auto">
+                                        <GroupBox.Header>
+                                            <CheckBox x:Name="checkbox_TimeInterval_projects" FontSize="14">Zeitraum</CheckBox>
+                                        </GroupBox.Header>
+                                        <StackPanel>
+                                            <TextBlock Margin="0,5">
+                                                <Label Content="Von:"  Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                                <DatePicker Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" SelectedDate="{x:Static sys:DateTime.Today}"/>
+                                            </TextBlock>
+                                            <TextBlock>
+                                                <Label Content="Bis:" Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                                <DatePicker Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" SelectedDate="{x:Static sys:DateTime.Today}"/>
+                                            </TextBlock>
+                                        </StackPanel>
+                                    </GroupBox>
+                                    <GroupBox MinHeight="100">
+                                        <GroupBox.Header>
+                                            <CheckBox x:Name="checkbox_Customer_projects" FontSize="14" Content="Kunden"/>
+                                        </GroupBox.Header>
+                                        <ListBox HorizontalAlignment="Left" Height="62" Margin="5,10,0,0" VerticalAlignment="Top" MinWidth="180" MinHeight="60"/>
+                                    </GroupBox>
+                                    <GroupBox MinHeight="100">
+                                        <GroupBox.Header>
+                                            <CheckBox x:Name="checkbox_Employee_projects" FontSize="14" Content="Mitarbeiter"/>
+                                        </GroupBox.Header>
+                                        <ListBox HorizontalAlignment="Left" Height="62" Margin="5,10,0,0" VerticalAlignment="Top" MinWidth="180" MinHeight="60"/>
+                                    </GroupBox>
+                                </StackPanel>
+                            </StackPanel>
+                        </Expander>
+                        <Label Content="Projektübersicht" FontSize="20"/>
+                        <DataGrid Margin="10">
 
+                        </DataGrid>
+                    </StackPanel>
                 </Grid>
             </TabItem>
             <TabItem x:Name="tab_activities" HorizontalAlignment="Right" Margin="0,0,0,0" GotFocus="tab_activities_GotFocus">
@@ -99,7 +145,45 @@
                         <TextBlock Text="Aktivitäten" TextAlignment="Center" VerticalAlignment="Center" FontSize="20" />
                     </StackPanel>
                 </TabItem.Header>
-                <Grid/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="33*"/>
+                        <RowDefinition Height="56*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.RowSpan="2">
+                        <Expander x:Name="expander_activities" Header="Filtern..." Expanded="expander_activities_Expanded" Collapsed="expander_activities_Collapsed">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <GroupBox Height="Auto">
+                                        <GroupBox.Header>
+                                            <CheckBox x:Name="checkbox_TimeInterval_activities" FontSize="14">Zeitraum</CheckBox>
+                                        </GroupBox.Header>
+                                        <StackPanel>
+                                            <TextBlock Margin="0,5">
+                                                <Label Content="Von:"  Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                                <DatePicker Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" SelectedDate="{x:Static sys:DateTime.Today}"/>
+                                            </TextBlock>
+                                            <TextBlock>
+                                                <Label Content="Bis:" Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                                <DatePicker Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" SelectedDate="{x:Static sys:DateTime.Today}"/>
+                                            </TextBlock>
+                                        </StackPanel>
+                                    </GroupBox>
+                                    <GroupBox MinHeight="100">
+                                        <GroupBox.Header>
+                                            <CheckBox x:Name="checkbox_Employee_activities" FontSize="14" Content="Mitarbeiter"/>
+                                        </GroupBox.Header>
+                                        <ListBox HorizontalAlignment="Left" Height="62" Margin="5,10,0,0" VerticalAlignment="Top" MinWidth="180" MinHeight="60"/>
+                                    </GroupBox>
+                                </StackPanel>
+                            </StackPanel>
+                        </Expander>
+                        <Label Content="Aktivitätenübersicht" FontSize="20"/>
+                        <DataGrid Margin="10">
+
+                        </DataGrid>
+                    </StackPanel>
+                </Grid>
             </TabItem>
             <TabItem x:Name="tab_customers" HorizontalAlignment="Right" Margin="0,0,0,0" GotFocus="tab_customers_GotFocus">
                 <TabItem.Header>
@@ -108,7 +192,14 @@
                         <TextBlock Text="Kunden" TextAlignment="Center" VerticalAlignment="Center" FontSize="20" />
                     </StackPanel>
                 </TabItem.Header>
-                <Grid/>
+                <Grid>
+                    <StackPanel>
+                        <Label Content="Kundenübersicht" FontSize="20"/>
+                        <DataGrid Margin="10">
+
+                        </DataGrid>
+                    </StackPanel>
+                </Grid>
             </TabItem>
             <TabItem x:Name="tab_employee" HorizontalAlignment="Right" Margin="0,0,0,0" GotFocus="tab_employee_GotFocus">
                 <TabItem.Header>
@@ -117,7 +208,14 @@
                         <TextBlock Text="Mitarbeiter" TextAlignment="Center" VerticalAlignment="Center" FontSize="20" />
                     </StackPanel>
                 </TabItem.Header>
-                <Grid/>
+                <Grid>
+                    <StackPanel>
+                        <Label Content="Mitarbeiterübersicht" FontSize="20"/>
+                        <DataGrid Margin="10">
+
+                        </DataGrid>
+                    </StackPanel>
+                </Grid>
             </TabItem>
             <TabItem x:Name="tab_analysis" HorizontalAlignment="Right" Margin="0,0,0,0" GotFocus="tab_analysis_GotFocus">
                 <TabItem.Header>
