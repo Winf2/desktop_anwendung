@@ -11,8 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfApplication3.ServiceReference1;
 
-namespace WpfApplication3.CreateEditWindows
+namespace WpfApplication3
 {
     /// <summary>
     /// Interaktionslogik für WorkingTimeWindow.xaml
@@ -22,6 +23,18 @@ namespace WpfApplication3.CreateEditWindows
         public WorkingTimeWindow()
         {
             InitializeComponent();
+            fillComboBoxes();
+        }
+
+        private void fillComboBoxes()
+        {
+            zeiterfassungPortTypeClient zpo = new zeiterfassungPortTypeClient();
+            String[] arrayProjects = null;
+            String[] arrayActivity = null;
+            arrayProjects = zpo.loadprojects();
+            arrayActivity = zpo.loadactivities();
+            combobox_project.ItemsSource = arrayProjects;
+            combobox_activity.ItemsSource = arrayActivity;
         }
 
         private void button_back_Click(object sender, RoutedEventArgs e)

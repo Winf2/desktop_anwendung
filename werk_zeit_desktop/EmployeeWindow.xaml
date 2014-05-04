@@ -15,10 +15,7 @@
                         </TextBlock>
                         <TextBlock Margin="20,0,0,0">
                             <Label Content="Rolle:"/>
-                            <ComboBox x:Name="combobox_role" Width="150">
-                	            <ComboBoxItem Content="Mitarbeiter"/>
-                	            <ComboBoxItem Content="Verwaltung"/>
-                            </ComboBox>
+                            <ComboBox x:Name="combobox_role" Width="150"/>
                         </TextBlock>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">

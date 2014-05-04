@@ -108,7 +108,9 @@
                         <TextBlock Text="Kunden" TextAlignment="Center" VerticalAlignment="Center" FontSize="20" />
                     </StackPanel>
                 </TabItem.Header>
-                <Grid/>
+                <Grid>
+                    <DataGrid Margin="10,0"/>
+                </Grid>
             </TabItem>
             <TabItem x:Name="tab_employee" HorizontalAlignment="Right" Margin="0,0,0,0" GotFocus="tab_employee_GotFocus">
                 <TabItem.Header>
@@ -141,7 +143,7 @@
         <DockPanel  Height="40" VerticalAlignment="Top" Margin="0,20,0,0">
             <ToolBarTray HorizontalAlignment="Left" VerticalAlignment="Center" Background="{x:Null}"  >
                 <ToolBar ToolBarTray.IsLocked="True" VerticalAlignment="Center"  VerticalContentAlignment="Stretch" Background="{x:Null}">
-                    <Button Name="tool_button_refresh" VerticalAlignment="Stretch" HorizontalAlignment="Center" BorderThickness="3">
+                    <Button Name="tool_button_refresh" VerticalAlignment="Stretch" HorizontalAlignment="Center" BorderThickness="3" Click="tool_button_refresh_Click">
                         <TextBlock>
                                 <Image Source="Ressources/icons/refresh.png" Width="20"/>
                                 <Label Content="Aktualisieren"/>

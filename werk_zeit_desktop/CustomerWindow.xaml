@@ -1,6 +1,6 @@
 ﻿<Window x:Class="WpfApplication3.CustomerWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Height="380" Width="420" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" ShowInTaskbar="False">
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Height="380" Width="420" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" ShowInTaskbar="False" Topmost="True">
     <Grid>
         <StackPanel>
             <GroupBox Margin="0,0,10,0">
@@ -17,6 +17,9 @@
                             <Label Content="Firmenname:"/>
                             <TextBox x:Name="textbox_company" Width="148"/>
                         </TextBlock>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                        
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
                         <TextBlock>
@@ -45,11 +48,15 @@
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                         <TextBlock>
                             <Label Content="Postleitzahl:"/>
-                            <TextBox x:Name="textbox_zipcode" Width="70"/>
+                            <TextBox x:Name="textbox_zipcode" Width="50"/>
                         </TextBlock>
                         <TextBlock>
                             <Label Content="Ort:"/>
-                            <TextBox x:Name="textbox_location" Width="186"/>
+                            <TextBox x:Name="textbox_location" Width="100"/>
+                        </TextBlock>
+                        <TextBlock>
+                            <Label Content="Postfach:"/>
+                            <TextBox x:Name="textbox_postofficebox" Width="50" />
                         </TextBlock>
                     </StackPanel>
                 </StackPanel>
@@ -78,6 +85,9 @@
                             <Label Content="Mobil:"/>
                             <TextBox x:Name="textbox_mobil" Width="140"/>
                         </TextBlock>
+                    </StackPanel>
+                    <StackPanel>
+                        <CheckBox x:Name="checkbox_status" Content="Aktiv" IsChecked="True" HorizontalAlignment="Right"/>
                     </StackPanel>
                 </StackPanel>
             </GroupBox>

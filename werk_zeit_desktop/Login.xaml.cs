@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data;
 using System.Data.SqlClient;
+using WpfApplication3.ServiceReference1;
 
 namespace WpfApplication3
 {
@@ -21,6 +22,8 @@ namespace WpfApplication3
     /// </summary>
     public partial class Login : Window
     {
+        private zeiterfassungPortTypeClient zpo = SoapConnection.zpo;
+
         public Login()
         {
             InitializeComponent();
@@ -62,11 +65,18 @@ namespace WpfApplication3
 
         private void buttonLogin_Click(object sender, RoutedEventArgs e)
         {
-            //Benutzername und Passwort überprüfen
-            this.Hide();
-            MainWindow mw = new MainWindow();
-            mw.ShowDialog();
-            this.Show();
+            Boolean check = zpo.checkAuthentification(textBoxUsername.Text, Int16.Parse(textBoxPassword.Password));
+            if (check == true)
+            {
+                this.Hide();
+                MainWindow mw = new MainWindow();
+                mw.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                MessageBox.Show("Sie haben eine falsche Personalnummer oder \nein falsches Passwort eingegeben.","Keine Zugriffsberechtigung");
+            }
         }
 
 

@@ -11,17 +11,27 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfApplication3.ServiceReference1;
 
 namespace WpfApplication3
 {
     /// <summary>
-    /// Interaktionslogik für NewCustomerWindow.xaml
+    /// Interaktionslogik für NewEmployeeWindow.xaml
     /// </summary>
-    public partial class CustomerWindow : Window
+    public partial class EmployeeWindow : Window
     {
-        public CustomerWindow()
+        private zeiterfassungPortTypeClient zpo = SoapConnection.zpo;
+
+        public EmployeeWindow()
         {
             InitializeComponent();
+            loadComponents();
+        }
+
+        private void loadComponents()
+        {
+            combobox_role.ItemsSource = zpo.loadauthorisations();
+            combobox_role.SelectedValue = "Anwender";
         }
 
         private void button_back_Click(object sender, RoutedEventArgs e)
@@ -31,7 +41,7 @@ namespace WpfApplication3
 
         private void button_create_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
     }
 }

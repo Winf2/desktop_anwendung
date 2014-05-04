@@ -14,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WpfApplication3.CreateEditWindows;
+using WpfApplication3.ServiceReference1;
 
 namespace WpfApplication3
 {
@@ -23,6 +23,8 @@ namespace WpfApplication3
     /// </summary>
     public partial class MainWindow : Window
     {
+        private zeiterfassungPortTypeClient zpo = SoapConnection.zpo;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -113,52 +115,28 @@ namespace WpfApplication3
             int tabIndex = tab_control.SelectedIndex;
             switch(tabIndex){
                 case(0):
-                    create_new_workingTime();
+                    WorkingTimeWindow WorkingTime = new WorkingTimeWindow();
+                    WorkingTime.ShowDialog();
                     break;
-                case(1): 
-                    create_new_project();
+                case(1):
+                    ProjectWindow Project = new ProjectWindow();
+                    Project.ShowDialog();
                     break;
                 case(2): 
-                    create_new_activity();
+                    ActivityWindow newActivity = new ActivityWindow();
+                    newActivity.ShowDialog();
                     break;
                 case(3): 
-                    create_new_customer();
+                    CustomerWindow newCustomer = new CustomerWindow();
+                    newCustomer.ShowDialog();
                     break;
                 case(4): 
-                    create_new_employee();
+                    EmployeeWindow newEmployee = new EmployeeWindow();
+                    newEmployee.ShowDialog();
                     break;
                 default: 
                     break;
             }
-        }
-
-        private void create_new_employee()
-        {
-            EmployeeWindow newEmployee = new EmployeeWindow();
-            newEmployee.ShowDialog();
-        }
-
-        private void create_new_customer()
-        {
-            CustomerWindow newCustomer = new CustomerWindow();
-            newCustomer.ShowDialog();
-        }
-
-        private void create_new_activity()
-        {
-            ActivityWindow newActivity = new ActivityWindow();
-            newActivity.ShowDialog();
-        }
-
-        private void create_new_project()
-        {
-            ProjectWindow Project = new ProjectWindow();
-            Project.ShowDialog();
-        }
-        private void create_new_workingTime()
-        {
-            WorkingTimeWindow WorkingTime = new WorkingTimeWindow();
-            WorkingTime.ShowDialog();
         }
 
         private void expander_workingTime_Expanded(object sender, RoutedEventArgs e)
@@ -174,6 +152,11 @@ namespace WpfApplication3
         private void tab_control_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             expander_workingTime.IsExpanded = false;
+        }
+
+        private void tool_button_refresh_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

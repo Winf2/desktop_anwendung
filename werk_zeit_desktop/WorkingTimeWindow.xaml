@@ -1,4 +1,4 @@
-﻿<Window x:Class="WpfApplication3.CreateEditWindows.WorkingTimeWindow"
+﻿<Window x:Class="WpfApplication3.WorkingTimeWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Height="372.537" Width="420" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" ShowInTaskbar="False">
