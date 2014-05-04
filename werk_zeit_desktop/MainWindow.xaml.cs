@@ -152,6 +152,8 @@ namespace WpfApplication3
         private void tab_control_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             expander_workingTime.IsExpanded = false;
+            expander_projects.IsExpanded = false;
+            expander_activities.IsExpanded = false;
         }
 
         private void tool_button_refresh_Click(object sender, RoutedEventArgs e)
