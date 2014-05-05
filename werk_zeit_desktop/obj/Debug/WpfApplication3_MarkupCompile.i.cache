@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\link_bizkit\Documents\Uni\WInf Projekt 2\WerkZeit\branches\Version1.1\werk_zeit_desktop\obj\Debug\
+C:\Users\stefan\Desktop\Projekt neu\branches\Version1.2\werk_zeit_desktop\obj\Debug\
 WpfApplication3
 none
 false
 DEBUG;TRACE
-C:\Users\link_bizkit\Documents\Uni\WInf Projekt 2\WerkZeit\branches\Version1.1\werk_zeit_desktop\App.xaml
-71425247894
+C:\Users\stefan\Desktop\Projekt neu\branches\Version1.2\werk_zeit_desktop\App.xaml
+7982101948
 
-15892359727
-12-1401562060
-CreateEditWindows\WorkingTimeWindow.xaml;Login.xaml;MainWindow.xaml;CreateEditWindows\ActivityWindow.xaml;CreateEditWindows\CustomerWindow.xaml;CreateEditWindows\EmployeeWindow.xaml;CreateEditWindows\ProjectWindow.xaml;
+171629812786
+151692277719
+WorkingTimeWindow.xaml;Login.xaml;MainWindow.xaml;ActivityWindow.xaml;CustomerWindow.xaml;EmployeeWindow.xaml;ProjectWindow.xaml;
 
 False
 

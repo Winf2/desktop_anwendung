@@ -146,6 +146,16 @@ namespace WpfApplication3.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="rpc", ReplyAction="*")]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         System.Threading.Tasks.Task<string[]> loadauthorisationsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="rpc", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TableData))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        WpfApplication3.ServiceReference1.TableData[] loadtablecustomers();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="rpc", ReplyAction="*")]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.TableData[]> loadtablecustomersAsync();
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -674,6 +684,128 @@ namespace WpfApplication3.ServiceReference1 {
         }
     }
     
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.SoapTypeAttribute(Namespace="urn:dajana")]
+    public partial class TableData : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private int kundenNrField;
+        
+        private string nachnameField;
+        
+        private string vornameField;
+        
+        private string firmaField;
+        
+        private string telNrMobilField;
+        
+        private string telNrFestnetzField;
+        
+        private string eMailField;
+        
+        private int statusField;
+        
+        /// <remarks/>
+        public int KundenNr {
+            get {
+                return this.kundenNrField;
+            }
+            set {
+                this.kundenNrField = value;
+                this.RaisePropertyChanged("KundenNr");
+            }
+        }
+        
+        /// <remarks/>
+        public string Nachname {
+            get {
+                return this.nachnameField;
+            }
+            set {
+                this.nachnameField = value;
+                this.RaisePropertyChanged("Nachname");
+            }
+        }
+        
+        /// <remarks/>
+        public string Vorname {
+            get {
+                return this.vornameField;
+            }
+            set {
+                this.vornameField = value;
+                this.RaisePropertyChanged("Vorname");
+            }
+        }
+        
+        /// <remarks/>
+        public string Firma {
+            get {
+                return this.firmaField;
+            }
+            set {
+                this.firmaField = value;
+                this.RaisePropertyChanged("Firma");
+            }
+        }
+        
+        /// <remarks/>
+        public string TelNrMobil {
+            get {
+                return this.telNrMobilField;
+            }
+            set {
+                this.telNrMobilField = value;
+                this.RaisePropertyChanged("TelNrMobil");
+            }
+        }
+        
+        /// <remarks/>
+        public string TelNrFestnetz {
+            get {
+                return this.telNrFestnetzField;
+            }
+            set {
+                this.telNrFestnetzField = value;
+                this.RaisePropertyChanged("TelNrFestnetz");
+            }
+        }
+        
+        /// <remarks/>
+        public string EMail {
+            get {
+                return this.eMailField;
+            }
+            set {
+                this.eMailField = value;
+                this.RaisePropertyChanged("EMail");
+            }
+        }
+        
+        /// <remarks/>
+        public int Status {
+            get {
+                return this.statusField;
+            }
+            set {
+                this.statusField = value;
+                this.RaisePropertyChanged("Status");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface zeiterfassungPortTypeChannel : WpfApplication3.ServiceReference1.zeiterfassungPortType, System.ServiceModel.IClientChannel {
     }
@@ -1066,6 +1198,14 @@ namespace WpfApplication3.ServiceReference1 {
         
         public System.Threading.Tasks.Task<string[]> loadauthorisationsAsync() {
             return base.Channel.loadauthorisationsAsync();
+        }
+        
+        public WpfApplication3.ServiceReference1.TableData[] loadtablecustomers() {
+            return base.Channel.loadtablecustomers();
+        }
+        
+        public System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.TableData[]> loadtablecustomersAsync() {
+            return base.Channel.loadtablecustomersAsync();
         }
     }
 }

@@ -28,6 +28,8 @@ namespace WpfApplication3
         public MainWindow()
         {
             InitializeComponent();
+            TableData[] td = zpo.loadtablecustomers();
+            datagridCustomers.ItemsSource = td;
         }
 
         private void mit_exit_Click(object sender, RoutedEventArgs e)
@@ -159,6 +161,26 @@ namespace WpfApplication3
         private void tool_button_refresh_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void expander_projects_Collapsed(object sender, RoutedEventArgs e)
+        {
+            tool_button_userFilter.Visibility = Visibility.Collapsed;
+        }
+
+        private void expander_projects_Expanded(object sender, RoutedEventArgs e)
+        {
+            tool_button_userFilter.Visibility = Visibility.Visible;
+        }
+
+        private void expander_activities_Expanded(object sender, RoutedEventArgs e)
+        {
+            tool_button_userFilter.Visibility = Visibility.Visible;
+        }
+
+        private void expander_activities_Collapsed(object sender, RoutedEventArgs e)
+        {
+            tool_button_userFilter.Visibility = Visibility.Collapsed;
         }
     }
 }

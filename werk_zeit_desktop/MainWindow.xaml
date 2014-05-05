@@ -94,7 +94,7 @@
                         <RowDefinition Height="56*"/>
                     </Grid.RowDefinitions>
                     <StackPanel Grid.RowSpan="2">
-                        <Expander x:Name="expander_projects" Header="Filtern...">
+                        <Expander x:Name="expander_projects" Header="Filtern..." Collapsed="expander_projects_Collapsed" Expanded="expander_projects_Expanded">
                             <StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <GroupBox Height="Auto">
@@ -147,7 +147,7 @@
                         <RowDefinition Height="56*"/>
                     </Grid.RowDefinitions>
                     <StackPanel Grid.RowSpan="2">
-                        <Expander x:Name="expander_activities" Header="Filtern...">
+                        <Expander x:Name="expander_activities" Header="Filtern..." Expanded="expander_activities_Expanded" Collapsed="expander_activities_Collapsed">
                             <StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <GroupBox Height="Auto">
@@ -189,7 +189,10 @@
                     </StackPanel>
                 </TabItem.Header>
                 <Grid>
-                    <DataGrid Margin="10,0"/>
+                    <StackPanel>
+                        <Label Content="Kundenübersicht" FontSize="20"/>
+                        <DataGrid x:Name="datagridCustomers" Margin="10,0"/>
+                    </StackPanel>
                 </Grid>
             </TabItem>
             <TabItem x:Name="tab_employee" HorizontalAlignment="Right" Margin="0,0,0,0" GotFocus="tab_employee_GotFocus">
@@ -199,7 +202,12 @@
                         <TextBlock Text="Mitarbeiter" TextAlignment="Center" VerticalAlignment="Center" FontSize="20" />
                     </StackPanel>
                 </TabItem.Header>
-                <Grid/>
+                <Grid>
+                    <StackPanel>
+                        <Label Content="Mitarbeiterübersicht" FontSize="20"/>
+                        <DataGrid x:Name="datagridEmployees" Margin="10,0"/>
+                    </StackPanel>
+                </Grid>
             </TabItem>
             <TabItem x:Name="tab_analysis" HorizontalAlignment="Right" Margin="0,0,0,0" GotFocus="tab_analysis_GotFocus">
                 <TabItem.Header>

@@ -192,6 +192,12 @@
     <None Include="Service References\ServiceReference1\WpfApplication3.ServiceReference1.stopWorkResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\ServiceReference1\WpfApplication3.ServiceReference1.stringArrayCustomer.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference1\WpfApplication3.ServiceReference1.TableData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

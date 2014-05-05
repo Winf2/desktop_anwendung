@@ -11,6 +11,25 @@
           </xsd:restriction>
         </xsd:complexContent>
       </xsd:complexType>
+      <xsd:complexType name="TableData">
+        <xsd:all>
+          <xsd:element name="KundenNr" type="xsd:int" />
+          <xsd:element name="Nachname" type="xsd:string" />
+          <xsd:element name="Vorname" type="xsd:string" />
+          <xsd:element name="Firma" type="xsd:string" />
+          <xsd:element name="TelNrMobil" type="xsd:string" />
+          <xsd:element name="TelNrFestnetz" type="xsd:string" />
+          <xsd:element name="EMail" type="xsd:string" />
+          <xsd:element name="Status" type="xsd:int" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="TableArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:TableData[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="checkAuthentificationRequest">
@@ -129,6 +148,10 @@
   <wsdl:message name="loadauthorisationsResponse">
     <wsdl:part name="return" type="tns:stringArray" />
   </wsdl:message>
+  <wsdl:message name="loadtablecustomersRequest" />
+  <wsdl:message name="loadtablecustomersResponse">
+    <wsdl:part name="return" type="tns:TableArray" />
+  </wsdl:message>
   <wsdl:portType name="zeiterfassungPortType">
     <wsdl:operation name="checkAuthentification">
       <wsdl:input message="tns:checkAuthentificationRequest" />
@@ -197,6 +220,11 @@
       <documentation>Return list of Authorisations</documentation>
       <wsdl:input message="tns:loadauthorisationsRequest" />
       <wsdl:output message="tns:loadauthorisationsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="loadtablecustomers">
+      <documentation> Get all the data from test_table.</documentation>
+      <wsdl:input message="tns:loadtablecustomersRequest" />
+      <wsdl:output message="tns:loadtablecustomersResponse" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="zeiterfassungBinding" type="tns:zeiterfassungPortType">
@@ -337,6 +365,15 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="loadauthorisations">
+      <soap:operation soapAction="rpc" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:dajana" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:dajana" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loadtablecustomers">
       <soap:operation soapAction="rpc" style="rpc" />
       <wsdl:input>
         <soap:body use="encoded" namespace="urn:dajana" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />

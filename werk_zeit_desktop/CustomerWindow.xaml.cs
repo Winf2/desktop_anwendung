@@ -42,7 +42,7 @@ namespace WpfApplication3
             else{
                 status = 0;
             }
-            int customerID = zpo.createcustomer(Int16.Parse(textbox_custnr.Text),
+            int customerID = zpo.createcustomer(Int32.Parse(textbox_custnr.Text),
                 textbox_lastname.Text,
                 textbox_firstname.Text,
                 textbox_company.Text,
@@ -52,10 +52,10 @@ namespace WpfApplication3
                 status);
 
             int addressID = zpo.createaddress(textbox_location.Text,
-                Int16.Parse(textbox_zipcode.Text),
+                Int32.Parse(textbox_zipcode.Text),
                 textbox_street.Text,
                 textbox_housenumber.Text,
-                Int16.Parse(textbox_postofficebox.Text));
+                Int32.Parse(textbox_postofficebox.Text));
 
             bool customerhasaddressID = zpo.customerhasaddress(customerID, addressID);
             MessageBox.Show("Kunde wurde erfolgreich mit folgenden Eigenschaften angelegt.\nCustomerID:" + customerID + "\nAddressID:" + addressID + "\nCustomerHasAddress:" + customerhasaddressID);
