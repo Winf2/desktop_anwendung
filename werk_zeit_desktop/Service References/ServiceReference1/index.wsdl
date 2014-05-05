@@ -16,7 +16,7 @@
           <xsd:element name="KundenNr" type="xsd:int" />
           <xsd:element name="Nachname" type="xsd:string" />
           <xsd:element name="Vorname" type="xsd:string" />
-          <xsd:element name="Firma" type="xsd:string" />
+          <xsd:element name="Firmenname" type="xsd:string" />
           <xsd:element name="TelNrMobil" type="xsd:string" />
           <xsd:element name="TelNrFestnetz" type="xsd:string" />
           <xsd:element name="EMail" type="xsd:string" />
@@ -32,11 +32,11 @@
       </xsd:complexType>
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="checkAuthentificationRequest">
+  <wsdl:message name="checkLoginRequest">
     <wsdl:part name="persnr" type="xsd:string" />
     <wsdl:part name="pin" type="xsd:int" />
   </wsdl:message>
-  <wsdl:message name="checkAuthentificationResponse">
+  <wsdl:message name="checkLoginResponse">
     <wsdl:part name="return" type="xsd:boolean" />
   </wsdl:message>
   <wsdl:message name="createprojectRequest">
@@ -73,8 +73,6 @@
     <wsdl:part name="Nachname" type="xsd:string" />
     <wsdl:part name="Vorname" type="xsd:string" />
     <wsdl:part name="Abteilung" type="xsd:string" />
-    <wsdl:part name="Regelsarbeitszeit" type="xsd:time" />
-    <wsdl:part name="GebTag" type="xsd:date" />
     <wsdl:part name="TelNrMobil" type="xsd:string" />
     <wsdl:part name="TelNrFestnetz" type="xsd:string" />
     <wsdl:part name="EMail" type="xsd:string" />
@@ -153,9 +151,9 @@
     <wsdl:part name="return" type="tns:TableArray" />
   </wsdl:message>
   <wsdl:portType name="zeiterfassungPortType">
-    <wsdl:operation name="checkAuthentification">
-      <wsdl:input message="tns:checkAuthentificationRequest" />
-      <wsdl:output message="tns:checkAuthentificationResponse" />
+    <wsdl:operation name="checkLogin">
+      <wsdl:input message="tns:checkLoginRequest" />
+      <wsdl:output message="tns:checkLoginResponse" />
     </wsdl:operation>
     <wsdl:operation name="createproject">
       <wsdl:input message="tns:createprojectRequest" />
@@ -229,8 +227,8 @@
   </wsdl:portType>
   <wsdl:binding name="zeiterfassungBinding" type="tns:zeiterfassungPortType">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
-    <wsdl:operation name="checkAuthentification">
-      <soap:operation soapAction="http://193.196.143.148/soap/index.php/checkAuthentification" style="rpc" />
+    <wsdl:operation name="checkLogin">
+      <soap:operation soapAction="http://193.196.143.148/soap/index.php/checkLogin" style="rpc" />
       <wsdl:input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>

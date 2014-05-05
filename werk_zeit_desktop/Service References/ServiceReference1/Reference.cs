@@ -15,13 +15,13 @@ namespace WpfApplication3.ServiceReference1 {
     [System.ServiceModel.ServiceContractAttribute(Namespace="urn:dajana", ConfigurationName="ServiceReference1.zeiterfassungPortType")]
     public interface zeiterfassungPortType {
         
-        // CODEGEN: Der Nachrichtenvertrag wird generiert, da der Wrappernamespace () von Nachricht "checkAuthentificationRequest" nicht mit dem Standardwert (urn:dajana) übereinstimmt.
-        [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/checkAuthentification", ReplyAction="*")]
+        // CODEGEN: Der Nachrichtenvertrag wird generiert, da der Wrappernamespace () von Nachricht "checkLoginRequest" nicht mit dem Standardwert (urn:dajana) übereinstimmt.
+        [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/checkLogin", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
-        WpfApplication3.ServiceReference1.checkAuthentificationResponse checkAuthentification(WpfApplication3.ServiceReference1.checkAuthentificationRequest request);
+        WpfApplication3.ServiceReference1.checkLoginResponse checkLogin(WpfApplication3.ServiceReference1.checkLoginRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/checkAuthentification", ReplyAction="*")]
-        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.checkAuthentificationResponse> checkAuthentificationAsync(WpfApplication3.ServiceReference1.checkAuthentificationRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/checkLogin", ReplyAction="*")]
+        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.checkLoginResponse> checkLoginAsync(WpfApplication3.ServiceReference1.checkLoginRequest request);
         
         // CODEGEN: Der Nachrichtenvertrag wird generiert, da der Wrappernamespace () von Nachricht "createprojectRequest" nicht mit dem Standardwert (urn:dajana) übereinstimmt.
         [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/createproject", ReplyAction="*")]
@@ -161,8 +161,8 @@ namespace WpfApplication3.ServiceReference1 {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="checkAuthentification", WrapperNamespace="", IsWrapped=true)]
-    public partial class checkAuthentificationRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="checkLogin", WrapperNamespace="", IsWrapped=true)]
+    public partial class checkLoginRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         public string persnr;
@@ -170,10 +170,10 @@ namespace WpfApplication3.ServiceReference1 {
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=1)]
         public int pin;
         
-        public checkAuthentificationRequest() {
+        public checkLoginRequest() {
         }
         
-        public checkAuthentificationRequest(string persnr, int pin) {
+        public checkLoginRequest(string persnr, int pin) {
             this.persnr = persnr;
             this.pin = pin;
         }
@@ -182,16 +182,16 @@ namespace WpfApplication3.ServiceReference1 {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="checkAuthentificationResponse", WrapperNamespace="", IsWrapped=true)]
-    public partial class checkAuthentificationResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="checkLoginResponse", WrapperNamespace="", IsWrapped=true)]
+    public partial class checkLoginResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
         public bool @return;
         
-        public checkAuthentificationResponse() {
+        public checkLoginResponse() {
         }
         
-        public checkAuthentificationResponse(bool @return) {
+        public checkLoginResponse(bool @return) {
             this.@return = @return;
         }
     }
@@ -361,41 +361,31 @@ namespace WpfApplication3.ServiceReference1 {
         public string Abteilung;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=4)]
-        [System.Xml.Serialization.SoapElementAttribute(DataType="time")]
-        public System.DateTime Regelsarbeitszeit;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=5)]
-        [System.Xml.Serialization.SoapElementAttribute(DataType="date")]
-        public System.DateTime GebTag;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=6)]
         public string TelNrMobil;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=7)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=5)]
         public string TelNrFestnetz;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=8)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=6)]
         public string EMail;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=9)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=7)]
         public int Berechtigungsstufe;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=10)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=8)]
         public int PIN;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=11)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=9)]
         public int Status;
         
         public createemployeeRequest() {
         }
         
-        public createemployeeRequest(int MitarbeiterNr, string Nachname, string Vorname, string Abteilung, System.DateTime Regelsarbeitszeit, System.DateTime GebTag, string TelNrMobil, string TelNrFestnetz, string EMail, int Berechtigungsstufe, int PIN, int Status) {
+        public createemployeeRequest(int MitarbeiterNr, string Nachname, string Vorname, string Abteilung, string TelNrMobil, string TelNrFestnetz, string EMail, int Berechtigungsstufe, int PIN, int Status) {
             this.MitarbeiterNr = MitarbeiterNr;
             this.Nachname = Nachname;
             this.Vorname = Vorname;
             this.Abteilung = Abteilung;
-            this.Regelsarbeitszeit = Regelsarbeitszeit;
-            this.GebTag = GebTag;
             this.TelNrMobil = TelNrMobil;
             this.TelNrFestnetz = TelNrFestnetz;
             this.EMail = EMail;
@@ -698,7 +688,7 @@ namespace WpfApplication3.ServiceReference1 {
         
         private string vornameField;
         
-        private string firmaField;
+        private string firmennameField;
         
         private string telNrMobilField;
         
@@ -742,13 +732,13 @@ namespace WpfApplication3.ServiceReference1 {
         }
         
         /// <remarks/>
-        public string Firma {
+        public string Firmenname {
             get {
-                return this.firmaField;
+                return this.firmennameField;
             }
             set {
-                this.firmaField = value;
-                this.RaisePropertyChanged("Firma");
+                this.firmennameField = value;
+                this.RaisePropertyChanged("Firmenname");
             }
         }
         
@@ -834,28 +824,28 @@ namespace WpfApplication3.ServiceReference1 {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WpfApplication3.ServiceReference1.checkAuthentificationResponse WpfApplication3.ServiceReference1.zeiterfassungPortType.checkAuthentification(WpfApplication3.ServiceReference1.checkAuthentificationRequest request) {
-            return base.Channel.checkAuthentification(request);
+        WpfApplication3.ServiceReference1.checkLoginResponse WpfApplication3.ServiceReference1.zeiterfassungPortType.checkLogin(WpfApplication3.ServiceReference1.checkLoginRequest request) {
+            return base.Channel.checkLogin(request);
         }
         
-        public bool checkAuthentification(string persnr, int pin) {
-            WpfApplication3.ServiceReference1.checkAuthentificationRequest inValue = new WpfApplication3.ServiceReference1.checkAuthentificationRequest();
+        public bool checkLogin(string persnr, int pin) {
+            WpfApplication3.ServiceReference1.checkLoginRequest inValue = new WpfApplication3.ServiceReference1.checkLoginRequest();
             inValue.persnr = persnr;
             inValue.pin = pin;
-            WpfApplication3.ServiceReference1.checkAuthentificationResponse retVal = ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).checkAuthentification(inValue);
+            WpfApplication3.ServiceReference1.checkLoginResponse retVal = ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).checkLogin(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.checkAuthentificationResponse> WpfApplication3.ServiceReference1.zeiterfassungPortType.checkAuthentificationAsync(WpfApplication3.ServiceReference1.checkAuthentificationRequest request) {
-            return base.Channel.checkAuthentificationAsync(request);
+        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.checkLoginResponse> WpfApplication3.ServiceReference1.zeiterfassungPortType.checkLoginAsync(WpfApplication3.ServiceReference1.checkLoginRequest request) {
+            return base.Channel.checkLoginAsync(request);
         }
         
-        public System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.checkAuthentificationResponse> checkAuthentificationAsync(string persnr, int pin) {
-            WpfApplication3.ServiceReference1.checkAuthentificationRequest inValue = new WpfApplication3.ServiceReference1.checkAuthentificationRequest();
+        public System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.checkLoginResponse> checkLoginAsync(string persnr, int pin) {
+            WpfApplication3.ServiceReference1.checkLoginRequest inValue = new WpfApplication3.ServiceReference1.checkLoginRequest();
             inValue.persnr = persnr;
             inValue.pin = pin;
-            return ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).checkAuthentificationAsync(inValue);
+            return ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).checkLoginAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -954,14 +944,12 @@ namespace WpfApplication3.ServiceReference1 {
             return base.Channel.createemployee(request);
         }
         
-        public int createemployee(int MitarbeiterNr, string Nachname, string Vorname, string Abteilung, System.DateTime Regelsarbeitszeit, System.DateTime GebTag, string TelNrMobil, string TelNrFestnetz, string EMail, int Berechtigungsstufe, int PIN, int Status) {
+        public int createemployee(int MitarbeiterNr, string Nachname, string Vorname, string Abteilung, string TelNrMobil, string TelNrFestnetz, string EMail, int Berechtigungsstufe, int PIN, int Status) {
             WpfApplication3.ServiceReference1.createemployeeRequest inValue = new WpfApplication3.ServiceReference1.createemployeeRequest();
             inValue.MitarbeiterNr = MitarbeiterNr;
             inValue.Nachname = Nachname;
             inValue.Vorname = Vorname;
             inValue.Abteilung = Abteilung;
-            inValue.Regelsarbeitszeit = Regelsarbeitszeit;
-            inValue.GebTag = GebTag;
             inValue.TelNrMobil = TelNrMobil;
             inValue.TelNrFestnetz = TelNrFestnetz;
             inValue.EMail = EMail;
@@ -977,14 +965,12 @@ namespace WpfApplication3.ServiceReference1 {
             return base.Channel.createemployeeAsync(request);
         }
         
-        public System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.createemployeeResponse> createemployeeAsync(int MitarbeiterNr, string Nachname, string Vorname, string Abteilung, System.DateTime Regelsarbeitszeit, System.DateTime GebTag, string TelNrMobil, string TelNrFestnetz, string EMail, int Berechtigungsstufe, int PIN, int Status) {
+        public System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.createemployeeResponse> createemployeeAsync(int MitarbeiterNr, string Nachname, string Vorname, string Abteilung, string TelNrMobil, string TelNrFestnetz, string EMail, int Berechtigungsstufe, int PIN, int Status) {
             WpfApplication3.ServiceReference1.createemployeeRequest inValue = new WpfApplication3.ServiceReference1.createemployeeRequest();
             inValue.MitarbeiterNr = MitarbeiterNr;
             inValue.Nachname = Nachname;
             inValue.Vorname = Vorname;
             inValue.Abteilung = Abteilung;
-            inValue.Regelsarbeitszeit = Regelsarbeitszeit;
-            inValue.GebTag = GebTag;
             inValue.TelNrMobil = TelNrMobil;
             inValue.TelNrFestnetz = TelNrFestnetz;
             inValue.EMail = EMail;

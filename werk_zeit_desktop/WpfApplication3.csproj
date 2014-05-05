@@ -156,7 +156,7 @@
     </None>
     <AppDesigner Include="Properties\" />
     <None Include="Service References\ServiceReference1\index.wsdl" />
-    <None Include="Service References\ServiceReference1\WpfApplication3.ServiceReference1.checkAuthentificationResponse.datasource">
+    <None Include="Service References\ServiceReference1\WpfApplication3.ServiceReference1.checkLoginResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ServiceReference1\WpfApplication3.ServiceReference1.createaddressResponse.datasource">

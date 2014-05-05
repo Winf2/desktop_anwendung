@@ -65,7 +65,7 @@ namespace WpfApplication3
 
         private void buttonLogin_Click(object sender, RoutedEventArgs e)
         {
-            Boolean check = zpo.checkAuthentification(textBoxUsername.Text, Int16.Parse(textBoxPassword.Password));
+            Boolean check = zpo.checkLogin(textBoxUsername.Text, Int16.Parse(textBoxPassword.Password));
             if (check == true)
             {
                 this.Hide();

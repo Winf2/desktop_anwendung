@@ -1,6 +1,6 @@
 ﻿<Window x:Class="WpfApplication3.EmployeeWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Height="360" Width="390" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Height="434.042" Width="390" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <StackPanel Grid.RowSpan="2">
             <GroupBox Margin="0,0,10,0">
@@ -31,12 +31,13 @@
                     <StackPanel Orientation="Horizontal">
                         <TextBlock>
                             <Label Content="Soll-Stunden/Woche:"/>
-                            <TextBox x:Name="textbox_hours" Width="54"/>
+                            <TextBox x:Name="textbox_hours" Width="54" IsEnabled="False"/>
                         </TextBlock>
-                        <TextBlock Margin="60,0,0,0">
-                            <Label Content="Aktiv/Inaktiv:"/>
-                            <CheckBox x:Name="checkBox_status" Width="Auto" IsChecked="True" Height="18"/>
+                        <TextBlock>
+                            <Label Content="PIN"/>
+                            <PasswordBox x:Name="passwordboxPIN" Width="60"/>
                         </TextBlock>
+                        
                     </StackPanel>
                 </StackPanel>
             </GroupBox>
@@ -54,12 +55,12 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                         <TextBlock>
-                            <Label Content="Postleitzahl:"/>
+                            <Label Content="PLZ:"/>
                             <TextBox x:Name="textbox_zipcode" Width="70"/>
                         </TextBlock>
                         <TextBlock>
                             <Label Content="Ort:"/>
-                            <TextBox x:Name="textbox_location" Width="170"/>
+                            <TextBox x:Name="textbox_location" Width="210"/>
                         </TextBlock>
                     </StackPanel>
                 </StackPanel>
@@ -68,22 +69,39 @@
                 <GroupBox.Header>
                     <Label FontSize="18">Informationen</Label>
                 </GroupBox.Header>
-                <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
-                    <TextBlock>
-                        <Label Content="Abteilung:"/>
-                        <TextBox x:Name="textbox_department" Width="100"/>
-                    </TextBlock>
-                    <TextBlock>
-                        <Label Content="E-Mail:"/>
-                        <TextBox x:Name="textbox_email" Width="140"/>
-                    </TextBlock>
+                <StackPanel>
+                    <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                        <TextBlock>
+                            <Label Content="Abteilung:"/>
+                            <TextBox x:Name="textbox_department" Width="100"/>
+                        </TextBlock>
+                        <TextBlock>
+                            <Label Content="E-Mail:"/>
+                            <TextBox x:Name="textbox_email" Width="140"/>
+                        </TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <TextBlock>
+                            <Label Content="Festnetz:"/>
+                            <TextBox x:Name="textbox_festnetz" Width="110"/>
+                        </TextBlock>
+                        <TextBlock>
+                            <Label Content="Mobil:"/>
+                            <TextBox x:Name="textbox_mobil" Width="140"/>
+                        </TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>
+                            <Label Content="Geburtstag:"/>
+                            <DatePicker x:Name="datepickerBirthday" DisplayDate="01.01.1980" IsEnabled="False" />
+                        </TextBlock>
+                        <TextBlock Margin="60,0,0,0">
+                            <Label Content="Aktiv:"/>
+                            <CheckBox x:Name="checkBox_status" Width="Auto" IsChecked="True" Height="18"/>
+                        </TextBlock>
+                    </StackPanel>
                 </StackPanel>
             </GroupBox>
-
-
-
-
-
         </StackPanel>
         <Grid Grid.RowSpan="2">
             <Button x:Name="button_create" Content="Anlegen" Margin="274,0,10,10" Click="button_create_Click" Height="30" VerticalAlignment="Bottom"/>

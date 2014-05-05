@@ -75,7 +75,7 @@
                             </StackPanel>
                         </Expander>
                         <Label Content="Zeitenübersicht" FontSize="20"/>
-                        <DataGrid Margin="10">
+                        <DataGrid x:Name="dataGridWorkingTime" Margin="10">
 
                         </DataGrid>
                     </StackPanel>
@@ -128,7 +128,7 @@
                             </StackPanel>
                         </Expander>
                         <Label Content="Projektübersicht" FontSize="20"/>
-                        <DataGrid Margin="10">
+                        <DataGrid x:Name="dataGridProjects" Margin="10">
 
                         </DataGrid>
                     </StackPanel>
@@ -175,7 +175,7 @@
                             </StackPanel>
                         </Expander>
                         <Label Content="Aktivitätenübersicht" FontSize="20"/>
-                        <DataGrid Margin="10">
+                        <DataGrid x:Name="dataGridActivities" Margin="10">
 
                         </DataGrid>
                     </StackPanel>
@@ -248,7 +248,7 @@
                                 <Label Content="Erstellen"/>
                         </TextBlock>
                     </Button>
-                    <Button Name="tool_button_edit" VerticalAlignment="Stretch" HorizontalAlignment="Center" BorderThickness="3">
+                    <Button Name="tool_button_edit" VerticalAlignment="Stretch" HorizontalAlignment="Center" BorderThickness="3" Click="tool_button_edit_Click">
                         <TextBlock>
                                 <Image Source="Ressources/icons/edit.png" Width="20"/>
                                 <Label Content="Bearbeiten"/>

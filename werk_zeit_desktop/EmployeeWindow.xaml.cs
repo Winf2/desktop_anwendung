@@ -41,7 +41,33 @@ namespace WpfApplication3
 
         private void button_create_Click(object sender, RoutedEventArgs e)
         {
+            int status = -1;
+            if (checkBox_status.IsChecked == true)
+            {
+                status = 1;
+            }
+            else
+            {
+                status = 0;
+            }
+
+            int employeeID = zpo.createemployee(
+                Int16.Parse(textbox_persnr.Text), 
+                textbox_lastname.Text, 
+                textbox_firstname.Text,
+                textbox_department.Text,
+                textbox_mobil.Text, 
+                textbox_festnetz.Text,
+                textbox_email.Text, 
+                1, 
+                Int16.Parse(passwordboxPIN.Password), 
+                status);
+            int addressID = zpo.createaddress(textbox_location.Text, Int16.Parse(textbox_zipcode.Text), 
+                textbox_street.Text, textbox_housenumber.Text, 0);
             
+            bool employeeHasAddressID = zpo.employeehasaddress(employeeID, addressID);
+            MessageBox.Show("Kunde wurde erfolgreich mit folgenden Eigenschaften angelegt.\nCustomerID:" + employeeID + "\nAddressID:" + addressID + "\nCustomerHasAddress:" + employeeHasAddressID);
+
         }
     }
 }

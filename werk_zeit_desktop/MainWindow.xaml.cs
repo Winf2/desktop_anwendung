@@ -28,8 +28,31 @@ namespace WpfApplication3
         public MainWindow()
         {
             InitializeComponent();
-            TableData[] td = zpo.loadtablecustomers();
-            datagridCustomers.ItemsSource = td;
+            initializeTables();
+
+        }
+
+        private void initializeTables()
+        {
+            //Tabelle "Working_Time" laden und dem DataGrid übergeben
+            TableData[] dataTableWorkingTime = null;
+            dataGridWorkingTime.ItemsSource = dataTableWorkingTime;
+
+            //Tabelle "Projects" laden und dem DataGrid übergeben
+            TableData[] dataTableProjects = null;
+            dataGridProjects.ItemsSource = dataTableProjects;
+
+            //Tabelle "Activities" laden und dem DataGrid übergeben
+            TableData[] dataTableActivities = null;
+            dataGridActivities.ItemsSource = dataTableActivities;
+
+            //Tabelle "Customer" laden und dem DataGrid übergeben
+            TableData[] dataTableCustomers = zpo.loadtablecustomers();
+            datagridCustomers.ItemsSource = dataTableCustomers;
+
+            //Tabelle "Employees" laden und dem DataGrid übergeben
+            TableData[] dataTableEmployees = null; ;
+            datagridEmployees.ItemsSource = dataTableEmployees;
         }
 
         private void mit_exit_Click(object sender, RoutedEventArgs e)
@@ -181,6 +204,11 @@ namespace WpfApplication3
         private void expander_activities_Collapsed(object sender, RoutedEventArgs e)
         {
             tool_button_userFilter.Visibility = Visibility.Collapsed;
+        }
+
+        private void tool_button_edit_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
