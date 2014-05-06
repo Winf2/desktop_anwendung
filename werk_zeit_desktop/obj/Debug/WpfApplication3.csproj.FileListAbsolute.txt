@@ -65,3 +65,6 @@ C:\Users\stefan\Desktop\Projekt neu\branches\Version1.2\werk_zeit_desktop\obj\De
 C:\Users\stefan\Desktop\Projekt neu\branches\Version1.2\werk_zeit_desktop\obj\Debug\WpfApplication3.g.resources
 C:\Users\stefan\Desktop\Projekt neu\branches\Version1.2\werk_zeit_desktop\obj\Debug\WpfApplication3.Properties.Resources.resources
 C:\Users\stefan\Desktop\Projekt neu\branches\Version1.2\werk_zeit_desktop\obj\Debug\WpfApplication3.csproj.GenerateResource.Cache
+C:\Users\stefan\Desktop\Projekt1.3\branches\Version1.2\werk_zeit_desktop\bin\Debug\WpfApplication3.exe.config
+C:\Users\stefan\Desktop\Projekt1.3\branches\Version1.2\werk_zeit_desktop\obj\Debug\WpfApplication3.exe
+C:\Users\stefan\Desktop\Projekt1.3\branches\Version1.2\werk_zeit_desktop\obj\Debug\WpfApplication3.pdb
