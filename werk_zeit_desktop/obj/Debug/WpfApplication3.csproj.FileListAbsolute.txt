@@ -15,3 +15,53 @@ C:\Users\stefan\Documents\Visual Studio 2013\Projects\WpfApplication3\WpfApplica
 C:\Users\stefan\Documents\Visual Studio 2013\Projects\WpfApplication3\WpfApplication3\obj\Debug\WpfApplication3.pdb
 C:\Users\stefan\Documents\Visual Studio 2013\Projects\WpfApplication3\WpfApplication3\bin\Debug\neu.accdb
 C:\Users\stefan\Documents\Visual Studio 2013\Projects\WpfApplication3\WpfApplication3\obj\Debug\WpfApplication3_Content.g.cs
+C:\Users\stefan\Desktop\Projekt\branches\Version1.1\werk_zeit_desktop\bin\Debug\WpfApplication3.exe.config
+C:\Users\stefan\Desktop\Projekt\branches\Version1.1\werk_zeit_desktop\obj\Debug\WpfApplication3.exe
+C:\Users\stefan\Desktop\Projekt\branches\Version1.1\werk_zeit_desktop\obj\Debug\WpfApplication3.pdb
+C:\Users\stefan\Desktop\Projekt\branches\Version1.1\werk_zeit_desktop\bin\Debug\WpfApplication3.exe
+C:\Users\stefan\Desktop\Projekt\branches\Version1.1\werk_zeit_desktop\bin\Debug\WpfApplication3.pdb
+C:\Users\stefan\Desktop\Projekt\branches\Version1.1\werk_zeit_desktop\obj\Debug\WpfApplication3.csprojResolveAssemblyReference.cache
+C:\Users\stefan\Desktop\Projekt\branches\Version1.1\werk_zeit_desktop\obj\Debug\Login.baml
+C:\Users\stefan\Desktop\Projekt\branches\Version1.1\werk_zeit_desktop\obj\Debug\MainWindow.baml
+C:\Users\stefan\Desktop\Projekt\branches\Version1.1\werk_zeit_desktop\obj\Debug\Login.g.cs
+C:\Users\stefan\Desktop\Projekt\branches\Version1.1\werk_zeit_desktop\obj\Debug\MainWindow.g.cs
+C:\Users\stefan\Desktop\Projekt\branches\Version1.1\werk_zeit_desktop\obj\Debug\App.g.cs
+C:\Users\stefan\Desktop\Projekt\branches\Version1.1\werk_zeit_desktop\obj\Debug\WpfApplication3_MarkupCompile.cache
+C:\Users\stefan\Desktop\Projekt\branches\Version1.1\werk_zeit_desktop\obj\Debug\WpfApplication3.g.resources
+C:\Users\stefan\Desktop\Projekt\branches\Version1.1\werk_zeit_desktop\obj\Debug\WpfApplication3.Properties.Resources.resources
+C:\Users\stefan\Desktop\Projekt\branches\Version1.1\werk_zeit_desktop\obj\Debug\WpfApplication3.csproj.GenerateResource.Cache
+C:\Users\stefan\Desktop\Projekt\branches\Version1.1\werk_zeit_desktop\obj\Debug\WorkingTimeWindow.baml
+C:\Users\stefan\Desktop\Projekt\branches\Version1.1\werk_zeit_desktop\obj\Debug\WorkingTimeWindow.g.cs
+C:\Users\stefan\Desktop\Projekt\branches\Version1.1\werk_zeit_desktop\obj\Debug\CustomerWindow.baml
+C:\Users\stefan\Desktop\Projekt\branches\Version1.1\werk_zeit_desktop\obj\Debug\CustomerWindow.g.cs
+C:\Users\stefan\Desktop\Projekt\branches\Version1.1\werk_zeit_desktop\obj\Debug\ActivityWindow.baml
+C:\Users\stefan\Desktop\Projekt\branches\Version1.1\werk_zeit_desktop\obj\Debug\ActivityWindow.g.cs
+C:\Users\stefan\Desktop\Projekt\branches\Version1.1\werk_zeit_desktop\obj\Debug\ProjectWindow.baml
+C:\Users\stefan\Desktop\Projekt\branches\Version1.1\werk_zeit_desktop\obj\Debug\ProjectWindow.g.cs
+C:\Users\stefan\Desktop\Projekt\branches\Version1.1\werk_zeit_desktop\obj\Debug\EmployeeWindow.baml
+C:\Users\stefan\Desktop\Projekt\branches\Version1.1\werk_zeit_desktop\obj\Debug\EmployeeWindow.g.cs
+C:\Users\stefan\Desktop\Projekt neu\branches\Version1.2\werk_zeit_desktop\bin\Debug\WpfApplication3.exe.config
+C:\Users\stefan\Desktop\Projekt neu\branches\Version1.2\werk_zeit_desktop\obj\Debug\WpfApplication3.exe
+C:\Users\stefan\Desktop\Projekt neu\branches\Version1.2\werk_zeit_desktop\obj\Debug\WpfApplication3.pdb
+C:\Users\stefan\Desktop\Projekt neu\branches\Version1.2\werk_zeit_desktop\bin\Debug\WpfApplication3.exe
+C:\Users\stefan\Desktop\Projekt neu\branches\Version1.2\werk_zeit_desktop\bin\Debug\WpfApplication3.pdb
+C:\Users\stefan\Desktop\Projekt neu\branches\Version1.2\werk_zeit_desktop\obj\Debug\WpfApplication3.csprojResolveAssemblyReference.cache
+C:\Users\stefan\Desktop\Projekt neu\branches\Version1.2\werk_zeit_desktop\obj\Debug\WorkingTimeWindow.baml
+C:\Users\stefan\Desktop\Projekt neu\branches\Version1.2\werk_zeit_desktop\obj\Debug\Login.baml
+C:\Users\stefan\Desktop\Projekt neu\branches\Version1.2\werk_zeit_desktop\obj\Debug\MainWindow.baml
+C:\Users\stefan\Desktop\Projekt neu\branches\Version1.2\werk_zeit_desktop\obj\Debug\ActivityWindow.baml
+C:\Users\stefan\Desktop\Projekt neu\branches\Version1.2\werk_zeit_desktop\obj\Debug\CustomerWindow.baml
+C:\Users\stefan\Desktop\Projekt neu\branches\Version1.2\werk_zeit_desktop\obj\Debug\EmployeeWindow.baml
+C:\Users\stefan\Desktop\Projekt neu\branches\Version1.2\werk_zeit_desktop\obj\Debug\ProjectWindow.baml
+C:\Users\stefan\Desktop\Projekt neu\branches\Version1.2\werk_zeit_desktop\obj\Debug\WorkingTimeWindow.g.cs
+C:\Users\stefan\Desktop\Projekt neu\branches\Version1.2\werk_zeit_desktop\obj\Debug\Login.g.cs
+C:\Users\stefan\Desktop\Projekt neu\branches\Version1.2\werk_zeit_desktop\obj\Debug\MainWindow.g.cs
+C:\Users\stefan\Desktop\Projekt neu\branches\Version1.2\werk_zeit_desktop\obj\Debug\ActivityWindow.g.cs
+C:\Users\stefan\Desktop\Projekt neu\branches\Version1.2\werk_zeit_desktop\obj\Debug\CustomerWindow.g.cs
+C:\Users\stefan\Desktop\Projekt neu\branches\Version1.2\werk_zeit_desktop\obj\Debug\EmployeeWindow.g.cs
+C:\Users\stefan\Desktop\Projekt neu\branches\Version1.2\werk_zeit_desktop\obj\Debug\ProjectWindow.g.cs
+C:\Users\stefan\Desktop\Projekt neu\branches\Version1.2\werk_zeit_desktop\obj\Debug\App.g.cs
+C:\Users\stefan\Desktop\Projekt neu\branches\Version1.2\werk_zeit_desktop\obj\Debug\WpfApplication3_MarkupCompile.cache
+C:\Users\stefan\Desktop\Projekt neu\branches\Version1.2\werk_zeit_desktop\obj\Debug\WpfApplication3.g.resources
+C:\Users\stefan\Desktop\Projekt neu\branches\Version1.2\werk_zeit_desktop\obj\Debug\WpfApplication3.Properties.Resources.resources
+C:\Users\stefan\Desktop\Projekt neu\branches\Version1.2\werk_zeit_desktop\obj\Debug\WpfApplication3.csproj.GenerateResource.Cache

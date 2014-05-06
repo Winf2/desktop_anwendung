@@ -28,11 +28,7 @@
                     </StackPanel>
                 </TabItem.Header>
                 <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="33*"/>
-                        <RowDefinition Height="56*"/>
-                    </Grid.RowDefinitions>
-                    <StackPanel Grid.RowSpan="2">
+                    <StackPanel>
                         <Expander x:Name="expander_workingTime" Header="Filtern..." Expanded="expander_workingTime_Expanded" Collapsed="expander_workingTime_Collapsed">
                             <StackPanel>
                                 <StackPanel Orientation="Horizontal">
@@ -79,9 +75,7 @@
                             </StackPanel>
                         </Expander>
                         <Label Content="Zeitenübersicht" FontSize="20"/>
-                        <DataGrid Margin="10">
-
-                        </DataGrid>
+                        <DataGrid x:Name="dataGridWorkingTime" Margin="10" SelectionMode="Single" IsReadOnly="True" IsManipulationEnabled="True"/>
                     </StackPanel>
                 </Grid>
             </TabItem>
@@ -98,7 +92,7 @@
                         <RowDefinition Height="56*"/>
                     </Grid.RowDefinitions>
                     <StackPanel Grid.RowSpan="2">
-                        <Expander x:Name="expander_projects" Header="Filtern..." Expanded="expander_projects_Expanded" Collapsed="expander_projects_Collapsed">
+                        <Expander x:Name="expander_projects" Header="Filtern..." Collapsed="expander_projects_Collapsed" Expanded="expander_projects_Expanded">
                             <StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <GroupBox Height="Auto">
@@ -132,7 +126,7 @@
                             </StackPanel>
                         </Expander>
                         <Label Content="Projektübersicht" FontSize="20"/>
-                        <DataGrid Margin="10">
+                        <DataGrid x:Name="dataGridProjects" Margin="10">
 
                         </DataGrid>
                     </StackPanel>
@@ -179,7 +173,7 @@
                             </StackPanel>
                         </Expander>
                         <Label Content="Aktivitätenübersicht" FontSize="20"/>
-                        <DataGrid Margin="10">
+                        <DataGrid x:Name="dataGridActivities" Margin="10">
 
                         </DataGrid>
                     </StackPanel>
@@ -195,9 +189,7 @@
                 <Grid>
                     <StackPanel>
                         <Label Content="Kundenübersicht" FontSize="20"/>
-                        <DataGrid Margin="10">
-
-                        </DataGrid>
+                        <DataGrid x:Name="datagridCustomers" Margin="10,0"/>
                     </StackPanel>
                 </Grid>
             </TabItem>
@@ -211,9 +203,7 @@
                 <Grid>
                     <StackPanel>
                         <Label Content="Mitarbeiterübersicht" FontSize="20"/>
-                        <DataGrid Margin="10">
-
-                        </DataGrid>
+                        <DataGrid x:Name="datagridEmployees" Margin="10,0"/>
                     </StackPanel>
                 </Grid>
             </TabItem>
@@ -221,7 +211,7 @@
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal" Width="140">
                         <Image Source="Ressources/icons/chart-flipped-icon.png" Height="35" Width="35" />
-                        <TextBlock Text="Auswertung" TextAlignment="Center" VerticalAlignment="Center" FontSize="20" GotFocus="textblock_analysis_GotFocus" />
+                        <TextBlock Text="Auswertung" TextAlignment="Center" VerticalAlignment="Center" FontSize="20" />
                     </StackPanel>
                 </TabItem.Header>
                 <Grid/>
@@ -239,7 +229,7 @@
         <DockPanel  Height="40" VerticalAlignment="Top" Margin="0,20,0,0">
             <ToolBarTray HorizontalAlignment="Left" VerticalAlignment="Center" Background="{x:Null}"  >
                 <ToolBar ToolBarTray.IsLocked="True" VerticalAlignment="Center"  VerticalContentAlignment="Stretch" Background="{x:Null}">
-                    <Button Name="tool_button_refresh" VerticalAlignment="Stretch" HorizontalAlignment="Center" BorderThickness="3">
+                    <Button Name="tool_button_refresh" VerticalAlignment="Stretch" HorizontalAlignment="Center" BorderThickness="3" Click="tool_button_refresh_Click">
                         <TextBlock>
                                 <Image Source="Ressources/icons/refresh.png" Width="20"/>
                                 <Label Content="Aktualisieren"/>
@@ -256,7 +246,7 @@
                                 <Label Content="Erstellen"/>
                         </TextBlock>
                     </Button>
-                    <Button Name="tool_button_edit" VerticalAlignment="Stretch" HorizontalAlignment="Center" BorderThickness="3">
+                    <Button Name="tool_button_edit" VerticalAlignment="Stretch" HorizontalAlignment="Center" BorderThickness="3" Click="tool_button_edit_Click">
                         <TextBlock>
                                 <Image Source="Ressources/icons/edit.png" Width="20"/>
                                 <Label Content="Bearbeiten"/>

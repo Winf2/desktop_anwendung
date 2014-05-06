@@ -14,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WpfApplication3.CreateEditWindows;
+using WpfApplication3.ServiceReference1;
 
 namespace WpfApplication3
 {
@@ -23,16 +23,51 @@ namespace WpfApplication3
     /// </summary>
     public partial class MainWindow : Window
     {
+        //SOAP-Verbindung
+        private zeiterfassungPortTypeClient zpo = SoapConnection.zpo;
+
+        //Konstruktor der Klasse: MainWindow
         public MainWindow()
         {
+            //Steuerelemente laden und zeichnen
             InitializeComponent();
+
+            //Tabellen initialisieren
+            initializeTables();
+
         }
 
+        private void initializeTables()
+        {
+            //Tabelle "Working_Time" laden und dem DataGrid übergeben
+            TableDataWorkingTimes[] dataTableWorkingTime = zpo.loadtableworkingtimes();
+            dataGridWorkingTime.ItemsSource = dataTableWorkingTime;
+
+            //Tabelle "Projects" laden und dem DataGrid übergeben
+            TableDataProjects[] dataTableProjects = zpo.loadtableprojects();
+            dataGridProjects.ItemsSource = dataTableProjects;
+
+            //Tabelle "Activities" laden und dem DataGrid übergeben
+            TableDataActivities[] dataTableActivities = zpo.loadtableactivities();
+            dataGridActivities.ItemsSource = dataTableActivities;
+
+            //Tabelle "Customer" laden und dem DataGrid übergeben
+            TableDataCustomers[] dataTableCustomers = zpo.loadtablecustomers();
+            datagridCustomers.ItemsSource = dataTableCustomers;
+
+            //Tabelle "Employees" laden und dem DataGrid übergeben
+            TableDataEmployees[] dataTableEmployees = zpo.loadtableemployees(); ;
+            datagridEmployees.ItemsSource = dataTableEmployees;
+        }
+
+        /*#####################EventHandler##################*/
+        //Application beenden
         private void mit_exit_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
 
+        //Wenn Tab "Zeiten" angeklickt wird, werden die Steuerelemente der Toolbar aktualisiert
         private void tab_overview_GotFocus(object sender, RoutedEventArgs e)
         {
             tool_button_export.Visibility = System.Windows.Visibility.Visible;
@@ -42,6 +77,7 @@ namespace WpfApplication3
             tool_button_delete.Visibility = System.Windows.Visibility.Visible;
         }
 
+        //Wenn Tab "Projekte" angeklickt wird, werden die Steuerelemente der Toolbar aktualisiert
         private void tab_projects_GotFocus(object sender, RoutedEventArgs e)
         {
             tool_button_export.Visibility = System.Windows.Visibility.Visible;
@@ -51,6 +87,7 @@ namespace WpfApplication3
             tool_button_delete.Visibility = System.Windows.Visibility.Visible;
         }
 
+        //Wenn Tab "Aktivitäten" angeklickt wird, werden die Steuerelemente der Toolbar aktualisiert
         private void tab_activities_GotFocus(object sender, RoutedEventArgs e)
         {
             tool_button_export.Visibility = System.Windows.Visibility.Visible;
@@ -60,6 +97,7 @@ namespace WpfApplication3
             tool_button_delete.Visibility = System.Windows.Visibility.Visible;
         }
 
+        //Wenn Tab "Kunden" angeklickt wird, werden die Steuerelemente der Toolbar aktualisiert
         private void tab_customers_GotFocus(object sender, RoutedEventArgs e)
         {
             tool_button_export.Visibility = System.Windows.Visibility.Visible;
@@ -69,6 +107,7 @@ namespace WpfApplication3
             tool_button_delete.Visibility = System.Windows.Visibility.Visible;
         }
 
+        //Wenn Tab "Mitarbeiter" angeklickt wird, werden die Steuerelemente der Toolbar aktualisiert
         private void tab_employee_GotFocus(object sender, RoutedEventArgs e)
         {
             tool_button_export.Visibility = System.Windows.Visibility.Visible;
@@ -78,16 +117,7 @@ namespace WpfApplication3
             tool_button_delete.Visibility = System.Windows.Visibility.Visible;
         }
 
-        private void textblock_analysis_GotFocus(object sender, RoutedEventArgs e)
-        {
-            tool_button_export.Visibility = System.Windows.Visibility.Visible;
-
-            tool_button_new.Visibility = System.Windows.Visibility.Collapsed;
-            tool_button_edit.Visibility = System.Windows.Visibility.Collapsed;
-            tool_button_archiv.Visibility = System.Windows.Visibility.Collapsed;
-            tool_button_delete.Visibility = System.Windows.Visibility.Collapsed;
-        }
-
+        //Wenn Tab "Auswertung" angeklickt wird, werden die Steuerelemente der Toolbar aktualisiert
         private void tab_analysis_GotFocus(object sender, RoutedEventArgs e)
         {
             tool_button_export.Visibility = System.Windows.Visibility.Visible;
@@ -98,6 +128,7 @@ namespace WpfApplication3
             tool_button_delete.Visibility = System.Windows.Visibility.Collapsed;
         }
 
+        //Wenn Tab "Archiv" angeklickt wird, werden die Steuerelemente der Toolbar aktualisiert
         private void tab_archiv_GotFocus(object sender, RoutedEventArgs e)
         {
             tool_button_export.Visibility = System.Windows.Visibility.Visible;
@@ -108,59 +139,38 @@ namespace WpfApplication3
             tool_button_archiv.Visibility = System.Windows.Visibility.Collapsed;
         }
 
+        /*Wenn der Toolbar-Button "Anlegen" angeklickt wird, wird überprüft, welcher Tab ausgewählt ist
+        und wird je nach Auswahl ein Anlege-Fenster geöffnet*/
         private void tool_button_new_Click(object sender, RoutedEventArgs e)
         {
             int tabIndex = tab_control.SelectedIndex;
             switch(tabIndex){
                 case(0):
-                    create_new_workingTime();
+                    WorkingTimeWindow WorkingTime = new WorkingTimeWindow();
+                    WorkingTime.ShowDialog();
                     break;
-                case(1): 
-                    create_new_project();
+                case(1):
+                    ProjectWindow Project = new ProjectWindow();
+                    Project.ShowDialog();
                     break;
                 case(2): 
-                    create_new_activity();
+                    ActivityWindow newActivity = new ActivityWindow();
+                    newActivity.ShowDialog();
                     break;
                 case(3): 
-                    create_new_customer();
+                    CustomerWindow newCustomer = new CustomerWindow();
+                    newCustomer.ShowDialog();
                     break;
                 case(4): 
-                    create_new_employee();
+                    EmployeeWindow newEmployee = new EmployeeWindow();
+                    newEmployee.ShowDialog();
                     break;
                 default: 
                     break;
             }
         }
 
-        private void create_new_employee()
-        {
-            EmployeeWindow newEmployee = new EmployeeWindow();
-            newEmployee.ShowDialog();
-        }
-
-        private void create_new_customer()
-        {
-            CustomerWindow newCustomer = new CustomerWindow();
-            newCustomer.ShowDialog();
-        }
-
-        private void create_new_activity()
-        {
-            ActivityWindow newActivity = new ActivityWindow();
-            newActivity.ShowDialog();
-        }
-
-        private void create_new_project()
-        {
-            ProjectWindow Project = new ProjectWindow();
-            Project.ShowDialog();
-        }
-        private void create_new_workingTime()
-        {
-            WorkingTimeWindow WorkingTime = new WorkingTimeWindow();
-            WorkingTime.ShowDialog();
-        }
-
+        //EventListener auf dem Filter-Expander steuern den Button "Filtern..." in der Toolbar
         private void expander_workingTime_Expanded(object sender, RoutedEventArgs e)
         {
             tool_button_userFilter.Visibility = Visibility.Visible;
@@ -171,14 +181,14 @@ namespace WpfApplication3
             tool_button_userFilter.Visibility = Visibility.Collapsed;
         }
 
-        private void expander_projects_Expanded(object sender, RoutedEventArgs e)
-        {
-            tool_button_userFilter.Visibility = Visibility.Visible;
-        }
-
         private void expander_projects_Collapsed(object sender, RoutedEventArgs e)
         {
             tool_button_userFilter.Visibility = Visibility.Collapsed;
+        }
+
+        private void expander_projects_Expanded(object sender, RoutedEventArgs e)
+        {
+            tool_button_userFilter.Visibility = Visibility.Visible;
         }
 
         private void expander_activities_Expanded(object sender, RoutedEventArgs e)
@@ -191,11 +201,23 @@ namespace WpfApplication3
             tool_button_userFilter.Visibility = Visibility.Collapsed;
         }
 
+        //Wenn der Tab gewechselt wird, dann werden die Expander wieder geschlossen
         private void tab_control_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             expander_workingTime.IsExpanded = false;
             expander_projects.IsExpanded = false;
             expander_activities.IsExpanded = false;
+        }
+
+
+        private void tool_button_refresh_Click(object sender, RoutedEventArgs e)
+        {
+            initializeTables();
+        }
+
+        private void tool_button_edit_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
