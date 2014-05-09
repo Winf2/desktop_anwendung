@@ -169,11 +169,39 @@ namespace WpfApplication3.ServiceReference1 {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TableDataCustomers))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TableDataWorkingTimes))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        WpfApplication3.ServiceReference1.TableDataWorkingTimes[] loadArchivTableWorkingTimes();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="rpc", ReplyAction="*")]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.TableDataWorkingTimes[]> loadArchivTableWorkingTimesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="rpc", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TableDataActivities))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TableDataProjects))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TableDataEmployees))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TableDataCustomers))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TableDataWorkingTimes))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         WpfApplication3.ServiceReference1.TableDataCustomers[] loadtablecustomers();
         
         [System.ServiceModel.OperationContractAttribute(Action="rpc", ReplyAction="*")]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.TableDataCustomers[]> loadtablecustomersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="rpc", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TableDataActivities))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TableDataProjects))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TableDataEmployees))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TableDataCustomers))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TableDataWorkingTimes))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        WpfApplication3.ServiceReference1.TableDataCustomers[] loadarchivtablecustomers();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="rpc", ReplyAction="*")]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.TableDataCustomers[]> loadarchivtablecustomersAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="rpc", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
@@ -197,6 +225,20 @@ namespace WpfApplication3.ServiceReference1 {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TableDataCustomers))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TableDataWorkingTimes))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        WpfApplication3.ServiceReference1.TableDataEmployees[] loadarchivtableemployees();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="rpc", ReplyAction="*")]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.TableDataEmployees[]> loadarchivtableemployeesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="rpc", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TableDataActivities))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TableDataProjects))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TableDataEmployees))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TableDataCustomers))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TableDataWorkingTimes))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         WpfApplication3.ServiceReference1.TableDataProjects[] loadtableprojects();
         
         [System.ServiceModel.OperationContractAttribute(Action="rpc", ReplyAction="*")]
@@ -211,11 +253,39 @@ namespace WpfApplication3.ServiceReference1 {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TableDataCustomers))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TableDataWorkingTimes))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        WpfApplication3.ServiceReference1.TableDataProjects[] loadarchivtableprojects();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="rpc", ReplyAction="*")]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.TableDataProjects[]> loadarchivtableprojectsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="rpc", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TableDataActivities))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TableDataProjects))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TableDataEmployees))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TableDataCustomers))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TableDataWorkingTimes))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         WpfApplication3.ServiceReference1.TableDataActivities[] loadtableactivities();
         
         [System.ServiceModel.OperationContractAttribute(Action="rpc", ReplyAction="*")]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.TableDataActivities[]> loadtableactivitiesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="rpc", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TableDataActivities))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TableDataProjects))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TableDataEmployees))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TableDataCustomers))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TableDataWorkingTimes))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        WpfApplication3.ServiceReference1.TableDataActivities[] loadarchivtableactivities();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="rpc", ReplyAction="*")]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.TableDataActivities[]> loadarchivtableactivitiesAsync();
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1755,12 +1825,28 @@ namespace WpfApplication3.ServiceReference1 {
             return base.Channel.loadtableworkingtimesAsync();
         }
         
+        public WpfApplication3.ServiceReference1.TableDataWorkingTimes[] loadArchivTableWorkingTimes() {
+            return base.Channel.loadArchivTableWorkingTimes();
+        }
+        
+        public System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.TableDataWorkingTimes[]> loadArchivTableWorkingTimesAsync() {
+            return base.Channel.loadArchivTableWorkingTimesAsync();
+        }
+        
         public WpfApplication3.ServiceReference1.TableDataCustomers[] loadtablecustomers() {
             return base.Channel.loadtablecustomers();
         }
         
         public System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.TableDataCustomers[]> loadtablecustomersAsync() {
             return base.Channel.loadtablecustomersAsync();
+        }
+        
+        public WpfApplication3.ServiceReference1.TableDataCustomers[] loadarchivtablecustomers() {
+            return base.Channel.loadarchivtablecustomers();
+        }
+        
+        public System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.TableDataCustomers[]> loadarchivtablecustomersAsync() {
+            return base.Channel.loadarchivtablecustomersAsync();
         }
         
         public WpfApplication3.ServiceReference1.TableDataEmployees[] loadtableemployees() {
@@ -1771,6 +1857,14 @@ namespace WpfApplication3.ServiceReference1 {
             return base.Channel.loadtableemployeesAsync();
         }
         
+        public WpfApplication3.ServiceReference1.TableDataEmployees[] loadarchivtableemployees() {
+            return base.Channel.loadarchivtableemployees();
+        }
+        
+        public System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.TableDataEmployees[]> loadarchivtableemployeesAsync() {
+            return base.Channel.loadarchivtableemployeesAsync();
+        }
+        
         public WpfApplication3.ServiceReference1.TableDataProjects[] loadtableprojects() {
             return base.Channel.loadtableprojects();
         }
@@ -1779,12 +1873,28 @@ namespace WpfApplication3.ServiceReference1 {
             return base.Channel.loadtableprojectsAsync();
         }
         
+        public WpfApplication3.ServiceReference1.TableDataProjects[] loadarchivtableprojects() {
+            return base.Channel.loadarchivtableprojects();
+        }
+        
+        public System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.TableDataProjects[]> loadarchivtableprojectsAsync() {
+            return base.Channel.loadarchivtableprojectsAsync();
+        }
+        
         public WpfApplication3.ServiceReference1.TableDataActivities[] loadtableactivities() {
             return base.Channel.loadtableactivities();
         }
         
         public System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.TableDataActivities[]> loadtableactivitiesAsync() {
             return base.Channel.loadtableactivitiesAsync();
+        }
+        
+        public WpfApplication3.ServiceReference1.TableDataActivities[] loadarchivtableactivities() {
+            return base.Channel.loadarchivtableactivities();
+        }
+        
+        public System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.TableDataActivities[]> loadarchivtableactivitiesAsync() {
+            return base.Channel.loadarchivtableactivitiesAsync();
         }
     }
 }

@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("ressources/icons/deep_search.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("ressources/icons/deep_lock.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("ressources/icons/deep_unlock.png")]
 
 

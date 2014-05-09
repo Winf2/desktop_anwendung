@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Data.OleDb;
 using System.Linq;
@@ -34,28 +35,70 @@ namespace WpfApplication3
 
             //Tabellen initialisieren
             initializeTables();
+        }
 
+        public DataTable ConvertToDataTable<T>(IList<T> data)
+        {
+            PropertyDescriptorCollection properties = TypeDescriptor.GetProperties(typeof(T));
+            DataTable table = new DataTable();
+            foreach (PropertyDescriptor prop in properties)
+                table.Columns.Add(prop.Name, Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType);
+            foreach (T item in data)
+            {
+                DataRow row = table.NewRow();
+                foreach (PropertyDescriptor prop in properties) row[prop.Name] = prop.GetValue(item) ?? DBNull.Value;
+                table.Rows.Add(row);
+            }
+            return table;
         }
 
         private void initializeTables()
         {
-            //Tabelle "Working_Time" laden und dem DataGrid übergeben
-            TableDataWorkingTimes[] dataTableWorkingTime = zpo.loadtableworkingtimes();
-            dataGridWorkingTime.ItemsSource = dataTableWorkingTime;
+        //Archiv
+            TableDataWorkingTimes[] dataTableArchivWorkingTime = zpo.loadArchivTableWorkingTimes();
+            dataGridArchivZeiten.ItemsSource = dataTableArchivWorkingTime;
 
-            //Tabelle "Projects" laden und dem DataGrid übergeben
+        //Tabelle "Working_Time" laden und dem DataGrid übergeben
+            TableDataWorkingTimes[] dataTableWorkingTime = zpo.loadtableworkingtimes();
+            //dataGridWorkingTime.ItemsSource = dataTableWorkingTime.ToList();
+            
+            //Test für die Spaltennamendarstellung
+            DataTable dt = ConvertToDataTable(dataTableWorkingTime.ToList());
+            String [] columnsWorkingTimes = {"ID","Datum","Anfang","Ende","Projekt","Aktivität","Arbeitszeit","Überstunden","Pausenanfang","Pausenende","Gesamtpause","Gesamtarbeitszeit","Status"};
+            for(int i=0;i<columnsWorkingTimes.Length;i++){
+                dt.Columns[i].ColumnName = columnsWorkingTimes[i];
+            }
+            dataGridWorkingTime.ItemsSource = dt.DefaultView;
+
+        //Archiv
+
+            TableDataProjects[] dataTableArchivProjects = zpo.loadarchivtableprojects();
+            DataTable dtArchivProjects = ConvertToDataTable(dataTableArchivProjects.ToList());
+            dataGridArchivProjekte.ItemsSource = dtArchivProjects.DefaultView;
+            //dataGridArchivProjekte.Columns[0].Visibility = System.Windows.Visibility.Hidden;
+            //dataGridArchivProjekte.ItemsSource = dataTableArchivProjects;
+        //Tabelle "Projects" laden und dem DataGrid übergeben
             TableDataProjects[] dataTableProjects = zpo.loadtableprojects();
             dataGridProjects.ItemsSource = dataTableProjects;
 
-            //Tabelle "Activities" laden und dem DataGrid übergeben
+        //Archiv
+            TableDataActivities[] dataTableArchivActivities = zpo.loadarchivtableactivities();
+            dataGridArchivAktivitaeten.ItemsSource = dataTableArchivActivities;
+        //Tabelle "Activities" laden und dem DataGrid übergeben
             TableDataActivities[] dataTableActivities = zpo.loadtableactivities();
             dataGridActivities.ItemsSource = dataTableActivities;
 
-            //Tabelle "Customer" laden und dem DataGrid übergeben
+        //Archiv
+            TableDataCustomers[] dataTaleArchivCustomers = zpo.loadarchivtablecustomers();
+            dataGridArchivKunden.ItemsSource = dataTaleArchivCustomers;
+        //Tabelle "Customer" laden und dem DataGrid übergeben
             TableDataCustomers[] dataTableCustomers = zpo.loadtablecustomers();
             datagridCustomers.ItemsSource = dataTableCustomers;
 
-            //Tabelle "Employees" laden und dem DataGrid übergeben
+        //Archiv
+            TableDataEmployees[] dataTableArchivEmployees = zpo.loadarchivtableemployees();
+            dataGridArchivMitarbeiter.ItemsSource = dataTableArchivEmployees;
+        //Tabelle "Employees" laden und dem DataGrid übergeben
             TableDataEmployees[] dataTableEmployees = zpo.loadtableemployees(); ;
             datagridEmployees.ItemsSource = dataTableEmployees;
         }
@@ -74,7 +117,8 @@ namespace WpfApplication3
             tool_button_new.Visibility = System.Windows.Visibility.Visible;
             tool_button_edit.Visibility = System.Windows.Visibility.Visible;
             tool_button_archiv.Visibility = System.Windows.Visibility.Visible;
-            tool_button_delete.Visibility = System.Windows.Visibility.Visible;
+
+            tool_button_restore.Visibility = System.Windows.Visibility.Collapsed;
         }
 
         //Wenn Tab "Projekte" angeklickt wird, werden die Steuerelemente der Toolbar aktualisiert
@@ -84,7 +128,8 @@ namespace WpfApplication3
             tool_button_new.Visibility = System.Windows.Visibility.Visible;
             tool_button_edit.Visibility = System.Windows.Visibility.Visible;
             tool_button_archiv.Visibility = System.Windows.Visibility.Visible;
-            tool_button_delete.Visibility = System.Windows.Visibility.Visible;
+
+            tool_button_restore.Visibility = System.Windows.Visibility.Collapsed;
         }
 
         //Wenn Tab "Aktivitäten" angeklickt wird, werden die Steuerelemente der Toolbar aktualisiert
@@ -94,7 +139,8 @@ namespace WpfApplication3
             tool_button_new.Visibility = System.Windows.Visibility.Visible;
             tool_button_edit.Visibility = System.Windows.Visibility.Visible;
             tool_button_archiv.Visibility = System.Windows.Visibility.Visible;
-            tool_button_delete.Visibility = System.Windows.Visibility.Visible;
+
+            tool_button_restore.Visibility = System.Windows.Visibility.Collapsed;
         }
 
         //Wenn Tab "Kunden" angeklickt wird, werden die Steuerelemente der Toolbar aktualisiert
@@ -104,7 +150,8 @@ namespace WpfApplication3
             tool_button_new.Visibility = System.Windows.Visibility.Visible;
             tool_button_edit.Visibility = System.Windows.Visibility.Visible;
             tool_button_archiv.Visibility = System.Windows.Visibility.Visible;
-            tool_button_delete.Visibility = System.Windows.Visibility.Visible;
+
+            tool_button_restore.Visibility = System.Windows.Visibility.Collapsed;
         }
 
         //Wenn Tab "Mitarbeiter" angeklickt wird, werden die Steuerelemente der Toolbar aktualisiert
@@ -114,7 +161,8 @@ namespace WpfApplication3
             tool_button_new.Visibility = System.Windows.Visibility.Visible;
             tool_button_edit.Visibility = System.Windows.Visibility.Visible;
             tool_button_archiv.Visibility = System.Windows.Visibility.Visible;
-            tool_button_delete.Visibility = System.Windows.Visibility.Visible;
+
+            tool_button_restore.Visibility = System.Windows.Visibility.Collapsed;
         }
 
         //Wenn Tab "Auswertung" angeklickt wird, werden die Steuerelemente der Toolbar aktualisiert
@@ -125,14 +173,14 @@ namespace WpfApplication3
             tool_button_new.Visibility = System.Windows.Visibility.Collapsed;
             tool_button_edit.Visibility = System.Windows.Visibility.Collapsed;
             tool_button_archiv.Visibility = System.Windows.Visibility.Collapsed;
-            tool_button_delete.Visibility = System.Windows.Visibility.Collapsed;
+            tool_button_restore.Visibility = System.Windows.Visibility.Collapsed;
         }
 
         //Wenn Tab "Archiv" angeklickt wird, werden die Steuerelemente der Toolbar aktualisiert
         private void tab_archiv_GotFocus(object sender, RoutedEventArgs e)
         {
             tool_button_export.Visibility = System.Windows.Visibility.Visible;
-            tool_button_delete.Visibility = System.Windows.Visibility.Visible;
+            tool_button_restore.Visibility = System.Windows.Visibility.Visible;
 
             tool_button_new.Visibility = System.Windows.Visibility.Collapsed;
             tool_button_edit.Visibility = System.Windows.Visibility.Collapsed;

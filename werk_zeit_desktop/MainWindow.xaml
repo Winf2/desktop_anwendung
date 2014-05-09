@@ -4,6 +4,115 @@
         xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="WpfApplication3.MainWindow"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         Title="Werk-Zeit" Height="666.956" Width="1239.433" WindowStartupLocation="CenterScreen" WindowState="Maximized" Icon="Ressources/logo_ersatz_klein.png">
+    <Window.Resources>
+        <!-- TabControl -->
+        <Style TargetType="{x:Type TabControl}" x:Key="TabControlOfficeStyleSecond">
+            <Setter Property="TabStripPlacement" Value="Top" />
+            <Setter Property="ItemContainerStyle" Value="{DynamicResource TabItemOfficeStyle}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabControl}">
+                        <Grid SnapsToDevicePixels="True" KeyboardNavigation.TabNavigation="Local">
+                            <Border Margin="5" Grid.Row="0" Background="White" BorderBrush="#828790" BorderThickness="1" Padding="0">
+                                <TabPanel x:Name="HeaderPanel" IsItemsHost="True" KeyboardNavigation.TabIndex="1" Panel.ZIndex="1" />
+                            </Border>
+                            <Border x:Name="ContentPanel" BorderBrush="#828790" BorderThickness="0" Background="White" KeyboardNavigation.DirectionalNavigation="Contained" KeyboardNavigation.TabIndex="2" KeyboardNavigation.TabNavigation="Local" VerticalAlignment="Stretch" Margin="0,55,5,5" Padding="0">
+                                <ContentPresenter x:Name="PART_SelectedContentHost" ContentTemplate="{TemplateBinding SelectedContentTemplate}" Content="{TemplateBinding SelectedContent}" ContentStringFormat="{TemplateBinding SelectedContentStringFormat}" ContentSource="SelectedContent" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!-- TabControl -->
+        <Style TargetType="{x:Type TabControl}" x:Key="TabControlOfficeStyle">
+            <Setter Property="TabStripPlacement" Value="Top" />
+            <Setter Property="ItemContainerStyle" Value="{DynamicResource TabItemOfficeStyle}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabControl}">
+                        <Grid ClipToBounds="True" SnapsToDevicePixels="True" KeyboardNavigation.TabNavigation="Local">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Border Grid.Column="0" Margin="5" Grid.Row="0" Background="White" BorderBrush="#828790" BorderThickness="1" Padding="2">
+                                <TabPanel x:Name="HeaderPanel" IsItemsHost="True" KeyboardNavigation.TabIndex="1" Panel.ZIndex="1" />
+                            </Border>
+                            <Border x:Name="ContentPanel" BorderBrush="#828790" BorderThickness="1" Background="White" Grid.Column="1" KeyboardNavigation.DirectionalNavigation="Contained" Grid.Row="0" KeyboardNavigation.TabIndex="2" KeyboardNavigation.TabNavigation="Local" VerticalAlignment="Stretch" Margin="0,5,5,5" Padding="5,0">
+                                <ContentPresenter x:Name="PART_SelectedContentHost" ContentTemplate="{TemplateBinding SelectedContentTemplate}" Content="{TemplateBinding SelectedContent}" ContentStringFormat="{TemplateBinding SelectedContentStringFormat}" ContentSource="SelectedContent" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!-- TabItem Style -->
+        <Style x:Key="TabItemOfficeStyle" TargetType="{x:Type TabItem}">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <Grid SnapsToDevicePixels="true">
+                            <Border x:Name="Bd" CornerRadius="5" Padding="10,4" Height="40" Margin="0,1" BorderThickness="1">
+                                <ContentPresenter x:Name="Content" ContentSource="Header" HorizontalAlignment="Left" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" TextBlock.FontSize="11" />
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="BorderBrush" TargetName="Bd" Value="#f7d84b" />
+                                <Setter Property="Background" TargetName="Bd">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                            <GradientStop Color="#fdeeb3" Offset="0.0" />
+                                            <GradientStop Color="#fde48a" Offset="0.5" />
+                                            <GradientStop Color="#fdf8de" Offset="1.0" />
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="true">
+                                <Setter Property="Background" TargetName="Bd">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                            <GradientStop Color="#ffe575" Offset="0.0" />
+                                            <GradientStop Color="#ffd96c" Offset="0.5" />
+                                            <GradientStop Color="#fff480" Offset="1.0" />
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter TargetName="Bd" Property="BorderBrush">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                            <GradientStop Color="#C2762B" Offset="0.0" />
+                                            <GradientStop Color="#C29E47" Offset="1.0" />
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter TargetName="Bd" Property="BorderThickness" Value="1" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
         <DockPanel>
             <Menu DockPanel.Dock="Top">
@@ -19,8 +128,8 @@
             </Menu>
             <StackPanel></StackPanel>
         </DockPanel>
-        <TabControl x:Name="tab_control" VerticalAlignment="Top" Height="Auto" TabStripPlacement="Left" Margin="0,65,5,0" SelectionChanged="tab_control_SelectionChanged">
-            <TabItem x:Name="tab_overview" HorizontalAlignment="Right" Margin="0,0,0,0" GotFocus="tab_overview_GotFocus">
+        <TabControl Style="{DynamicResource TabControlOfficeStyle}" x:Name="tab_control" VerticalAlignment="Top" Height="Auto" TabStripPlacement="Left" Margin="0,65,5,0" SelectionChanged="tab_control_SelectionChanged">
+            <TabItem x:Name="tab_overview"  GotFocus="tab_overview_GotFocus">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal" Width="140">
                         <Image Source="Ressources/icons/clock-icon.png" Height="35" Width="35" />
@@ -75,7 +184,7 @@
                             </StackPanel>
                         </Expander>
                         <Label Content="Zeitenübersicht" FontSize="20"/>
-                        <DataGrid x:Name="dataGridWorkingTime" Margin="10" SelectionMode="Single" IsReadOnly="True" IsManipulationEnabled="True"/>
+                        <DataGrid x:Name="dataGridWorkingTime" Margin="10" SelectionMode="Single" IsReadOnly="True" IsManipulationEnabled="False"/>
                     </StackPanel>
                 </Grid>
             </TabItem>
@@ -223,8 +332,67 @@
                         <TextBlock Text="Archiv" TextAlignment="Center" VerticalAlignment="Center" FontSize="20" />
                     </StackPanel>
                 </TabItem.Header>
-                <Grid/>
+                <Grid>
+                    <TabControl Style="{DynamicResource TabControlOfficeStyleSecond}">
+                        <TabItem x:Name="tab_archiv_zeiten" Width="120" Height="39">
+                            <TabItem.Header>
+                                <StackPanel Orientation="Horizontal" Width="140">
+                                    <Image Source="Ressources/icons/clock-icon.png" Height="35" Width="20" />
+                                    <TextBlock Text="Zeiten" TextAlignment="Center" VerticalAlignment="Center" FontSize="15" />
+                                </StackPanel>
+                            </TabItem.Header>
+                            <Grid>
+                                <DataGrid x:Name="dataGridArchivZeiten"  SelectionMode="Single" IsReadOnly="True" IsManipulationEnabled="False"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="tab_archiv_projekte" Width="120" Height="39" HorizontalAlignment="Right">
+                            <TabItem.Header>
+                                <StackPanel Orientation="Horizontal" Width="140">
+                                    <Image Source="Ressources/icons/folder-icon.png" Height="35" Width="20" />
+                                    <TextBlock Text="Projekte" TextAlignment="Center" VerticalAlignment="Center" FontSize="15" />
+                                </StackPanel>
+                            </TabItem.Header>
+                            <Grid>
+                                <DataGrid x:Name="dataGridArchivProjekte" SelectionMode="Single" IsReadOnly="True" IsManipulationEnabled="False"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="tab_archiv_aktivitäten" Width="120" Height="39" HorizontalAlignment="Right">
+                            <TabItem.Header>
+                                <StackPanel Orientation="Horizontal" Width="140">
+                                    <Image Source="Ressources/icons/hammer-icon.png" Height="35" Width="20" />
+                                    <TextBlock Text="Aktivitäten" TextAlignment="Center" VerticalAlignment="Center" FontSize="15" />
+                                </StackPanel>
+                            </TabItem.Header>
+                            <Grid>
+                                <DataGrid x:Name="dataGridArchivAktivitaeten" SelectionMode="Single" IsReadOnly="True" IsManipulationEnabled="False"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="tab_archiv_kunden" Width="120" Height="39" HorizontalAlignment="Right">
+                            <TabItem.Header>
+                                <StackPanel Orientation="Horizontal" Width="140">
+                                    <Image Source="Ressources/icons/user-business-icon.png" Height="35" Width="20" />
+                                    <TextBlock Text="Kunden" TextAlignment="Center" VerticalAlignment="Center" FontSize="15" />
+                                </StackPanel>
+                            </TabItem.Header>
+                            <Grid>
+                                <DataGrid x:Name="dataGridArchivKunden" SelectionMode="Single" IsReadOnly="True" IsManipulationEnabled="False"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="tab_archiv_mitarbeiter" Width="120" Height="39" HorizontalAlignment="Right">
+                            <TabItem.Header>
+                                <StackPanel Orientation="Horizontal" Width="140">
+                                    <Image Source="Ressources/icons/user-blue-icon.png" Height="35" Width="20" />
+                                    <TextBlock Text="Mitarbeiter" TextAlignment="Center" VerticalAlignment="Center" FontSize="15" />
+                                </StackPanel>
+                            </TabItem.Header>
+                            <Grid>
+                                <DataGrid x:Name="dataGridArchivMitarbeiter" SelectionMode="Single" IsReadOnly="True" IsManipulationEnabled="False"/>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
             </TabItem>
+
         </TabControl>
         <DockPanel  Height="40" VerticalAlignment="Top" Margin="0,20,0,0">
             <ToolBarTray HorizontalAlignment="Left" VerticalAlignment="Center" Background="{x:Null}"  >
@@ -270,14 +438,14 @@
                     </Separator>
                     <Button Name="tool_button_archiv" VerticalAlignment="Stretch" HorizontalAlignment="Center" BorderThickness="3">
                         <TextBlock>
-                                <Image Source="Ressources/icons/deep_folder.png" Width="20"/>
+                                <Image Source="Ressources/icons/deep_lock.png" Width="20"/>
                                 <Label Content="Archivieren"/>
                         </TextBlock>
                     </Button>
-                    <Button Name="tool_button_delete" VerticalAlignment="Stretch" HorizontalAlignment="Center" BorderThickness="3">
+                    <Button Name="tool_button_restore" VerticalAlignment="Stretch" HorizontalAlignment="Center" BorderThickness="3" Visibility="Collapsed">
                         <TextBlock>
-                                <Image Source="Ressources/icons/deep_delete.png" Width="20"/>
-                                <Label Content="Löschen"/>
+                                <Image Source="Ressources/icons/deep_unlock.png" Width="20"/>
+                                <Label Content="Wiederherstellen"/>
                         </TextBlock>
                     </Button>
                     <Separator>
