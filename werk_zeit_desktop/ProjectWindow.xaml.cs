@@ -47,8 +47,7 @@ namespace WpfApplication3
             {
                 status = 0;
             }
-            zpo.createproject(Int16.Parse(textBoxProjectNr.Text),
-                textBoxProjectName.Text, 
+            zpo.createproject(textBoxProjectName.Text, 
                 description, 
                 status, 
                 customerID);

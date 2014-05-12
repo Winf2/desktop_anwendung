@@ -157,10 +157,25 @@
     </None>
     <AppDesigner Include="Properties\" />
     <None Include="Service References\ServiceReference1\index.wsdl" />
+    <None Include="Service References\ServiceReference1\WpfApplication3.ServiceReference1.archiveActivitiesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference1\WpfApplication3.ServiceReference1.archiveCustomersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference1\WpfApplication3.ServiceReference1.archiveEmployeesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference1\WpfApplication3.ServiceReference1.archiveProjectsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference1\WpfApplication3.ServiceReference1.archiveWorkingTimeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\ServiceReference1\WpfApplication3.ServiceReference1.checkLoginResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceReference1\WpfApplication3.ServiceReference1.createaddressResponse.datasource">
+    <None Include="Service References\ServiceReference1\WpfApplication3.ServiceReference1.createactivityResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ServiceReference1\WpfApplication3.ServiceReference1.createcustomerResponse.datasource">
@@ -172,13 +187,22 @@
     <None Include="Service References\ServiceReference1\WpfApplication3.ServiceReference1.createprojectResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceReference1\WpfApplication3.ServiceReference1.customerhasaddressResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServiceReference1\WpfApplication3.ServiceReference1.employeehasaddressResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\ServiceReference1\WpfApplication3.ServiceReference1.pauseWorkResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference1\WpfApplication3.ServiceReference1.restoreActivitiesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference1\WpfApplication3.ServiceReference1.restoreCustomersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference1\WpfApplication3.ServiceReference1.restoreEmployeesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference1\WpfApplication3.ServiceReference1.restoreProjectsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference1\WpfApplication3.ServiceReference1.restoreWorkingTimeResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ServiceReference1\WpfApplication3.ServiceReference1.selectedcustomerResponse.datasource">

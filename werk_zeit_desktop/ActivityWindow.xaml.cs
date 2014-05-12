@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfApplication3.ServiceReference1;
 
 namespace WpfApplication3
 {
@@ -19,6 +20,8 @@ namespace WpfApplication3
     /// </summary>
     public partial class ActivityWindow : Window
     {
+        private zeiterfassungPortTypeClient zpo = SoapConnection.zpo;
+
         public ActivityWindow()
         {
             InitializeComponent();
@@ -26,7 +29,21 @@ namespace WpfApplication3
 
         private void buttonCreate_Click(object sender, RoutedEventArgs e)
         {
+            String description = new TextRange(richTextBoxDescription.Document.ContentStart, richTextBoxDescription.Document.ContentEnd).Text;
+            int status;
+            if (checkBoxStatus.IsChecked == true)
+            {
+                status = 1;
+            }
+            else
+            {
+                status = 0;
+            }
+            zpo.createactivity(textBoxActivityName.Text,
+                description,
+                status);
 
+            this.Close();
         }
 
         private void buttonBack_Click(object sender, RoutedEventArgs e)

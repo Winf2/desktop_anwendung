@@ -40,6 +40,7 @@
           <xsd:element name="KundenNr" type="xsd:int" />
           <xsd:element name="Nachname" type="xsd:string" />
           <xsd:element name="Vorname" type="xsd:string" />
+          <xsd:element name="Anschrift" type="xsd:string" />
           <xsd:element name="Firmenname" type="xsd:string" />
           <xsd:element name="TelNrMobil" type="xsd:string" />
           <xsd:element name="TelNrFestnetz" type="xsd:string" />
@@ -59,6 +60,7 @@
           <xsd:element name="PersNr" type="xsd:int" />
           <xsd:element name="Nachname" type="xsd:string" />
           <xsd:element name="Vorname" type="xsd:string" />
+          <xsd:element name="Anschrift" type="xsd:string" />
           <xsd:element name="GebTag" type="xsd:date" />
           <xsd:element name="EMail" type="xsd:string" />
           <xsd:element name="TelNrMobil" type="xsd:string" />
@@ -116,13 +118,20 @@
     <wsdl:part name="return" type="xsd:boolean" />
   </wsdl:message>
   <wsdl:message name="createprojectRequest">
-    <wsdl:part name="idprojekt" type="xsd:int" />
     <wsdl:part name="projektname" type="xsd:string" />
     <wsdl:part name="projektbeschreibung" type="xsd:string" />
     <wsdl:part name="status" type="xsd:int" />
     <wsdl:part name="kundennr" type="xsd:int" />
   </wsdl:message>
   <wsdl:message name="createprojectResponse">
+    <wsdl:part name="return" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="createactivityRequest">
+    <wsdl:part name="Aktivitaetenname" type="xsd:string" />
+    <wsdl:part name="Aktivitaetenbeschreibung" type="xsd:string" />
+    <wsdl:part name="Status" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="createactivityResponse">
     <wsdl:part name="return" type="xsd:int" />
   </wsdl:message>
   <wsdl:message name="selectedcustomerRequest">
@@ -136,6 +145,7 @@
     <wsdl:part name="Nachname" type="xsd:string" />
     <wsdl:part name="Vorname" type="xsd:string" />
     <wsdl:part name="Firmenname" type="xsd:string" />
+    <wsdl:part name="Anschrift" type="xsd:string" />
     <wsdl:part name="TelNrMobil" type="xsd:string" />
     <wsdl:part name="TelNrFestnetz" type="xsd:string" />
     <wsdl:part name="EMail" type="xsd:string" />
@@ -158,30 +168,6 @@
     <wsdl:part name="Status" type="xsd:boolean" />
   </wsdl:message>
   <wsdl:message name="createemployeeResponse">
-    <wsdl:part name="return" type="xsd:int" />
-  </wsdl:message>
-  <wsdl:message name="customerhasaddressRequest">
-    <wsdl:part name="CustomerID" type="xsd:int" />
-    <wsdl:part name="AddressID" type="xsd:int" />
-  </wsdl:message>
-  <wsdl:message name="customerhasaddressResponse">
-    <wsdl:part name="return" type="xsd:boolean" />
-  </wsdl:message>
-  <wsdl:message name="employeehasaddressRequest">
-    <wsdl:part name="EmployeeID" type="xsd:int" />
-    <wsdl:part name="AddressID" type="xsd:int" />
-  </wsdl:message>
-  <wsdl:message name="employeehasaddressResponse">
-    <wsdl:part name="return" type="xsd:boolean" />
-  </wsdl:message>
-  <wsdl:message name="createaddressRequest">
-    <wsdl:part name="Ort" type="xsd:string" />
-    <wsdl:part name="PLZ" type="xsd:int" />
-    <wsdl:part name="Strasse" type="xsd:string" />
-    <wsdl:part name="Hausnummer" type="xsd:string" />
-    <wsdl:part name="Postfach" type="xsd:int" />
-  </wsdl:message>
-  <wsdl:message name="createaddressResponse">
     <wsdl:part name="return" type="xsd:int" />
   </wsdl:message>
   <wsdl:message name="startWorkRequest">
@@ -223,6 +209,50 @@
   <wsdl:message name="loadauthorisationsResponse">
     <wsdl:part name="return" type="tns:stringArray" />
   </wsdl:message>
+  <wsdl:message name="loademployeesRequest" />
+  <wsdl:message name="loademployeesResponse">
+    <wsdl:part name="return" type="tns:stringArray" />
+  </wsdl:message>
+  <wsdl:message name="archiveWorkingTimeRequest">
+    <wsdl:part name="id" type="xsd:intger" />
+  </wsdl:message>
+  <wsdl:message name="archiveWorkingTimeResponse" />
+  <wsdl:message name="archiveProjectsRequest">
+    <wsdl:part name="id" type="xsd:intger" />
+  </wsdl:message>
+  <wsdl:message name="archiveProjectsResponse" />
+  <wsdl:message name="archiveActivitiesRequest">
+    <wsdl:part name="id" type="xsd:intger" />
+  </wsdl:message>
+  <wsdl:message name="archiveActivitiesResponse" />
+  <wsdl:message name="archiveCustomersRequest">
+    <wsdl:part name="id" type="xsd:intger" />
+  </wsdl:message>
+  <wsdl:message name="archiveCustomersResponse" />
+  <wsdl:message name="archiveEmployeesRequest">
+    <wsdl:part name="id" type="xsd:intger" />
+  </wsdl:message>
+  <wsdl:message name="archiveEmployeesResponse" />
+  <wsdl:message name="restoreWorkingTimeRequest">
+    <wsdl:part name="id" type="xsd:intger" />
+  </wsdl:message>
+  <wsdl:message name="restoreWorkingTimeResponse" />
+  <wsdl:message name="restoreProjectsRequest">
+    <wsdl:part name="id" type="xsd:intger" />
+  </wsdl:message>
+  <wsdl:message name="restoreProjectsResponse" />
+  <wsdl:message name="restoreActivitiesRequest">
+    <wsdl:part name="id" type="xsd:intger" />
+  </wsdl:message>
+  <wsdl:message name="restoreActivitiesResponse" />
+  <wsdl:message name="restoreCustomersRequest">
+    <wsdl:part name="id" type="xsd:intger" />
+  </wsdl:message>
+  <wsdl:message name="restoreCustomersResponse" />
+  <wsdl:message name="restoreEmployeesRequest">
+    <wsdl:part name="id" type="xsd:intger" />
+  </wsdl:message>
+  <wsdl:message name="restoreEmployeesResponse" />
   <wsdl:message name="loadtableworkingtimesRequest" />
   <wsdl:message name="loadtableworkingtimesResponse">
     <wsdl:part name="return" type="tns:TableArrayWorkingTimes" />
@@ -272,6 +302,10 @@
       <wsdl:input message="tns:createprojectRequest" />
       <wsdl:output message="tns:createprojectResponse" />
     </wsdl:operation>
+    <wsdl:operation name="createactivity">
+      <wsdl:input message="tns:createactivityRequest" />
+      <wsdl:output message="tns:createactivityResponse" />
+    </wsdl:operation>
     <wsdl:operation name="selectedcustomer">
       <wsdl:input message="tns:selectedcustomerRequest" />
       <wsdl:output message="tns:selectedcustomerResponse" />
@@ -283,18 +317,6 @@
     <wsdl:operation name="createemployee">
       <wsdl:input message="tns:createemployeeRequest" />
       <wsdl:output message="tns:createemployeeResponse" />
-    </wsdl:operation>
-    <wsdl:operation name="customerhasaddress">
-      <wsdl:input message="tns:customerhasaddressRequest" />
-      <wsdl:output message="tns:customerhasaddressResponse" />
-    </wsdl:operation>
-    <wsdl:operation name="employeehasaddress">
-      <wsdl:input message="tns:employeehasaddressRequest" />
-      <wsdl:output message="tns:employeehasaddressResponse" />
-    </wsdl:operation>
-    <wsdl:operation name="createaddress">
-      <wsdl:input message="tns:createaddressRequest" />
-      <wsdl:output message="tns:createaddressResponse" />
     </wsdl:operation>
     <wsdl:operation name="startWork">
       <wsdl:input message="tns:startWorkRequest" />
@@ -331,6 +353,51 @@
       <documentation>Return list of Authorisations</documentation>
       <wsdl:input message="tns:loadauthorisationsRequest" />
       <wsdl:output message="tns:loadauthorisationsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="loademployees">
+      <documentation>Return list of Employees</documentation>
+      <wsdl:input message="tns:loademployeesRequest" />
+      <wsdl:output message="tns:loademployeesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="archiveWorkingTime">
+      <wsdl:input message="tns:archiveWorkingTimeRequest" />
+      <wsdl:output message="tns:archiveWorkingTimeResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="archiveProjects">
+      <wsdl:input message="tns:archiveProjectsRequest" />
+      <wsdl:output message="tns:archiveProjectsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="archiveActivities">
+      <wsdl:input message="tns:archiveActivitiesRequest" />
+      <wsdl:output message="tns:archiveActivitiesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="archiveCustomers">
+      <wsdl:input message="tns:archiveCustomersRequest" />
+      <wsdl:output message="tns:archiveCustomersResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="archiveEmployees">
+      <wsdl:input message="tns:archiveEmployeesRequest" />
+      <wsdl:output message="tns:archiveEmployeesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="restoreWorkingTime">
+      <wsdl:input message="tns:restoreWorkingTimeRequest" />
+      <wsdl:output message="tns:restoreWorkingTimeResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="restoreProjects">
+      <wsdl:input message="tns:restoreProjectsRequest" />
+      <wsdl:output message="tns:restoreProjectsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="restoreActivities">
+      <wsdl:input message="tns:restoreActivitiesRequest" />
+      <wsdl:output message="tns:restoreActivitiesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="restoreCustomers">
+      <wsdl:input message="tns:restoreCustomersRequest" />
+      <wsdl:output message="tns:restoreCustomersResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="restoreEmployees">
+      <wsdl:input message="tns:restoreEmployeesRequest" />
+      <wsdl:output message="tns:restoreEmployeesResponse" />
     </wsdl:operation>
     <wsdl:operation name="loadtableworkingtimes">
       <documentation>Get all the data from Table: WORKING_TIME WHERE Status=1.</documentation>
@@ -403,6 +470,15 @@
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="createactivity">
+      <soap:operation soapAction="http://193.196.143.148/soap/index.php/createactivity" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="selectedcustomer">
       <soap:operation soapAction="http://193.196.143.148/soap/index.php/selectedcustomer" style="rpc" />
       <wsdl:input>
@@ -423,33 +499,6 @@
     </wsdl:operation>
     <wsdl:operation name="createemployee">
       <soap:operation soapAction="http://193.196.143.148/soap/index.php/createemployee" style="rpc" />
-      <wsdl:input>
-        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="customerhasaddress">
-      <soap:operation soapAction="http://193.196.143.148/soap/index.php/customerhasaddress" style="rpc" />
-      <wsdl:input>
-        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="employeehasaddress">
-      <soap:operation soapAction="http://193.196.143.148/soap/index.php/employeehasaddress" style="rpc" />
-      <wsdl:input>
-        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="createaddress">
-      <soap:operation soapAction="http://193.196.143.148/soap/index.php/createaddress" style="rpc" />
       <wsdl:input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>
@@ -527,6 +576,105 @@
       </wsdl:input>
       <wsdl:output>
         <soap:body use="encoded" namespace="urn:dajana" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loademployees">
+      <soap:operation soapAction="rpc" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:dajana" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:dajana" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="archiveWorkingTime">
+      <soap:operation soapAction="http://193.196.143.148/soap/index.php/archiveWorkingTime" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="archiveProjects">
+      <soap:operation soapAction="http://193.196.143.148/soap/index.php/archiveProjects" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="archiveActivities">
+      <soap:operation soapAction="http://193.196.143.148/soap/index.php/archiveActivities" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="archiveCustomers">
+      <soap:operation soapAction="http://193.196.143.148/soap/index.php/archiveCustomers" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="archiveEmployees">
+      <soap:operation soapAction="http://193.196.143.148/soap/index.php/archiveEmployees" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="restoreWorkingTime">
+      <soap:operation soapAction="http://193.196.143.148/soap/index.php/restoreWorkingTime" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="restoreProjects">
+      <soap:operation soapAction="http://193.196.143.148/soap/index.php/restoreProjects" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="restoreActivities">
+      <soap:operation soapAction="http://193.196.143.148/soap/index.php/restoreActivities" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="restoreCustomers">
+      <soap:operation soapAction="http://193.196.143.148/soap/index.php/restoreCustomers" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="restoreEmployees">
+      <soap:operation soapAction="http://193.196.143.148/soap/index.php/restoreEmployees" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="loadtableworkingtimes">

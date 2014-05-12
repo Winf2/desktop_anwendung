@@ -34,7 +34,6 @@ namespace WpfApplication3
         }
 
         //Neuer Kunde wird erstellt
-        //Neue Adresse wird erstellt
         private void button_create_Click(object sender, RoutedEventArgs e)
         {
             int status=-1;
@@ -44,24 +43,18 @@ namespace WpfApplication3
             else{
                 status = 0;
             }
+            String address = new TextRange(richtextboxadresse.Document.ContentStart, richtextboxadresse.Document.ContentEnd).Text;
+
             int customerID = zpo.createcustomer(Int32.Parse(textbox_custnr.Text),
                 textbox_lastname.Text,
                 textbox_firstname.Text,
                 textbox_company.Text,
+                address,
                 textbox_mobil.Text,
                 textbox_festnetz.Text,
                 textbox_email.Text,
                 status);
-
-            int addressID = zpo.createaddress(textbox_location.Text,
-                Int32.Parse(textbox_zipcode.Text),
-                textbox_street.Text,
-                textbox_housenumber.Text,
-                Int32.Parse(textbox_postofficebox.Text));
-
-            bool customerhasaddressID = zpo.customerhasaddress(customerID, addressID);
-            MessageBox.Show("Kunde wurde erfolgreich mit folgenden Eigenschaften angelegt.\nCustomerID:" + customerID + "\nAddressID:" + addressID + "\nCustomerHasAddress:" + customerhasaddressID);
-
+            MessageBox.Show(customerID.ToString());
             this.Close();
         }
     }

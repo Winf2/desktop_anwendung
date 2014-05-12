@@ -46,23 +46,7 @@
                     <Label FontSize="18">Adresse</Label>
                 </GroupBox.Header>
                 <StackPanel>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                        <TextBlock>
-                            <Label Content="Straße und Hausnr.:"/>
-                            <TextBox x:Name="textbox_street" Width="190"/>
-                            <TextBox x:Name="textbox_housenumber" Width="40"/>
-                        </TextBlock>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                        <TextBlock>
-                            <Label Content="PLZ:"/>
-                            <TextBox x:Name="textbox_zipcode" Width="70"/>
-                        </TextBlock>
-                        <TextBlock>
-                            <Label Content="Ort:"/>
-                            <TextBox x:Name="textbox_location" Width="210"/>
-                        </TextBlock>
-                    </StackPanel>
+                    <RichTextBox x:Name="richtextboxadresse" Height="60" Margin="0,0,10,0"/>
                 </StackPanel>
             </GroupBox>
             <GroupBox Margin="0,0,10,0">

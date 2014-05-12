@@ -31,6 +31,14 @@ namespace WpfApplication3.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/createproject", ReplyAction="*")]
         System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.createprojectResponse> createprojectAsync(WpfApplication3.ServiceReference1.createprojectRequest request);
         
+        // CODEGEN: Der Nachrichtenvertrag wird generiert, da der Wrappernamespace () von Nachricht "createactivityRequest" nicht mit dem Standardwert (urn:dajana) übereinstimmt.
+        [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/createactivity", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        WpfApplication3.ServiceReference1.createactivityResponse createactivity(WpfApplication3.ServiceReference1.createactivityRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/createactivity", ReplyAction="*")]
+        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.createactivityResponse> createactivityAsync(WpfApplication3.ServiceReference1.createactivityRequest request);
+        
         // CODEGEN: Der Nachrichtenvertrag wird generiert, da der Wrappernamespace () von Nachricht "selectedcustomerRequest" nicht mit dem Standardwert (urn:dajana) übereinstimmt.
         [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/selectedcustomer", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
@@ -54,30 +62,6 @@ namespace WpfApplication3.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/createemployee", ReplyAction="*")]
         System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.createemployeeResponse> createemployeeAsync(WpfApplication3.ServiceReference1.createemployeeRequest request);
-        
-        // CODEGEN: Der Nachrichtenvertrag wird generiert, da der Wrappernamespace () von Nachricht "customerhasaddressRequest" nicht mit dem Standardwert (urn:dajana) übereinstimmt.
-        [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/customerhasaddress", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
-        WpfApplication3.ServiceReference1.customerhasaddressResponse customerhasaddress(WpfApplication3.ServiceReference1.customerhasaddressRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/customerhasaddress", ReplyAction="*")]
-        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.customerhasaddressResponse> customerhasaddressAsync(WpfApplication3.ServiceReference1.customerhasaddressRequest request);
-        
-        // CODEGEN: Der Nachrichtenvertrag wird generiert, da der Wrappernamespace () von Nachricht "employeehasaddressRequest" nicht mit dem Standardwert (urn:dajana) übereinstimmt.
-        [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/employeehasaddress", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
-        WpfApplication3.ServiceReference1.employeehasaddressResponse employeehasaddress(WpfApplication3.ServiceReference1.employeehasaddressRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/employeehasaddress", ReplyAction="*")]
-        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.employeehasaddressResponse> employeehasaddressAsync(WpfApplication3.ServiceReference1.employeehasaddressRequest request);
-        
-        // CODEGEN: Der Nachrichtenvertrag wird generiert, da der Wrappernamespace () von Nachricht "createaddressRequest" nicht mit dem Standardwert (urn:dajana) übereinstimmt.
-        [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/createaddress", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
-        WpfApplication3.ServiceReference1.createaddressResponse createaddress(WpfApplication3.ServiceReference1.createaddressRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/createaddress", ReplyAction="*")]
-        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.createaddressResponse> createaddressAsync(WpfApplication3.ServiceReference1.createaddressRequest request);
         
         // CODEGEN: Der Nachrichtenvertrag wird generiert, da der Wrappernamespace () von Nachricht "startWorkRequest" nicht mit dem Standardwert (urn:dajana) übereinstimmt.
         [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/startWork", ReplyAction="*")]
@@ -146,6 +130,95 @@ namespace WpfApplication3.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="rpc", ReplyAction="*")]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         System.Threading.Tasks.Task<string[]> loadauthorisationsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="rpc", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        string[] loademployees();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="rpc", ReplyAction="*")]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        System.Threading.Tasks.Task<string[]> loademployeesAsync();
+        
+        // CODEGEN: Der Nachrichtenvertrag wird generiert, da der Wrappernamespace () von Nachricht "archiveWorkingTimeRequest" nicht mit dem Standardwert (urn:dajana) übereinstimmt.
+        [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/archiveWorkingTime", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        WpfApplication3.ServiceReference1.archiveWorkingTimeResponse archiveWorkingTime(WpfApplication3.ServiceReference1.archiveWorkingTimeRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/archiveWorkingTime", ReplyAction="*")]
+        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.archiveWorkingTimeResponse> archiveWorkingTimeAsync(WpfApplication3.ServiceReference1.archiveWorkingTimeRequest request);
+        
+        // CODEGEN: Der Nachrichtenvertrag wird generiert, da der Wrappernamespace () von Nachricht "archiveProjectsRequest" nicht mit dem Standardwert (urn:dajana) übereinstimmt.
+        [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/archiveProjects", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        WpfApplication3.ServiceReference1.archiveProjectsResponse archiveProjects(WpfApplication3.ServiceReference1.archiveProjectsRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/archiveProjects", ReplyAction="*")]
+        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.archiveProjectsResponse> archiveProjectsAsync(WpfApplication3.ServiceReference1.archiveProjectsRequest request);
+        
+        // CODEGEN: Der Nachrichtenvertrag wird generiert, da der Wrappernamespace () von Nachricht "archiveActivitiesRequest" nicht mit dem Standardwert (urn:dajana) übereinstimmt.
+        [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/archiveActivities", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        WpfApplication3.ServiceReference1.archiveActivitiesResponse archiveActivities(WpfApplication3.ServiceReference1.archiveActivitiesRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/archiveActivities", ReplyAction="*")]
+        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.archiveActivitiesResponse> archiveActivitiesAsync(WpfApplication3.ServiceReference1.archiveActivitiesRequest request);
+        
+        // CODEGEN: Der Nachrichtenvertrag wird generiert, da der Wrappernamespace () von Nachricht "archiveCustomersRequest" nicht mit dem Standardwert (urn:dajana) übereinstimmt.
+        [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/archiveCustomers", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        WpfApplication3.ServiceReference1.archiveCustomersResponse archiveCustomers(WpfApplication3.ServiceReference1.archiveCustomersRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/archiveCustomers", ReplyAction="*")]
+        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.archiveCustomersResponse> archiveCustomersAsync(WpfApplication3.ServiceReference1.archiveCustomersRequest request);
+        
+        // CODEGEN: Der Nachrichtenvertrag wird generiert, da der Wrappernamespace () von Nachricht "archiveEmployeesRequest" nicht mit dem Standardwert (urn:dajana) übereinstimmt.
+        [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/archiveEmployees", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        WpfApplication3.ServiceReference1.archiveEmployeesResponse archiveEmployees(WpfApplication3.ServiceReference1.archiveEmployeesRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/archiveEmployees", ReplyAction="*")]
+        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.archiveEmployeesResponse> archiveEmployeesAsync(WpfApplication3.ServiceReference1.archiveEmployeesRequest request);
+        
+        // CODEGEN: Der Nachrichtenvertrag wird generiert, da der Wrappernamespace () von Nachricht "restoreWorkingTimeRequest" nicht mit dem Standardwert (urn:dajana) übereinstimmt.
+        [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/restoreWorkingTime", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        WpfApplication3.ServiceReference1.restoreWorkingTimeResponse restoreWorkingTime(WpfApplication3.ServiceReference1.restoreWorkingTimeRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/restoreWorkingTime", ReplyAction="*")]
+        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.restoreWorkingTimeResponse> restoreWorkingTimeAsync(WpfApplication3.ServiceReference1.restoreWorkingTimeRequest request);
+        
+        // CODEGEN: Der Nachrichtenvertrag wird generiert, da der Wrappernamespace () von Nachricht "restoreProjectsRequest" nicht mit dem Standardwert (urn:dajana) übereinstimmt.
+        [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/restoreProjects", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        WpfApplication3.ServiceReference1.restoreProjectsResponse restoreProjects(WpfApplication3.ServiceReference1.restoreProjectsRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/restoreProjects", ReplyAction="*")]
+        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.restoreProjectsResponse> restoreProjectsAsync(WpfApplication3.ServiceReference1.restoreProjectsRequest request);
+        
+        // CODEGEN: Der Nachrichtenvertrag wird generiert, da der Wrappernamespace () von Nachricht "restoreActivitiesRequest" nicht mit dem Standardwert (urn:dajana) übereinstimmt.
+        [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/restoreActivities", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        WpfApplication3.ServiceReference1.restoreActivitiesResponse restoreActivities(WpfApplication3.ServiceReference1.restoreActivitiesRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/restoreActivities", ReplyAction="*")]
+        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.restoreActivitiesResponse> restoreActivitiesAsync(WpfApplication3.ServiceReference1.restoreActivitiesRequest request);
+        
+        // CODEGEN: Der Nachrichtenvertrag wird generiert, da der Wrappernamespace () von Nachricht "restoreCustomersRequest" nicht mit dem Standardwert (urn:dajana) übereinstimmt.
+        [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/restoreCustomers", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        WpfApplication3.ServiceReference1.restoreCustomersResponse restoreCustomers(WpfApplication3.ServiceReference1.restoreCustomersRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/restoreCustomers", ReplyAction="*")]
+        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.restoreCustomersResponse> restoreCustomersAsync(WpfApplication3.ServiceReference1.restoreCustomersRequest request);
+        
+        // CODEGEN: Der Nachrichtenvertrag wird generiert, da der Wrappernamespace () von Nachricht "restoreEmployeesRequest" nicht mit dem Standardwert (urn:dajana) übereinstimmt.
+        [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/restoreEmployees", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        WpfApplication3.ServiceReference1.restoreEmployeesResponse restoreEmployees(WpfApplication3.ServiceReference1.restoreEmployeesRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/restoreEmployees", ReplyAction="*")]
+        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.restoreEmployeesResponse> restoreEmployeesAsync(WpfApplication3.ServiceReference1.restoreEmployeesRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="rpc", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
@@ -333,25 +406,21 @@ namespace WpfApplication3.ServiceReference1 {
     public partial class createprojectRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
-        public int idprojekt;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=1)]
         public string projektname;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=2)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=1)]
         public string projektbeschreibung;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=3)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=2)]
         public int status;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=4)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=3)]
         public int kundennr;
         
         public createprojectRequest() {
         }
         
-        public createprojectRequest(int idprojekt, string projektname, string projektbeschreibung, int status, int kundennr) {
-            this.idprojekt = idprojekt;
+        public createprojectRequest(string projektname, string projektbeschreibung, int status, int kundennr) {
             this.projektname = projektname;
             this.projektbeschreibung = projektbeschreibung;
             this.status = status;
@@ -372,6 +441,48 @@ namespace WpfApplication3.ServiceReference1 {
         }
         
         public createprojectResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="createactivity", WrapperNamespace="", IsWrapped=true)]
+    public partial class createactivityRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+        public string Aktivitaetenname;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=1)]
+        public string Aktivitaetenbeschreibung;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=2)]
+        public int Status;
+        
+        public createactivityRequest() {
+        }
+        
+        public createactivityRequest(string Aktivitaetenname, string Aktivitaetenbeschreibung, int Status) {
+            this.Aktivitaetenname = Aktivitaetenname;
+            this.Aktivitaetenbeschreibung = Aktivitaetenbeschreibung;
+            this.Status = Status;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="createactivityResponse", WrapperNamespace="", IsWrapped=true)]
+    public partial class createactivityResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+        public int @return;
+        
+        public createactivityResponse() {
+        }
+        
+        public createactivityResponse(int @return) {
             this.@return = @return;
         }
     }
@@ -429,25 +540,29 @@ namespace WpfApplication3.ServiceReference1 {
         public string Firmenname;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=4)]
-        public string TelNrMobil;
+        public string Anschrift;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=5)]
-        public string TelNrFestnetz;
+        public string TelNrMobil;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=6)]
-        public string EMail;
+        public string TelNrFestnetz;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=7)]
+        public string EMail;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=8)]
         public int Status;
         
         public createcustomerRequest() {
         }
         
-        public createcustomerRequest(int KundenNr, string Nachname, string Vorname, string Firmenname, string TelNrMobil, string TelNrFestnetz, string EMail, int Status) {
+        public createcustomerRequest(int KundenNr, string Nachname, string Vorname, string Firmenname, string Anschrift, string TelNrMobil, string TelNrFestnetz, string EMail, int Status) {
             this.KundenNr = KundenNr;
             this.Nachname = Nachname;
             this.Vorname = Vorname;
             this.Firmenname = Firmenname;
+            this.Anschrift = Anschrift;
             this.TelNrMobil = TelNrMobil;
             this.TelNrFestnetz = TelNrFestnetz;
             this.EMail = EMail;
@@ -542,132 +657,6 @@ namespace WpfApplication3.ServiceReference1 {
         }
         
         public createemployeeResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="customerhasaddress", WrapperNamespace="", IsWrapped=true)]
-    public partial class customerhasaddressRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
-        public int CustomerID;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=1)]
-        public int AddressID;
-        
-        public customerhasaddressRequest() {
-        }
-        
-        public customerhasaddressRequest(int CustomerID, int AddressID) {
-            this.CustomerID = CustomerID;
-            this.AddressID = AddressID;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="customerhasaddressResponse", WrapperNamespace="", IsWrapped=true)]
-    public partial class customerhasaddressResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
-        public bool @return;
-        
-        public customerhasaddressResponse() {
-        }
-        
-        public customerhasaddressResponse(bool @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="employeehasaddress", WrapperNamespace="", IsWrapped=true)]
-    public partial class employeehasaddressRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
-        public int EmployeeID;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=1)]
-        public int AddressID;
-        
-        public employeehasaddressRequest() {
-        }
-        
-        public employeehasaddressRequest(int EmployeeID, int AddressID) {
-            this.EmployeeID = EmployeeID;
-            this.AddressID = AddressID;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="employeehasaddressResponse", WrapperNamespace="", IsWrapped=true)]
-    public partial class employeehasaddressResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
-        public bool @return;
-        
-        public employeehasaddressResponse() {
-        }
-        
-        public employeehasaddressResponse(bool @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="createaddress", WrapperNamespace="", IsWrapped=true)]
-    public partial class createaddressRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
-        public string Ort;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=1)]
-        public int PLZ;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=2)]
-        public string Strasse;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=3)]
-        public string Hausnummer;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=4)]
-        public int Postfach;
-        
-        public createaddressRequest() {
-        }
-        
-        public createaddressRequest(string Ort, int PLZ, string Strasse, string Hausnummer, int Postfach) {
-            this.Ort = Ort;
-            this.PLZ = PLZ;
-            this.Strasse = Strasse;
-            this.Hausnummer = Hausnummer;
-            this.Postfach = Postfach;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="createaddressResponse", WrapperNamespace="", IsWrapped=true)]
-    public partial class createaddressResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
-        public int @return;
-        
-        public createaddressResponse() {
-        }
-        
-        public createaddressResponse(int @return) {
             this.@return = @return;
         }
     }
@@ -805,6 +794,276 @@ namespace WpfApplication3.ServiceReference1 {
         
         public stopPauseWorkResponse(string @return) {
             this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="archiveWorkingTime", WrapperNamespace="", IsWrapped=true)]
+    public partial class archiveWorkingTimeRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+        public string id;
+        
+        public archiveWorkingTimeRequest() {
+        }
+        
+        public archiveWorkingTimeRequest(string id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="archiveWorkingTimeResponse", WrapperNamespace="", IsWrapped=true)]
+    public partial class archiveWorkingTimeResponse {
+        
+        public archiveWorkingTimeResponse() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="archiveProjects", WrapperNamespace="", IsWrapped=true)]
+    public partial class archiveProjectsRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+        public string id;
+        
+        public archiveProjectsRequest() {
+        }
+        
+        public archiveProjectsRequest(string id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="archiveProjectsResponse", WrapperNamespace="", IsWrapped=true)]
+    public partial class archiveProjectsResponse {
+        
+        public archiveProjectsResponse() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="archiveActivities", WrapperNamespace="", IsWrapped=true)]
+    public partial class archiveActivitiesRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+        public string id;
+        
+        public archiveActivitiesRequest() {
+        }
+        
+        public archiveActivitiesRequest(string id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="archiveActivitiesResponse", WrapperNamespace="", IsWrapped=true)]
+    public partial class archiveActivitiesResponse {
+        
+        public archiveActivitiesResponse() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="archiveCustomers", WrapperNamespace="", IsWrapped=true)]
+    public partial class archiveCustomersRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+        public string id;
+        
+        public archiveCustomersRequest() {
+        }
+        
+        public archiveCustomersRequest(string id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="archiveCustomersResponse", WrapperNamespace="", IsWrapped=true)]
+    public partial class archiveCustomersResponse {
+        
+        public archiveCustomersResponse() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="archiveEmployees", WrapperNamespace="", IsWrapped=true)]
+    public partial class archiveEmployeesRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+        public string id;
+        
+        public archiveEmployeesRequest() {
+        }
+        
+        public archiveEmployeesRequest(string id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="archiveEmployeesResponse", WrapperNamespace="", IsWrapped=true)]
+    public partial class archiveEmployeesResponse {
+        
+        public archiveEmployeesResponse() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="restoreWorkingTime", WrapperNamespace="", IsWrapped=true)]
+    public partial class restoreWorkingTimeRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+        public string id;
+        
+        public restoreWorkingTimeRequest() {
+        }
+        
+        public restoreWorkingTimeRequest(string id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="restoreWorkingTimeResponse", WrapperNamespace="", IsWrapped=true)]
+    public partial class restoreWorkingTimeResponse {
+        
+        public restoreWorkingTimeResponse() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="restoreProjects", WrapperNamespace="", IsWrapped=true)]
+    public partial class restoreProjectsRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+        public string id;
+        
+        public restoreProjectsRequest() {
+        }
+        
+        public restoreProjectsRequest(string id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="restoreProjectsResponse", WrapperNamespace="", IsWrapped=true)]
+    public partial class restoreProjectsResponse {
+        
+        public restoreProjectsResponse() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="restoreActivities", WrapperNamespace="", IsWrapped=true)]
+    public partial class restoreActivitiesRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+        public string id;
+        
+        public restoreActivitiesRequest() {
+        }
+        
+        public restoreActivitiesRequest(string id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="restoreActivitiesResponse", WrapperNamespace="", IsWrapped=true)]
+    public partial class restoreActivitiesResponse {
+        
+        public restoreActivitiesResponse() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="restoreCustomers", WrapperNamespace="", IsWrapped=true)]
+    public partial class restoreCustomersRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+        public string id;
+        
+        public restoreCustomersRequest() {
+        }
+        
+        public restoreCustomersRequest(string id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="restoreCustomersResponse", WrapperNamespace="", IsWrapped=true)]
+    public partial class restoreCustomersResponse {
+        
+        public restoreCustomersResponse() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="restoreEmployees", WrapperNamespace="", IsWrapped=true)]
+    public partial class restoreEmployeesRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+        public string id;
+        
+        public restoreEmployeesRequest() {
+        }
+        
+        public restoreEmployeesRequest(string id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="restoreEmployeesResponse", WrapperNamespace="", IsWrapped=true)]
+    public partial class restoreEmployeesResponse {
+        
+        public restoreEmployeesResponse() {
         }
     }
     
@@ -1167,6 +1426,8 @@ namespace WpfApplication3.ServiceReference1 {
         
         private string vornameField;
         
+        private string anschriftField;
+        
         private System.DateTime gebTagField;
         
         private string eMailField;
@@ -1211,6 +1472,17 @@ namespace WpfApplication3.ServiceReference1 {
             set {
                 this.vornameField = value;
                 this.RaisePropertyChanged("Vorname");
+            }
+        }
+        
+        /// <remarks/>
+        public string Anschrift {
+            get {
+                return this.anschriftField;
+            }
+            set {
+                this.anschriftField = value;
+                this.RaisePropertyChanged("Anschrift");
             }
         }
         
@@ -1317,6 +1589,8 @@ namespace WpfApplication3.ServiceReference1 {
         
         private string vornameField;
         
+        private string anschriftField;
+        
         private string firmennameField;
         
         private string telNrMobilField;
@@ -1357,6 +1631,17 @@ namespace WpfApplication3.ServiceReference1 {
             set {
                 this.vornameField = value;
                 this.RaisePropertyChanged("Vorname");
+            }
+        }
+        
+        /// <remarks/>
+        public string Anschrift {
+            get {
+                return this.anschriftField;
+            }
+            set {
+                this.anschriftField = value;
+                this.RaisePropertyChanged("Anschrift");
             }
         }
         
@@ -1482,9 +1767,8 @@ namespace WpfApplication3.ServiceReference1 {
             return base.Channel.createproject(request);
         }
         
-        public int createproject(int idprojekt, string projektname, string projektbeschreibung, int status, int kundennr) {
+        public int createproject(string projektname, string projektbeschreibung, int status, int kundennr) {
             WpfApplication3.ServiceReference1.createprojectRequest inValue = new WpfApplication3.ServiceReference1.createprojectRequest();
-            inValue.idprojekt = idprojekt;
             inValue.projektname = projektname;
             inValue.projektbeschreibung = projektbeschreibung;
             inValue.status = status;
@@ -1498,14 +1782,40 @@ namespace WpfApplication3.ServiceReference1 {
             return base.Channel.createprojectAsync(request);
         }
         
-        public System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.createprojectResponse> createprojectAsync(int idprojekt, string projektname, string projektbeschreibung, int status, int kundennr) {
+        public System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.createprojectResponse> createprojectAsync(string projektname, string projektbeschreibung, int status, int kundennr) {
             WpfApplication3.ServiceReference1.createprojectRequest inValue = new WpfApplication3.ServiceReference1.createprojectRequest();
-            inValue.idprojekt = idprojekt;
             inValue.projektname = projektname;
             inValue.projektbeschreibung = projektbeschreibung;
             inValue.status = status;
             inValue.kundennr = kundennr;
             return ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).createprojectAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WpfApplication3.ServiceReference1.createactivityResponse WpfApplication3.ServiceReference1.zeiterfassungPortType.createactivity(WpfApplication3.ServiceReference1.createactivityRequest request) {
+            return base.Channel.createactivity(request);
+        }
+        
+        public int createactivity(string Aktivitaetenname, string Aktivitaetenbeschreibung, int Status) {
+            WpfApplication3.ServiceReference1.createactivityRequest inValue = new WpfApplication3.ServiceReference1.createactivityRequest();
+            inValue.Aktivitaetenname = Aktivitaetenname;
+            inValue.Aktivitaetenbeschreibung = Aktivitaetenbeschreibung;
+            inValue.Status = Status;
+            WpfApplication3.ServiceReference1.createactivityResponse retVal = ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).createactivity(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.createactivityResponse> WpfApplication3.ServiceReference1.zeiterfassungPortType.createactivityAsync(WpfApplication3.ServiceReference1.createactivityRequest request) {
+            return base.Channel.createactivityAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.createactivityResponse> createactivityAsync(string Aktivitaetenname, string Aktivitaetenbeschreibung, int Status) {
+            WpfApplication3.ServiceReference1.createactivityRequest inValue = new WpfApplication3.ServiceReference1.createactivityRequest();
+            inValue.Aktivitaetenname = Aktivitaetenname;
+            inValue.Aktivitaetenbeschreibung = Aktivitaetenbeschreibung;
+            inValue.Status = Status;
+            return ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).createactivityAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -1536,12 +1846,13 @@ namespace WpfApplication3.ServiceReference1 {
             return base.Channel.createcustomer(request);
         }
         
-        public int createcustomer(int KundenNr, string Nachname, string Vorname, string Firmenname, string TelNrMobil, string TelNrFestnetz, string EMail, int Status) {
+        public int createcustomer(int KundenNr, string Nachname, string Vorname, string Firmenname, string Anschrift, string TelNrMobil, string TelNrFestnetz, string EMail, int Status) {
             WpfApplication3.ServiceReference1.createcustomerRequest inValue = new WpfApplication3.ServiceReference1.createcustomerRequest();
             inValue.KundenNr = KundenNr;
             inValue.Nachname = Nachname;
             inValue.Vorname = Vorname;
             inValue.Firmenname = Firmenname;
+            inValue.Anschrift = Anschrift;
             inValue.TelNrMobil = TelNrMobil;
             inValue.TelNrFestnetz = TelNrFestnetz;
             inValue.EMail = EMail;
@@ -1555,12 +1866,13 @@ namespace WpfApplication3.ServiceReference1 {
             return base.Channel.createcustomerAsync(request);
         }
         
-        public System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.createcustomerResponse> createcustomerAsync(int KundenNr, string Nachname, string Vorname, string Firmenname, string TelNrMobil, string TelNrFestnetz, string EMail, int Status) {
+        public System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.createcustomerResponse> createcustomerAsync(int KundenNr, string Nachname, string Vorname, string Firmenname, string Anschrift, string TelNrMobil, string TelNrFestnetz, string EMail, int Status) {
             WpfApplication3.ServiceReference1.createcustomerRequest inValue = new WpfApplication3.ServiceReference1.createcustomerRequest();
             inValue.KundenNr = KundenNr;
             inValue.Nachname = Nachname;
             inValue.Vorname = Vorname;
             inValue.Firmenname = Firmenname;
+            inValue.Anschrift = Anschrift;
             inValue.TelNrMobil = TelNrMobil;
             inValue.TelNrFestnetz = TelNrFestnetz;
             inValue.EMail = EMail;
@@ -1609,87 +1921,6 @@ namespace WpfApplication3.ServiceReference1 {
             inValue.PIN = PIN;
             inValue.Status = Status;
             return ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).createemployeeAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WpfApplication3.ServiceReference1.customerhasaddressResponse WpfApplication3.ServiceReference1.zeiterfassungPortType.customerhasaddress(WpfApplication3.ServiceReference1.customerhasaddressRequest request) {
-            return base.Channel.customerhasaddress(request);
-        }
-        
-        public bool customerhasaddress(int CustomerID, int AddressID) {
-            WpfApplication3.ServiceReference1.customerhasaddressRequest inValue = new WpfApplication3.ServiceReference1.customerhasaddressRequest();
-            inValue.CustomerID = CustomerID;
-            inValue.AddressID = AddressID;
-            WpfApplication3.ServiceReference1.customerhasaddressResponse retVal = ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).customerhasaddress(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.customerhasaddressResponse> WpfApplication3.ServiceReference1.zeiterfassungPortType.customerhasaddressAsync(WpfApplication3.ServiceReference1.customerhasaddressRequest request) {
-            return base.Channel.customerhasaddressAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.customerhasaddressResponse> customerhasaddressAsync(int CustomerID, int AddressID) {
-            WpfApplication3.ServiceReference1.customerhasaddressRequest inValue = new WpfApplication3.ServiceReference1.customerhasaddressRequest();
-            inValue.CustomerID = CustomerID;
-            inValue.AddressID = AddressID;
-            return ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).customerhasaddressAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WpfApplication3.ServiceReference1.employeehasaddressResponse WpfApplication3.ServiceReference1.zeiterfassungPortType.employeehasaddress(WpfApplication3.ServiceReference1.employeehasaddressRequest request) {
-            return base.Channel.employeehasaddress(request);
-        }
-        
-        public bool employeehasaddress(int EmployeeID, int AddressID) {
-            WpfApplication3.ServiceReference1.employeehasaddressRequest inValue = new WpfApplication3.ServiceReference1.employeehasaddressRequest();
-            inValue.EmployeeID = EmployeeID;
-            inValue.AddressID = AddressID;
-            WpfApplication3.ServiceReference1.employeehasaddressResponse retVal = ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).employeehasaddress(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.employeehasaddressResponse> WpfApplication3.ServiceReference1.zeiterfassungPortType.employeehasaddressAsync(WpfApplication3.ServiceReference1.employeehasaddressRequest request) {
-            return base.Channel.employeehasaddressAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.employeehasaddressResponse> employeehasaddressAsync(int EmployeeID, int AddressID) {
-            WpfApplication3.ServiceReference1.employeehasaddressRequest inValue = new WpfApplication3.ServiceReference1.employeehasaddressRequest();
-            inValue.EmployeeID = EmployeeID;
-            inValue.AddressID = AddressID;
-            return ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).employeehasaddressAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WpfApplication3.ServiceReference1.createaddressResponse WpfApplication3.ServiceReference1.zeiterfassungPortType.createaddress(WpfApplication3.ServiceReference1.createaddressRequest request) {
-            return base.Channel.createaddress(request);
-        }
-        
-        public int createaddress(string Ort, int PLZ, string Strasse, string Hausnummer, int Postfach) {
-            WpfApplication3.ServiceReference1.createaddressRequest inValue = new WpfApplication3.ServiceReference1.createaddressRequest();
-            inValue.Ort = Ort;
-            inValue.PLZ = PLZ;
-            inValue.Strasse = Strasse;
-            inValue.Hausnummer = Hausnummer;
-            inValue.Postfach = Postfach;
-            WpfApplication3.ServiceReference1.createaddressResponse retVal = ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).createaddress(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.createaddressResponse> WpfApplication3.ServiceReference1.zeiterfassungPortType.createaddressAsync(WpfApplication3.ServiceReference1.createaddressRequest request) {
-            return base.Channel.createaddressAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.createaddressResponse> createaddressAsync(string Ort, int PLZ, string Strasse, string Hausnummer, int Postfach) {
-            WpfApplication3.ServiceReference1.createaddressRequest inValue = new WpfApplication3.ServiceReference1.createaddressRequest();
-            inValue.Ort = Ort;
-            inValue.PLZ = PLZ;
-            inValue.Strasse = Strasse;
-            inValue.Hausnummer = Hausnummer;
-            inValue.Postfach = Postfach;
-            return ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).createaddressAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -1815,6 +2046,234 @@ namespace WpfApplication3.ServiceReference1 {
         
         public System.Threading.Tasks.Task<string[]> loadauthorisationsAsync() {
             return base.Channel.loadauthorisationsAsync();
+        }
+        
+        public string[] loademployees() {
+            return base.Channel.loademployees();
+        }
+        
+        public System.Threading.Tasks.Task<string[]> loademployeesAsync() {
+            return base.Channel.loademployeesAsync();
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WpfApplication3.ServiceReference1.archiveWorkingTimeResponse WpfApplication3.ServiceReference1.zeiterfassungPortType.archiveWorkingTime(WpfApplication3.ServiceReference1.archiveWorkingTimeRequest request) {
+            return base.Channel.archiveWorkingTime(request);
+        }
+        
+        public void archiveWorkingTime(string id) {
+            WpfApplication3.ServiceReference1.archiveWorkingTimeRequest inValue = new WpfApplication3.ServiceReference1.archiveWorkingTimeRequest();
+            inValue.id = id;
+            WpfApplication3.ServiceReference1.archiveWorkingTimeResponse retVal = ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).archiveWorkingTime(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.archiveWorkingTimeResponse> WpfApplication3.ServiceReference1.zeiterfassungPortType.archiveWorkingTimeAsync(WpfApplication3.ServiceReference1.archiveWorkingTimeRequest request) {
+            return base.Channel.archiveWorkingTimeAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.archiveWorkingTimeResponse> archiveWorkingTimeAsync(string id) {
+            WpfApplication3.ServiceReference1.archiveWorkingTimeRequest inValue = new WpfApplication3.ServiceReference1.archiveWorkingTimeRequest();
+            inValue.id = id;
+            return ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).archiveWorkingTimeAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WpfApplication3.ServiceReference1.archiveProjectsResponse WpfApplication3.ServiceReference1.zeiterfassungPortType.archiveProjects(WpfApplication3.ServiceReference1.archiveProjectsRequest request) {
+            return base.Channel.archiveProjects(request);
+        }
+        
+        public void archiveProjects(string id) {
+            WpfApplication3.ServiceReference1.archiveProjectsRequest inValue = new WpfApplication3.ServiceReference1.archiveProjectsRequest();
+            inValue.id = id;
+            WpfApplication3.ServiceReference1.archiveProjectsResponse retVal = ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).archiveProjects(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.archiveProjectsResponse> WpfApplication3.ServiceReference1.zeiterfassungPortType.archiveProjectsAsync(WpfApplication3.ServiceReference1.archiveProjectsRequest request) {
+            return base.Channel.archiveProjectsAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.archiveProjectsResponse> archiveProjectsAsync(string id) {
+            WpfApplication3.ServiceReference1.archiveProjectsRequest inValue = new WpfApplication3.ServiceReference1.archiveProjectsRequest();
+            inValue.id = id;
+            return ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).archiveProjectsAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WpfApplication3.ServiceReference1.archiveActivitiesResponse WpfApplication3.ServiceReference1.zeiterfassungPortType.archiveActivities(WpfApplication3.ServiceReference1.archiveActivitiesRequest request) {
+            return base.Channel.archiveActivities(request);
+        }
+        
+        public void archiveActivities(string id) {
+            WpfApplication3.ServiceReference1.archiveActivitiesRequest inValue = new WpfApplication3.ServiceReference1.archiveActivitiesRequest();
+            inValue.id = id;
+            WpfApplication3.ServiceReference1.archiveActivitiesResponse retVal = ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).archiveActivities(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.archiveActivitiesResponse> WpfApplication3.ServiceReference1.zeiterfassungPortType.archiveActivitiesAsync(WpfApplication3.ServiceReference1.archiveActivitiesRequest request) {
+            return base.Channel.archiveActivitiesAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.archiveActivitiesResponse> archiveActivitiesAsync(string id) {
+            WpfApplication3.ServiceReference1.archiveActivitiesRequest inValue = new WpfApplication3.ServiceReference1.archiveActivitiesRequest();
+            inValue.id = id;
+            return ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).archiveActivitiesAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WpfApplication3.ServiceReference1.archiveCustomersResponse WpfApplication3.ServiceReference1.zeiterfassungPortType.archiveCustomers(WpfApplication3.ServiceReference1.archiveCustomersRequest request) {
+            return base.Channel.archiveCustomers(request);
+        }
+        
+        public void archiveCustomers(string id) {
+            WpfApplication3.ServiceReference1.archiveCustomersRequest inValue = new WpfApplication3.ServiceReference1.archiveCustomersRequest();
+            inValue.id = id;
+            WpfApplication3.ServiceReference1.archiveCustomersResponse retVal = ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).archiveCustomers(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.archiveCustomersResponse> WpfApplication3.ServiceReference1.zeiterfassungPortType.archiveCustomersAsync(WpfApplication3.ServiceReference1.archiveCustomersRequest request) {
+            return base.Channel.archiveCustomersAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.archiveCustomersResponse> archiveCustomersAsync(string id) {
+            WpfApplication3.ServiceReference1.archiveCustomersRequest inValue = new WpfApplication3.ServiceReference1.archiveCustomersRequest();
+            inValue.id = id;
+            return ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).archiveCustomersAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WpfApplication3.ServiceReference1.archiveEmployeesResponse WpfApplication3.ServiceReference1.zeiterfassungPortType.archiveEmployees(WpfApplication3.ServiceReference1.archiveEmployeesRequest request) {
+            return base.Channel.archiveEmployees(request);
+        }
+        
+        public void archiveEmployees(string id) {
+            WpfApplication3.ServiceReference1.archiveEmployeesRequest inValue = new WpfApplication3.ServiceReference1.archiveEmployeesRequest();
+            inValue.id = id;
+            WpfApplication3.ServiceReference1.archiveEmployeesResponse retVal = ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).archiveEmployees(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.archiveEmployeesResponse> WpfApplication3.ServiceReference1.zeiterfassungPortType.archiveEmployeesAsync(WpfApplication3.ServiceReference1.archiveEmployeesRequest request) {
+            return base.Channel.archiveEmployeesAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.archiveEmployeesResponse> archiveEmployeesAsync(string id) {
+            WpfApplication3.ServiceReference1.archiveEmployeesRequest inValue = new WpfApplication3.ServiceReference1.archiveEmployeesRequest();
+            inValue.id = id;
+            return ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).archiveEmployeesAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WpfApplication3.ServiceReference1.restoreWorkingTimeResponse WpfApplication3.ServiceReference1.zeiterfassungPortType.restoreWorkingTime(WpfApplication3.ServiceReference1.restoreWorkingTimeRequest request) {
+            return base.Channel.restoreWorkingTime(request);
+        }
+        
+        public void restoreWorkingTime(string id) {
+            WpfApplication3.ServiceReference1.restoreWorkingTimeRequest inValue = new WpfApplication3.ServiceReference1.restoreWorkingTimeRequest();
+            inValue.id = id;
+            WpfApplication3.ServiceReference1.restoreWorkingTimeResponse retVal = ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).restoreWorkingTime(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.restoreWorkingTimeResponse> WpfApplication3.ServiceReference1.zeiterfassungPortType.restoreWorkingTimeAsync(WpfApplication3.ServiceReference1.restoreWorkingTimeRequest request) {
+            return base.Channel.restoreWorkingTimeAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.restoreWorkingTimeResponse> restoreWorkingTimeAsync(string id) {
+            WpfApplication3.ServiceReference1.restoreWorkingTimeRequest inValue = new WpfApplication3.ServiceReference1.restoreWorkingTimeRequest();
+            inValue.id = id;
+            return ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).restoreWorkingTimeAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WpfApplication3.ServiceReference1.restoreProjectsResponse WpfApplication3.ServiceReference1.zeiterfassungPortType.restoreProjects(WpfApplication3.ServiceReference1.restoreProjectsRequest request) {
+            return base.Channel.restoreProjects(request);
+        }
+        
+        public void restoreProjects(string id) {
+            WpfApplication3.ServiceReference1.restoreProjectsRequest inValue = new WpfApplication3.ServiceReference1.restoreProjectsRequest();
+            inValue.id = id;
+            WpfApplication3.ServiceReference1.restoreProjectsResponse retVal = ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).restoreProjects(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.restoreProjectsResponse> WpfApplication3.ServiceReference1.zeiterfassungPortType.restoreProjectsAsync(WpfApplication3.ServiceReference1.restoreProjectsRequest request) {
+            return base.Channel.restoreProjectsAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.restoreProjectsResponse> restoreProjectsAsync(string id) {
+            WpfApplication3.ServiceReference1.restoreProjectsRequest inValue = new WpfApplication3.ServiceReference1.restoreProjectsRequest();
+            inValue.id = id;
+            return ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).restoreProjectsAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WpfApplication3.ServiceReference1.restoreActivitiesResponse WpfApplication3.ServiceReference1.zeiterfassungPortType.restoreActivities(WpfApplication3.ServiceReference1.restoreActivitiesRequest request) {
+            return base.Channel.restoreActivities(request);
+        }
+        
+        public void restoreActivities(string id) {
+            WpfApplication3.ServiceReference1.restoreActivitiesRequest inValue = new WpfApplication3.ServiceReference1.restoreActivitiesRequest();
+            inValue.id = id;
+            WpfApplication3.ServiceReference1.restoreActivitiesResponse retVal = ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).restoreActivities(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.restoreActivitiesResponse> WpfApplication3.ServiceReference1.zeiterfassungPortType.restoreActivitiesAsync(WpfApplication3.ServiceReference1.restoreActivitiesRequest request) {
+            return base.Channel.restoreActivitiesAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.restoreActivitiesResponse> restoreActivitiesAsync(string id) {
+            WpfApplication3.ServiceReference1.restoreActivitiesRequest inValue = new WpfApplication3.ServiceReference1.restoreActivitiesRequest();
+            inValue.id = id;
+            return ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).restoreActivitiesAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WpfApplication3.ServiceReference1.restoreCustomersResponse WpfApplication3.ServiceReference1.zeiterfassungPortType.restoreCustomers(WpfApplication3.ServiceReference1.restoreCustomersRequest request) {
+            return base.Channel.restoreCustomers(request);
+        }
+        
+        public void restoreCustomers(string id) {
+            WpfApplication3.ServiceReference1.restoreCustomersRequest inValue = new WpfApplication3.ServiceReference1.restoreCustomersRequest();
+            inValue.id = id;
+            WpfApplication3.ServiceReference1.restoreCustomersResponse retVal = ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).restoreCustomers(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.restoreCustomersResponse> WpfApplication3.ServiceReference1.zeiterfassungPortType.restoreCustomersAsync(WpfApplication3.ServiceReference1.restoreCustomersRequest request) {
+            return base.Channel.restoreCustomersAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.restoreCustomersResponse> restoreCustomersAsync(string id) {
+            WpfApplication3.ServiceReference1.restoreCustomersRequest inValue = new WpfApplication3.ServiceReference1.restoreCustomersRequest();
+            inValue.id = id;
+            return ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).restoreCustomersAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WpfApplication3.ServiceReference1.restoreEmployeesResponse WpfApplication3.ServiceReference1.zeiterfassungPortType.restoreEmployees(WpfApplication3.ServiceReference1.restoreEmployeesRequest request) {
+            return base.Channel.restoreEmployees(request);
+        }
+        
+        public void restoreEmployees(string id) {
+            WpfApplication3.ServiceReference1.restoreEmployeesRequest inValue = new WpfApplication3.ServiceReference1.restoreEmployeesRequest();
+            inValue.id = id;
+            WpfApplication3.ServiceReference1.restoreEmployeesResponse retVal = ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).restoreEmployees(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.restoreEmployeesResponse> WpfApplication3.ServiceReference1.zeiterfassungPortType.restoreEmployeesAsync(WpfApplication3.ServiceReference1.restoreEmployeesRequest request) {
+            return base.Channel.restoreEmployeesAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.restoreEmployeesResponse> restoreEmployeesAsync(string id) {
+            WpfApplication3.ServiceReference1.restoreEmployeesRequest inValue = new WpfApplication3.ServiceReference1.restoreEmployeesRequest();
+            inValue.id = id;
+            return ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).restoreEmployeesAsync(inValue);
         }
         
         public WpfApplication3.ServiceReference1.TableDataWorkingTimes[] loadtableworkingtimes() {

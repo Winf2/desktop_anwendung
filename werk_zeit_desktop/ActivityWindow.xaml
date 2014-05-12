@@ -11,12 +11,11 @@
                 <StackPanel HorizontalAlignment="Left">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock>
-                            <Label Content="Nr.:"/>
-                            <TextBox x:Name="textBoxActivityNr" Width="50"/>
-                        </TextBlock>
-                        <TextBlock>
                             <Label Content="Name:"/>
-                            <TextBox x:Name="textBoxActivityName" Width="250"/>
+                            <TextBox x:Name="textBoxActivityName" Width="270"/>
+                        </TextBlock>
+                        <TextBlock VerticalAlignment="Center" Width="55" HorizontalAlignment="Right" Margin="10,0,0,0">
+                            <CheckBox x:Name="checkBoxStatus" Content="Aktiv" IsChecked="True" VerticalAlignment="Center" Width="64"/>
                         </TextBlock>
                     </StackPanel>
                     <StackPanel Width="384">

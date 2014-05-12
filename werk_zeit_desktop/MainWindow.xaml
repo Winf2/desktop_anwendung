@@ -112,7 +112,16 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <!-- DataGrid Style -->
+        <Style TargetType="{x:Type DataGridCell}">
+            <Style.Triggers>
+                <Trigger Property="DataGridCell.IsSelected" Value="True">
+                    <Setter Property="Background" Value="#f7d84b" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     </Window.Resources>
+
     <Grid>
         <DockPanel>
             <Menu DockPanel.Dock="Top">
@@ -129,11 +138,11 @@
             <StackPanel></StackPanel>
         </DockPanel>
         <TabControl Style="{DynamicResource TabControlOfficeStyle}" x:Name="tab_control" VerticalAlignment="Top" Height="Auto" TabStripPlacement="Left" Margin="0,65,5,0" SelectionChanged="tab_control_SelectionChanged">
-            <TabItem x:Name="tab_overview"  GotFocus="tab_overview_GotFocus">
+            <TabItem x:Name="tab_overview" HorizontalAlignment="Right" Margin="0,0,0,0" GotFocus="tab_overview_GotFocus">
                 <TabItem.Header>
-                    <StackPanel Orientation="Horizontal" Width="140">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="140">
                         <Image Source="Ressources/icons/clock-icon.png" Height="35" Width="35" />
-                        <TextBlock Text="Zeiten" TextAlignment="Center" VerticalAlignment="Center" FontSize="20" />
+                        <TextBlock Text="Zeiten" TextAlignment="Center" FontSize="20" VerticalAlignment="Center" />
                     </StackPanel>
                 </TabItem.Header>
                 <Grid>
@@ -143,48 +152,52 @@
                                 <StackPanel Orientation="Horizontal">
                                     <GroupBox Height="Auto">
                                         <GroupBox.Header>
-                                            <CheckBox x:Name="checkbox_TimeInterval" FontSize="14">Zeitraum</CheckBox>
+                                            <CheckBox x:Name="checkboxTimeTimeinterval" FontSize="14">Zeitraum</CheckBox>
                                         </GroupBox.Header>
                                         <StackPanel>
                                             <TextBlock Margin="0,5">
                                                 <Label Content="Von:"  Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                                                <DatePicker Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" SelectedDate="{x:Static sys:DateTime.Today}"/>
+                                                <DatePicker x:Name="datepickerTimeFrom" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" SelectedDate="{x:Static sys:DateTime.Today}" IsTodayHighlighted="True" IsEnabled="False"/>
                                             </TextBlock>
                                             <TextBlock>
                                                 <Label Content="Bis:" Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                                                <DatePicker Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" SelectedDate="{x:Static sys:DateTime.Today}"/>
+                                                <DatePicker x:Name="datepickerTimeTill" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" SelectedDate="{x:Static sys:DateTime.Today}" IsEnabled="False"/>
                                             </TextBlock>
                                         </StackPanel>
                                     </GroupBox>
                                     <GroupBox MinHeight="100">
                                         <GroupBox.Header>
-                                            <CheckBox x:Name="checkboxProject" FontSize="14" Content="Projekte"/>
+                                            <CheckBox x:Name="checkboxTimeProject" FontSize="14" Content="Projekte"/>
                                         </GroupBox.Header>
-                                        <ListBox HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" MinWidth="200" MinHeight="60"/>
+                                        <ListBox x:Name="listboxTimeProjects" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="200" Height="80" SelectionMode="Multiple" IsEnabled="False"/>
                                     </GroupBox>
                                     <GroupBox MinHeight="100">
                                         <GroupBox.Header>
-                                            <CheckBox x:Name="checkboxActivity" FontSize="14" Content="Aktivitäten"/>
+                                            <CheckBox x:Name="checkboxTimeActivity" FontSize="14" Content="Aktivitäten"/>
                                         </GroupBox.Header>
-                                        <ListBox HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" MinWidth="200" MinHeight="60"/>
+                                        <ListBox x:Name="listboxTimeActivities" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="200" Height="80" IsEnabled="False"/>
                                     </GroupBox>
                                     <GroupBox MinHeight="100">
                                         <GroupBox.Header>
-                                            <CheckBox x:Name="checkboxCustomer" FontSize="14" Content="Kunden"/>
+                                            <CheckBox x:Name="checkboxTimeCustomer" FontSize="14" Content="Kunden"/>
                                         </GroupBox.Header>
-                                        <ListBox HorizontalAlignment="Left" Height="62" Margin="5,10,0,0" VerticalAlignment="Top" MinWidth="180" MinHeight="60"/>
+                                        <ListBox x:Name="listboxTimeCustomers" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="180" Height="80" IsEnabled="False" />
                                     </GroupBox>
                                     <GroupBox MinHeight="100">
                                         <GroupBox.Header>
-                                            <CheckBox x:Name="checkboxEmployee" FontSize="14" Content="Mitarbeiter"/>
+                                            <CheckBox x:Name="checkboxTimeEmployee" FontSize="14" Content="Mitarbeiter"/>
                                         </GroupBox.Header>
-                                        <ListBox HorizontalAlignment="Left" Height="62" Margin="5,10,0,0" VerticalAlignment="Top" MinWidth="180" MinHeight="60"/>
+                                        <ListBox x:Name="listboxTimeEmployees" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="180" Height="80" IsEnabled="False"/>
                                     </GroupBox>
                                 </StackPanel>
                             </StackPanel>
                         </Expander>
                         <Label Content="Zeitenübersicht" FontSize="20"/>
-                        <DataGrid x:Name="dataGridWorkingTime" Margin="10" SelectionMode="Single" IsReadOnly="True" IsManipulationEnabled="False"/>
+                        <DataGrid x:Name="dataGridWorkingTime" Margin="10" IsReadOnly="True" SelectionMode="Single">
+                            <DataGrid.Resources>
+                                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#828790"/>
+                            </DataGrid.Resources>
+                        </DataGrid>
                     </StackPanel>
                 </Grid>
             </TabItem>
@@ -206,37 +219,39 @@
                                 <StackPanel Orientation="Horizontal">
                                     <GroupBox Height="Auto">
                                         <GroupBox.Header>
-                                            <CheckBox x:Name="checkbox_TimeInterval_projects" FontSize="14">Zeitraum</CheckBox>
+                                            <CheckBox x:Name="checkboxProjectsTimeinterval" FontSize="14">Zeitraum</CheckBox>
                                         </GroupBox.Header>
                                         <StackPanel>
                                             <TextBlock Margin="0,5">
                                                 <Label Content="Von:"  Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                                                <DatePicker Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" SelectedDate="{x:Static sys:DateTime.Today}"/>
+                                                <DatePicker x:Name="datepickerProjectFrom" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" SelectedDate="{x:Static sys:DateTime.Today}" IsEnabled="False"/>
                                             </TextBlock>
                                             <TextBlock>
                                                 <Label Content="Bis:" Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                                                <DatePicker Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" SelectedDate="{x:Static sys:DateTime.Today}"/>
+                                                <DatePicker x:Name="datepickerProjectTill" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" SelectedDate="{x:Static sys:DateTime.Today}" IsEnabled="False"/>
                                             </TextBlock>
                                         </StackPanel>
                                     </GroupBox>
                                     <GroupBox MinHeight="100">
                                         <GroupBox.Header>
-                                            <CheckBox x:Name="checkbox_Customer_projects" FontSize="14" Content="Kunden"/>
+                                            <CheckBox x:Name="checkboxProjectsCustomer" FontSize="14" Content="Kunden"/>
                                         </GroupBox.Header>
-                                        <ListBox HorizontalAlignment="Left" Height="62" Margin="5,10,0,0" VerticalAlignment="Top" MinWidth="180" MinHeight="60"/>
+                                        <ListBox x:Name="listboxProjectsCustomers" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="180" Height="80" IsEnabled="False"/>
                                     </GroupBox>
                                     <GroupBox MinHeight="100">
                                         <GroupBox.Header>
-                                            <CheckBox x:Name="checkbox_Employee_projects" FontSize="14" Content="Mitarbeiter"/>
+                                            <CheckBox x:Name="checkboxProjectsEmployees" FontSize="14" Content="Mitarbeiter"/>
                                         </GroupBox.Header>
-                                        <ListBox HorizontalAlignment="Left" Height="62" Margin="5,10,0,0" VerticalAlignment="Top" MinWidth="180" MinHeight="60"/>
+                                        <ListBox x:Name="listboxProjectsEmployees" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="180" Height="80" IsEnabled="False"/>
                                     </GroupBox>
                                 </StackPanel>
                             </StackPanel>
                         </Expander>
                         <Label Content="Projektübersicht" FontSize="20"/>
-                        <DataGrid x:Name="dataGridProjects" Margin="10">
-
+                        <DataGrid x:Name="dataGridProjects" Margin="10" SelectionMode="Single" IsReadOnly="True">
+                            <DataGrid.Resources>
+                                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#828790"/>
+                            </DataGrid.Resources>
                         </DataGrid>
                     </StackPanel>
                 </Grid>
@@ -259,31 +274,33 @@
                                 <StackPanel Orientation="Horizontal">
                                     <GroupBox Height="Auto">
                                         <GroupBox.Header>
-                                            <CheckBox x:Name="checkbox_TimeInterval_activities" FontSize="14">Zeitraum</CheckBox>
+                                            <CheckBox x:Name="checkboxActivitiesTimeinterval" FontSize="14">Zeitraum</CheckBox>
                                         </GroupBox.Header>
                                         <StackPanel>
                                             <TextBlock Margin="0,5">
                                                 <Label Content="Von:"  Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                                                <DatePicker Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" SelectedDate="{x:Static sys:DateTime.Today}"/>
+                                                <DatePicker x:Name="datepickerActivitiesFrom" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" SelectedDate="{x:Static sys:DateTime.Today}" IsEnabled="False"/>
                                             </TextBlock>
                                             <TextBlock>
                                                 <Label Content="Bis:" Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                                                <DatePicker Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" SelectedDate="{x:Static sys:DateTime.Today}"/>
+                                                <DatePicker x:Name="datepickerActivitiesTill" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" SelectedDate="{x:Static sys:DateTime.Today}" IsEnabled="False"/>
                                             </TextBlock>
                                         </StackPanel>
                                     </GroupBox>
                                     <GroupBox MinHeight="100">
                                         <GroupBox.Header>
-                                            <CheckBox x:Name="checkbox_Employee_activities" FontSize="14" Content="Mitarbeiter"/>
+                                            <CheckBox x:Name="checkboxActivitiesEmployee" FontSize="14" Content="Mitarbeiter"/>
                                         </GroupBox.Header>
-                                        <ListBox HorizontalAlignment="Left" Height="62" Margin="5,10,0,0" VerticalAlignment="Top" MinWidth="180" MinHeight="60"/>
+                                        <ListBox x:Name="listboxActivitiesEmployees" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="180" Height="80" IsEnabled="False"/>
                                     </GroupBox>
                                 </StackPanel>
                             </StackPanel>
                         </Expander>
                         <Label Content="Aktivitätenübersicht" FontSize="20"/>
-                        <DataGrid x:Name="dataGridActivities" Margin="10">
-
+                        <DataGrid x:Name="dataGridActivities" Margin="10" SelectionMode="Single" IsReadOnly="True">
+                            <DataGrid.Resources>
+                                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#828790"/>
+                            </DataGrid.Resources>
                         </DataGrid>
                     </StackPanel>
                 </Grid>
@@ -298,7 +315,11 @@
                 <Grid>
                     <StackPanel>
                         <Label Content="Kundenübersicht" FontSize="20"/>
-                        <DataGrid x:Name="datagridCustomers" Margin="10,0"/>
+                        <DataGrid x:Name="datagridCustomers" Margin="10,0" SelectionMode="Single" IsReadOnly="True">
+                            <DataGrid.Resources>
+                                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#828790"/>
+                            </DataGrid.Resources>
+                        </DataGrid>
                     </StackPanel>
                 </Grid>
             </TabItem>
@@ -312,7 +333,11 @@
                 <Grid>
                     <StackPanel>
                         <Label Content="Mitarbeiterübersicht" FontSize="20"/>
-                        <DataGrid x:Name="datagridEmployees" Margin="10,0"/>
+                        <DataGrid x:Name="datagridEmployees" Margin="10,0" SelectionMode="Single" IsReadOnly="True">
+                            <DataGrid.Resources>
+                                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#828790"/>
+                            </DataGrid.Resources>
+                        </DataGrid>
                     </StackPanel>
                 </Grid>
             </TabItem>
@@ -333,60 +358,80 @@
                     </StackPanel>
                 </TabItem.Header>
                 <Grid>
-                    <TabControl Style="{DynamicResource TabControlOfficeStyleSecond}">
-                        <TabItem x:Name="tab_archiv_zeiten" Width="120" Height="39">
+                    <TabControl x:Name="tabcontrolarchiv" Style="{DynamicResource TabControlOfficeStyleSecond}">
+                        <TabItem x:Name="tabarchivzeiten" Width="120" Height="39">
                             <TabItem.Header>
-                                <StackPanel Orientation="Horizontal" Width="140">
+                                <StackPanel Orientation="Horizontal" Width="100">
                                     <Image Source="Ressources/icons/clock-icon.png" Height="35" Width="20" />
                                     <TextBlock Text="Zeiten" TextAlignment="Center" VerticalAlignment="Center" FontSize="15" />
                                 </StackPanel>
                             </TabItem.Header>
                             <Grid>
-                                <DataGrid x:Name="dataGridArchivZeiten"  SelectionMode="Single" IsReadOnly="True" IsManipulationEnabled="False"/>
+                                <DataGrid x:Name="dataGridArchivZeiten" IsReadOnly="True">
+                                    <DataGrid.Resources>
+                                        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#828790"/>
+                                    </DataGrid.Resources>
+                                </DataGrid>
                             </Grid>
                         </TabItem>
-                        <TabItem x:Name="tab_archiv_projekte" Width="120" Height="39" HorizontalAlignment="Right">
+                        <TabItem x:Name="tabarchivprojekte" Width="120" Height="39" HorizontalAlignment="Right">
                             <TabItem.Header>
-                                <StackPanel Orientation="Horizontal" Width="140">
+                                <StackPanel Orientation="Horizontal" Width="100">
                                     <Image Source="Ressources/icons/folder-icon.png" Height="35" Width="20" />
                                     <TextBlock Text="Projekte" TextAlignment="Center" VerticalAlignment="Center" FontSize="15" />
                                 </StackPanel>
                             </TabItem.Header>
                             <Grid>
-                                <DataGrid x:Name="dataGridArchivProjekte" SelectionMode="Single" IsReadOnly="True" IsManipulationEnabled="False"/>
+                                <DataGrid x:Name="dataGridArchivProjekte" IsReadOnly="True">
+                                    <DataGrid.Resources>
+                                        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#828790"/>
+                                    </DataGrid.Resources>
+                                </DataGrid>
                             </Grid>
                         </TabItem>
-                        <TabItem x:Name="tab_archiv_aktivitäten" Width="120" Height="39" HorizontalAlignment="Right">
+                        <TabItem x:Name="tabarchivaktivitäten" Width="120" Height="39" HorizontalAlignment="Right">
                             <TabItem.Header>
-                                <StackPanel Orientation="Horizontal" Width="140">
+                                <StackPanel Orientation="Horizontal" Width="100">
                                     <Image Source="Ressources/icons/hammer-icon.png" Height="35" Width="20" />
                                     <TextBlock Text="Aktivitäten" TextAlignment="Center" VerticalAlignment="Center" FontSize="15" />
                                 </StackPanel>
                             </TabItem.Header>
                             <Grid>
-                                <DataGrid x:Name="dataGridArchivAktivitaeten" SelectionMode="Single" IsReadOnly="True" IsManipulationEnabled="False"/>
+                                <DataGrid x:Name="dataGridArchivAktivitaeten" IsReadOnly="True">
+                                    <DataGrid.Resources>
+                                        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#828790"/>
+                                    </DataGrid.Resources>
+                                </DataGrid>
                             </Grid>
                         </TabItem>
-                        <TabItem x:Name="tab_archiv_kunden" Width="120" Height="39" HorizontalAlignment="Right">
+                        <TabItem x:Name="tabarchivkunden" Width="120" Height="39" HorizontalAlignment="Right">
                             <TabItem.Header>
-                                <StackPanel Orientation="Horizontal" Width="140">
+                                <StackPanel Orientation="Horizontal" Width="100">
                                     <Image Source="Ressources/icons/user-business-icon.png" Height="35" Width="20" />
                                     <TextBlock Text="Kunden" TextAlignment="Center" VerticalAlignment="Center" FontSize="15" />
                                 </StackPanel>
                             </TabItem.Header>
                             <Grid>
-                                <DataGrid x:Name="dataGridArchivKunden" SelectionMode="Single" IsReadOnly="True" IsManipulationEnabled="False"/>
+                                <DataGrid x:Name="dataGridArchivKunden" IsReadOnly="True">
+                                    <DataGrid.Resources>
+                                        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#828790"/>
+                                    </DataGrid.Resources>
+                                </DataGrid>
                             </Grid>
                         </TabItem>
-                        <TabItem x:Name="tab_archiv_mitarbeiter" Width="120" Height="39" HorizontalAlignment="Right">
+                        <TabItem x:Name="tabarchivmitarbeiter" Width="120" Height="39" HorizontalAlignment="Right">
                             <TabItem.Header>
-                                <StackPanel Orientation="Horizontal" Width="140">
+                                <StackPanel Orientation="Horizontal" Width="100">
                                     <Image Source="Ressources/icons/user-blue-icon.png" Height="35" Width="20" />
                                     <TextBlock Text="Mitarbeiter" TextAlignment="Center" VerticalAlignment="Center" FontSize="15" />
                                 </StackPanel>
                             </TabItem.Header>
                             <Grid>
-                                <DataGrid x:Name="dataGridArchivMitarbeiter" SelectionMode="Single" IsReadOnly="True" IsManipulationEnabled="False"/>
+                                <DataGrid x:Name="dataGridArchivMitarbeiter" IsReadOnly="True">
+                                    <DataGrid.Resources>
+                                        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#828790"/>
+                                    </DataGrid.Resources>
+                                </DataGrid>
                             </Grid>
                         </TabItem>
                     </TabControl>
@@ -436,13 +481,13 @@
                             <RotateTransform Angle="90" />
                         </Separator.LayoutTransform>
                     </Separator>
-                    <Button Name="tool_button_archiv" VerticalAlignment="Stretch" HorizontalAlignment="Center" BorderThickness="3">
+                    <Button Name="tool_button_archiv" VerticalAlignment="Stretch" HorizontalAlignment="Center" BorderThickness="3" Click="tool_button_archiv_Click">
                         <TextBlock>
                                 <Image Source="Ressources/icons/deep_lock.png" Width="20"/>
                                 <Label Content="Archivieren"/>
                         </TextBlock>
                     </Button>
-                    <Button Name="tool_button_restore" VerticalAlignment="Stretch" HorizontalAlignment="Center" BorderThickness="3" Visibility="Collapsed">
+                    <Button Name="tool_button_restore" VerticalAlignment="Stretch" HorizontalAlignment="Center" BorderThickness="3" Visibility="Collapsed" Click="tool_button_restore_Click">
                         <TextBlock>
                                 <Image Source="Ressources/icons/deep_unlock.png" Width="20"/>
                                 <Label Content="Wiederherstellen"/>

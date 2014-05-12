@@ -42,7 +42,6 @@ namespace WpfApplication3
         }
 
         //Neuer Mitarbeiter wird erstellt
-        //Neue Adresse wird erstellt
         private void button_create_Click(object sender, RoutedEventArgs e)
         {
             String tdrDate = DateTime.ParseExact(datepickerBirthday.SelectedDate.Value.ToString("dd.MM.yyyy"), "dd.MM.yyyy", null).ToString("yyyy-MM-dd");
@@ -58,12 +57,6 @@ namespace WpfApplication3
                 1, 
                 Int16.Parse(passwordboxPIN.Password), 
                 checkBox_status.IsEnabled);
-            int addressID = zpo.createaddress(textbox_location.Text, Int16.Parse(textbox_zipcode.Text), 
-                textbox_street.Text, textbox_housenumber.Text, 0);
-            
-            bool employeeHasAddressID = zpo.employeehasaddress(employeeID, addressID);
-            MessageBox.Show("Kunde wurde erfolgreich mit folgenden Eigenschaften angelegt.\nCustomerID:" + employeeID + "\nAddressID:" + addressID + "\nCustomerHasAddress:" + employeeHasAddressID);
-
         }
     }
 }

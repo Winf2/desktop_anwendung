@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -35,6 +36,28 @@ namespace WpfApplication3
 
             //Tabellen initialisieren
             initializeTables();
+
+            //Filterlisten initialisieren
+            initializeLists();
+        }
+
+        private void initializeLists()
+        {
+        //Alle Datensätze (Aktivitätenname, Projektname, Mitarbeiternachname & Firmenname aus der Tabelle laden
+            String[] activities = zpo.loadactivities();
+            String[] projects = zpo.loadprojects();
+            String[] employees = zpo.loademployees();
+            String[] customers = zpo.loadcustomers();
+        //Filter-Listboxen für den Tab "Zeiten" füllen
+            listboxTimeActivities.ItemsSource = activities;
+            listboxTimeProjects.ItemsSource = projects;
+            listboxTimeEmployees.ItemsSource = employees;
+            listboxTimeCustomers.ItemsSource = customers;
+        //Filter-Listboxen für den Tab "Projekte" füllen
+            listboxProjectsCustomers.ItemsSource = customers;
+            listboxProjectsEmployees.ItemsSource = employees;
+        //Filter-Listboxen für den Tab "Aktivitäten" füllen
+            listboxActivitiesEmployees.ItemsSource = employees;
         }
 
         public DataTable ConvertToDataTable<T>(IList<T> data)
@@ -54,53 +77,65 @@ namespace WpfApplication3
 
         private void initializeTables()
         {
+            //Test für die Spaltennamendarstellung
+            /*String [] columnsWorkingTimes = {"ID","Datum","Anfang","Ende","Projekt","Aktivität","Arbeitszeit","Überstunden","Pausenanfang","Pausenende","Gesamtpause","Gesamtarbeitszeit","Status"};
+            for(int i=0;i<columnsWorkingTimes.Length;i++){
+                dtWorkingTime.Columns[i].ColumnName = columnsWorkingTimes[i];
+            }
+            */
+
         //Archiv
-            TableDataWorkingTimes[] dataTableArchivWorkingTime = zpo.loadArchivTableWorkingTimes();
-            dataGridArchivZeiten.ItemsSource = dataTableArchivWorkingTime;
+            try
+            {
+                TableDataWorkingTimes[] dataTableArchivWorkingTime = zpo.loadArchivTableWorkingTimes();
+                DataTable dtArchivWorkingTime = ConvertToDataTable(dataTableArchivWorkingTime.ToList());
+                dataGridArchivZeiten.ItemsSource = dtArchivWorkingTime.DefaultView;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
 
         //Tabelle "Working_Time" laden und dem DataGrid übergeben
             TableDataWorkingTimes[] dataTableWorkingTime = zpo.loadtableworkingtimes();
-            //dataGridWorkingTime.ItemsSource = dataTableWorkingTime.ToList();
-            
-            //Test für die Spaltennamendarstellung
-            DataTable dt = ConvertToDataTable(dataTableWorkingTime.ToList());
-            String [] columnsWorkingTimes = {"ID","Datum","Anfang","Ende","Projekt","Aktivität","Arbeitszeit","Überstunden","Pausenanfang","Pausenende","Gesamtpause","Gesamtarbeitszeit","Status"};
-            for(int i=0;i<columnsWorkingTimes.Length;i++){
-                dt.Columns[i].ColumnName = columnsWorkingTimes[i];
-            }
-            dataGridWorkingTime.ItemsSource = dt.DefaultView;
+            DataTable dtWorkingTime = ConvertToDataTable(dataTableWorkingTime.ToList());
+            dataGridWorkingTime.ItemsSource = dtWorkingTime.DefaultView;
 
         //Archiv
-
             TableDataProjects[] dataTableArchivProjects = zpo.loadarchivtableprojects();
             DataTable dtArchivProjects = ConvertToDataTable(dataTableArchivProjects.ToList());
             dataGridArchivProjekte.ItemsSource = dtArchivProjects.DefaultView;
-            //dataGridArchivProjekte.Columns[0].Visibility = System.Windows.Visibility.Hidden;
-            //dataGridArchivProjekte.ItemsSource = dataTableArchivProjects;
         //Tabelle "Projects" laden und dem DataGrid übergeben
             TableDataProjects[] dataTableProjects = zpo.loadtableprojects();
-            dataGridProjects.ItemsSource = dataTableProjects;
+            DataTable dtProjects = ConvertToDataTable(dataTableProjects.ToList());
+            dataGridProjects.ItemsSource = dtProjects.DefaultView;
 
         //Archiv
             TableDataActivities[] dataTableArchivActivities = zpo.loadarchivtableactivities();
-            dataGridArchivAktivitaeten.ItemsSource = dataTableArchivActivities;
+            DataTable dtArchivActivities = ConvertToDataTable(dataTableArchivActivities.ToList());
+            dataGridArchivAktivitaeten.ItemsSource = dtArchivActivities.DefaultView;
         //Tabelle "Activities" laden und dem DataGrid übergeben
             TableDataActivities[] dataTableActivities = zpo.loadtableactivities();
-            dataGridActivities.ItemsSource = dataTableActivities;
+            DataTable dtActivities = ConvertToDataTable(dataTableActivities.ToList());
+            dataGridActivities.ItemsSource = dtActivities.DefaultView;
 
         //Archiv
             TableDataCustomers[] dataTaleArchivCustomers = zpo.loadarchivtablecustomers();
-            dataGridArchivKunden.ItemsSource = dataTaleArchivCustomers;
+            DataTable dtArchivCustomers = ConvertToDataTable(dataTaleArchivCustomers.ToList());
+            dataGridArchivKunden.ItemsSource = dtArchivCustomers.DefaultView;
         //Tabelle "Customer" laden und dem DataGrid übergeben
             TableDataCustomers[] dataTableCustomers = zpo.loadtablecustomers();
-            datagridCustomers.ItemsSource = dataTableCustomers;
+            DataTable dtCustomers = ConvertToDataTable(dataTableCustomers.ToList());
+            datagridCustomers.ItemsSource = dtCustomers.DefaultView;
 
         //Archiv
             TableDataEmployees[] dataTableArchivEmployees = zpo.loadarchivtableemployees();
-            dataGridArchivMitarbeiter.ItemsSource = dataTableArchivEmployees;
+            DataTable dtArchivEmployees = ConvertToDataTable(dataTableArchivEmployees.ToList());
+            dataGridArchivMitarbeiter.ItemsSource = dtArchivEmployees.DefaultView;
         //Tabelle "Employees" laden und dem DataGrid übergeben
             TableDataEmployees[] dataTableEmployees = zpo.loadtableemployees(); ;
-            datagridEmployees.ItemsSource = dataTableEmployees;
+            DataTable dtEmployees = ConvertToDataTable(dataTableEmployees.ToList());
+            datagridEmployees.ItemsSource = dtEmployees.DefaultView;
         }
 
         /*#####################EventHandler##################*/
@@ -252,9 +287,9 @@ namespace WpfApplication3
         //Wenn der Tab gewechselt wird, dann werden die Expander wieder geschlossen
         private void tab_control_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            expander_workingTime.IsExpanded = false;
-            expander_projects.IsExpanded = false;
-            expander_activities.IsExpanded = false;
+            //expander_workingTime.IsExpanded = false;
+            //expander_projects.IsExpanded = false;
+            //expander_activities.IsExpanded = false;
         }
 
 
@@ -266,6 +301,108 @@ namespace WpfApplication3
         private void tool_button_edit_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void tool_button_archiv_Click(object sender, RoutedEventArgs e)
+        {
+            int tabIndex = tab_control.SelectedIndex;
+            switch (tabIndex)
+            {
+                case (0):
+                    if (dataGridWorkingTime.SelectedIndex != -1) 
+                    {
+                        DataRowView rowWT = (DataRowView) dataGridWorkingTime.SelectedItems[0];
+                        String idWT = rowWT.Row[0].ToString();
+                        zpo.archiveWorkingTime(idWT);
+                    }
+                    break;
+                case (1):
+                    if (dataGridProjects.SelectedIndex != -1)
+                    {
+                        DataRowView rowP = (DataRowView) dataGridProjects.SelectedItems[0];
+                        String idP = rowP.Row[0].ToString();
+                        zpo.archiveProjects(idP);
+                    }
+                    break;
+                case (2):
+                    if (dataGridActivities.SelectedIndex != -1)
+                    {
+                        DataRowView rowA = (DataRowView)dataGridActivities.SelectedItems[0];
+                        String idA = rowA.Row[0].ToString();
+                        zpo.archiveActivities(idA);
+                    }
+                    break;
+                case (3):
+                    if (datagridCustomers.SelectedIndex != -1)
+                    {
+                        DataRowView rowC = (DataRowView)datagridCustomers.SelectedItems[0];
+                        String idC = rowC.Row[0].ToString();
+                        zpo.archiveCustomers(idC);
+                    }
+                    break;
+                case (4):
+                    if (datagridEmployees.SelectedIndex != -1)
+                    {
+                        DataRowView rowE = (DataRowView)datagridEmployees.SelectedItems[0];
+                        String idE = rowE.Row[0].ToString();
+                        zpo.archiveEmployees(idE);
+                    }                    
+                    break;
+                default:
+                    break;
+            }
+            initializeTables();
+        }
+
+        private void tool_button_restore_Click(object sender, RoutedEventArgs e)
+        {
+            int tabIndex = tabcontrolarchiv.SelectedIndex;
+            switch (tabIndex)
+            {
+                case (0):
+                    if (dataGridArchivZeiten.SelectedIndex != -1)
+                    {
+                        DataRowView rowWT = (DataRowView)dataGridArchivZeiten.SelectedItems[0];
+                        String idWT = rowWT.Row[0].ToString();
+                        zpo.restoreWorkingTime(idWT);
+                    }
+                    break;
+                case (1):
+                    if (dataGridArchivProjekte.SelectedIndex != -1)
+                    {
+                        DataRowView rowP = (DataRowView)dataGridArchivProjekte.SelectedItems[0];
+                        String idP = rowP.Row[0].ToString();
+                        zpo.restoreProjects(idP);
+                    }
+                    break;
+                case (2):
+                    if (dataGridArchivAktivitaeten.SelectedIndex != -1)
+                    {
+                        DataRowView rowA = (DataRowView)dataGridArchivAktivitaeten.SelectedItems[0];
+                        String idA = rowA.Row[0].ToString();
+                        zpo.restoreActivities(idA);
+                    }
+                    break;
+                case (3):
+                    if (dataGridArchivKunden.SelectedIndex != -1)
+                    {
+                        DataRowView rowC = (DataRowView)dataGridArchivKunden.SelectedItems[0];
+                        String idC = rowC.Row[0].ToString();
+                        zpo.restoreCustomers(idC);
+                    }
+                    break;
+                case (4):
+                    if (dataGridArchivMitarbeiter.SelectedIndex != -1)
+                    {
+                        DataRowView rowE = (DataRowView)dataGridArchivMitarbeiter.SelectedItems[0];
+                        String idE = rowE.Row[0].ToString();
+                        zpo.restoreEmployees(idE);
+                    }
+                    break;
+                default:
+                    break;
+            }
+            initializeTables();
         }
     }
 }
