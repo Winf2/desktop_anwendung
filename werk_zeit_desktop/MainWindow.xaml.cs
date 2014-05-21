@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.OleDb;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Services.Protocols;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -17,6 +19,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfApplication3.ServiceReference1;
+using WpfApplication3.EditWindows;
 
 namespace WpfApplication3
 {
@@ -69,7 +72,20 @@ namespace WpfApplication3
             foreach (T item in data)
             {
                 DataRow row = table.NewRow();
-                foreach (PropertyDescriptor prop in properties) row[prop.Name] = prop.GetValue(item) ?? DBNull.Value;
+                foreach (PropertyDescriptor prop in properties)
+                {
+                    if (prop.PropertyType.Name.ToString() == "DateTime")
+                    {
+                        DateTime a = DateTime.Parse(prop.GetValue(item).ToString());
+                        string abc = a.ToString("d");
+                        row[prop.Name] = (Object) abc ?? DBNull.Value;
+
+                    }
+                    else
+                    {
+                        row[prop.Name] = prop.GetValue(item) ?? DBNull.Value;
+                    }
+                } 
                 table.Rows.Add(row);
             }
             return table;
@@ -78,7 +94,7 @@ namespace WpfApplication3
         private void initializeTables()
         {
             //Test für die Spaltennamendarstellung
-            /*String [] columnsWorkingTimes = {"ID","Datum","Anfang","Ende","Projekt","Aktivität","Arbeitszeit","Überstunden","Pausenanfang","Pausenende","Gesamtpause","Gesamtarbeitszeit","Status"};
+            /*String [] columnsWorkingTimes = {"ID","Datum","Beginn","Ende","Projekt","Aktivität","Arbeitszeit","Überstunden","Pausenanfang","Pausenende","Gesamtpause","Gesamtarbeitszeit","Status"};
             for(int i=0;i<columnsWorkingTimes.Length;i++){
                 dtWorkingTime.Columns[i].ColumnName = columnsWorkingTimes[i];
             }
@@ -91,7 +107,7 @@ namespace WpfApplication3
                 DataTable dtArchivWorkingTime = ConvertToDataTable(dataTableArchivWorkingTime.ToList());
                 dataGridArchivZeiten.ItemsSource = dtArchivWorkingTime.DefaultView;
             }
-            catch (Exception ex)
+            catch (SoapException ex)
             {
                 MessageBox.Show(ex.ToString());
             }
@@ -121,8 +137,15 @@ namespace WpfApplication3
 
         //Archiv
             TableDataCustomers[] dataTaleArchivCustomers = zpo.loadarchivtablecustomers();
-            DataTable dtArchivCustomers = ConvertToDataTable(dataTaleArchivCustomers.ToList());
-            dataGridArchivKunden.ItemsSource = dtArchivCustomers.DefaultView;
+            if (dataTaleArchivCustomers != null)
+            {
+                DataTable dtArchivCustomers = ConvertToDataTable(dataTaleArchivCustomers.ToList());
+                dataGridArchivKunden.ItemsSource = dtArchivCustomers.DefaultView;
+            }
+            else
+            {
+                dataGridArchivKunden.ItemsSource = dataTaleArchivCustomers;
+            }
         //Tabelle "Customer" laden und dem DataGrid übergeben
             TableDataCustomers[] dataTableCustomers = zpo.loadtablecustomers();
             DataTable dtCustomers = ConvertToDataTable(dataTableCustomers.ToList());
@@ -298,9 +321,88 @@ namespace WpfApplication3
             initializeTables();
         }
 
+        private String convertString(object stringToConvert){
+            String convertedString;
+            if (stringToConvert == null)
+            {
+                convertedString = "";
+            }
+            else
+            {
+                convertedString = stringToConvert.ToString();
+            }
+            
+            return convertedString;
+        }
+
         private void tool_button_edit_Click(object sender, RoutedEventArgs e)
         {
-
+            int tabIndex = tab_control.SelectedIndex;
+            switch (tabIndex)
+            {
+                case (0):
+                    if (dataGridWorkingTime.SelectedIndex != -1)
+                    {
+                        //EditWorkingTime
+                    }
+                    break;
+                case (1):
+                    if (dataGridProjects.SelectedIndex != -1)
+                    {
+                        EditProjectWindow epw = new EditProjectWindow(
+                            (Int32)((DataRowView)dataGridProjects.SelectedItem).Row[0],
+                            convertString(((DataRowView)dataGridProjects.SelectedItem).Row["Projektname"]),
+                            convertString(((DataRowView)dataGridProjects.SelectedItem).Row["Projektbeschreibung"]),
+                            convertString(((DataRowView)dataGridProjects.SelectedItem).Row["Firmenname"]));
+                        epw.ShowDialog();
+                    }
+                    break;
+                case (2):
+                    if (dataGridActivities.SelectedIndex != -1)
+                    {
+                        EditActivityWindow eaw = new EditActivityWindow(
+                            (Int32)((DataRowView)dataGridActivities.SelectedItem).Row[0],
+                            ((DataRowView)dataGridActivities.SelectedItem).Row[1].ToString(),
+                            ((DataRowView)dataGridActivities.SelectedItem).Row[2].ToString());
+                        eaw.ShowDialog();
+                    }
+                    break;
+                case (3):
+                    if (datagridCustomers.SelectedIndex != -1)
+                    {
+                        EditCustomerWindow ecw = new EditCustomerWindow(
+                            (Int32)((DataRowView)datagridCustomers.SelectedItem).Row[0],
+                            convertString(((DataRowView)datagridCustomers.SelectedItem).Row["Firmenname"]),
+                            convertString(((DataRowView)datagridCustomers.SelectedItem).Row["Vorname"]),
+                            convertString(((DataRowView)datagridCustomers.SelectedItem).Row["Nachname"]),
+                            convertString(((DataRowView)datagridCustomers.SelectedItem).Row["Anschrift"]),
+                            convertString(((DataRowView)datagridCustomers.SelectedItem).Row["Email"]),
+                            convertString(((DataRowView)datagridCustomers.SelectedItem).Row["TelNrFestnetz"]),
+                            convertString(((DataRowView)datagridCustomers.SelectedItem).Row["TelNrMobil"]));
+                        ecw.ShowDialog();
+                    }
+                    break;
+                case (4):
+                    if (datagridEmployees.SelectedIndex != -1)
+                    {
+                        EditEmployeeWindow eew = new EditEmployeeWindow(
+                            (Int32)((DataRowView)datagridEmployees.SelectedItem).Row[0],
+                            convertString(((DataRowView)datagridEmployees.SelectedItem).Row["berechtigungsname"]),
+                            convertString(((DataRowView)datagridEmployees.SelectedItem).Row["Vorname"]),
+                            convertString(((DataRowView)datagridEmployees.SelectedItem).Row["Nachname"]),
+                            convertString(((DataRowView)datagridEmployees.SelectedItem).Row["Anschrift"]),
+                            convertString(((DataRowView)datagridEmployees.SelectedItem).Row["Email"]),
+                            convertString(((DataRowView)datagridEmployees.SelectedItem).Row["TelNrFestnetz"]),
+                            convertString(((DataRowView)datagridEmployees.SelectedItem).Row["TelNrMobil"]),
+                            convertString(((DataRowView)datagridEmployees.SelectedItem).Row["Abteilung"]),
+                            convertString(((DataRowView)datagridEmployees.SelectedItem).Row["Regelarbeitszeit"]));
+                        eew.ShowDialog();
+                    }
+                    break;
+                default:
+                    break;
+            }
+            initializeTables();
         }
 
         private void tool_button_archiv_Click(object sender, RoutedEventArgs e)
@@ -403,6 +505,115 @@ namespace WpfApplication3
                     break;
             }
             initializeTables();
+        }
+
+
+
+    //Filter-Expander - Listen und Datepicker aktivieren/deaktivieren
+        private void checkboxTimeTimeinterval_Checked(object sender, RoutedEventArgs e)
+        {
+            datepickerTimeFrom.IsEnabled = true;
+            datepickerTimeTill.IsEnabled = true;
+        }
+
+        private void checkboxTimeTimeinterval_Unchecked(object sender, RoutedEventArgs e)
+        {
+            datepickerTimeFrom.IsEnabled = false;
+            datepickerTimeTill.IsEnabled = false;
+        }
+
+        private void checkboxTimeProject_Checked(object sender, RoutedEventArgs e)
+        {
+            listboxTimeProjects.IsEnabled = true;
+        }
+
+        private void checkboxTimeProject_Unchecked(object sender, RoutedEventArgs e)
+        {
+            listboxTimeProjects.IsEnabled = false;
+        }
+
+        private void checkboxTimeActivity_Checked(object sender, RoutedEventArgs e)
+        {
+            listboxTimeActivities.IsEnabled = true;
+        }
+
+        private void checkboxTimeActivity_Unchecked(object sender, RoutedEventArgs e)
+        {
+            listboxTimeActivities.IsEnabled = false;
+        }
+
+        private void checkboxTimeCustomer_Unchecked(object sender, RoutedEventArgs e)
+        {
+            listboxTimeCustomers.IsEnabled = false;
+        }
+
+        private void checkboxTimeCustomer_Checked(object sender, RoutedEventArgs e)
+        {
+            listboxTimeCustomers.IsEnabled = true;
+        }
+
+        private void checkboxTimeEmployee_Checked(object sender, RoutedEventArgs e)
+        {
+            listboxTimeEmployees.IsEnabled = true;
+        }
+
+        private void checkboxTimeEmployee_Unchecked(object sender, RoutedEventArgs e)
+        {
+            listboxTimeEmployees.IsEnabled = false;
+        }
+
+        private void checkboxProjectsTimeinterval_Checked(object sender, RoutedEventArgs e)
+        {
+            datepickerProjectsFrom.IsEnabled = true;
+            datepickerProjectsTill.IsEnabled = true;
+        }
+
+        private void checkboxProjectsTimeinterval_Unchecked(object sender, RoutedEventArgs e)
+        {
+            datepickerProjectsFrom.IsEnabled = false;
+            datepickerProjectsTill.IsEnabled = false;
+        }
+
+        private void checkboxProjectsCustomer_Checked(object sender, RoutedEventArgs e)
+        {
+            listboxProjectsCustomers.IsEnabled = true;
+        }
+
+        private void checkboxProjectsCustomer_Unchecked(object sender, RoutedEventArgs e)
+        {
+            listboxProjectsCustomers.IsEnabled = false;
+        }
+
+        private void checkboxProjectsEmployees_Checked(object sender, RoutedEventArgs e)
+        {
+            listboxProjectsEmployees.IsEnabled = true;
+        }
+
+        private void checkboxProjectsEmployees_Unchecked(object sender, RoutedEventArgs e)
+        {
+            listboxProjectsEmployees.IsEnabled = false;
+        }
+
+        private void checkboxActivitiesTimeinterval_Checked(object sender, RoutedEventArgs e)
+        {
+            datepickerActivitiesFrom.IsEnabled = true;
+            datepickerActivitiesTill.IsEnabled = true;
+        }
+
+        private void checkboxActivitiesTimeinterval_Unchecked(object sender, RoutedEventArgs e)
+        {
+            datepickerActivitiesFrom.IsEnabled = false;
+            datepickerActivitiesTill.IsEnabled = false;
+        }
+
+        private void checkboxActivitiesEmployee_Checked(object sender, RoutedEventArgs e)
+        {
+            listboxActivitiesEmployees.IsEnabled = true;
+        }
+
+        private void checkboxActivitiesEmployee_Unchecked(object sender, RoutedEventArgs e)
+        {
+            listboxActivitiesEmployees.IsEnabled = false;
         }
     }
 }

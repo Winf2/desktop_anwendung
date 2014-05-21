@@ -152,7 +152,7 @@
                                 <StackPanel Orientation="Horizontal">
                                     <GroupBox Height="Auto">
                                         <GroupBox.Header>
-                                            <CheckBox x:Name="checkboxTimeTimeinterval" FontSize="14">Zeitraum</CheckBox>
+                                            <CheckBox x:Name="checkboxTimeTimeinterval" FontSize="14" Unchecked="checkboxTimeTimeinterval_Unchecked" Checked="checkboxTimeTimeinterval_Checked">Zeitraum</CheckBox>
                                         </GroupBox.Header>
                                         <StackPanel>
                                             <TextBlock Margin="0,5">
@@ -167,25 +167,25 @@
                                     </GroupBox>
                                     <GroupBox MinHeight="100">
                                         <GroupBox.Header>
-                                            <CheckBox x:Name="checkboxTimeProject" FontSize="14" Content="Projekte"/>
+                                            <CheckBox x:Name="checkboxTimeProject" FontSize="14" Content="Projekte" Checked="checkboxTimeProject_Checked" Unchecked="checkboxTimeProject_Unchecked"/>
                                         </GroupBox.Header>
                                         <ListBox x:Name="listboxTimeProjects" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="200" Height="80" SelectionMode="Multiple" IsEnabled="False"/>
                                     </GroupBox>
                                     <GroupBox MinHeight="100">
                                         <GroupBox.Header>
-                                            <CheckBox x:Name="checkboxTimeActivity" FontSize="14" Content="Aktivitäten"/>
+                                            <CheckBox x:Name="checkboxTimeActivity" FontSize="14" Content="Aktivitäten" Checked="checkboxTimeActivity_Checked" Unchecked="checkboxTimeActivity_Unchecked"/>
                                         </GroupBox.Header>
                                         <ListBox x:Name="listboxTimeActivities" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="200" Height="80" IsEnabled="False"/>
                                     </GroupBox>
                                     <GroupBox MinHeight="100">
                                         <GroupBox.Header>
-                                            <CheckBox x:Name="checkboxTimeCustomer" FontSize="14" Content="Kunden"/>
+                                            <CheckBox x:Name="checkboxTimeCustomer" FontSize="14" Content="Kunden" Unchecked="checkboxTimeCustomer_Unchecked" Checked="checkboxTimeCustomer_Checked"/>
                                         </GroupBox.Header>
                                         <ListBox x:Name="listboxTimeCustomers" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="180" Height="80" IsEnabled="False" />
                                     </GroupBox>
                                     <GroupBox MinHeight="100">
                                         <GroupBox.Header>
-                                            <CheckBox x:Name="checkboxTimeEmployee" FontSize="14" Content="Mitarbeiter"/>
+                                            <CheckBox x:Name="checkboxTimeEmployee" FontSize="14" Content="Mitarbeiter" Checked="checkboxTimeEmployee_Checked" Unchecked="checkboxTimeEmployee_Unchecked"/>
                                         </GroupBox.Header>
                                         <ListBox x:Name="listboxTimeEmployees" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="180" Height="80" IsEnabled="False"/>
                                     </GroupBox>
@@ -219,28 +219,28 @@
                                 <StackPanel Orientation="Horizontal">
                                     <GroupBox Height="Auto">
                                         <GroupBox.Header>
-                                            <CheckBox x:Name="checkboxProjectsTimeinterval" FontSize="14">Zeitraum</CheckBox>
+                                            <CheckBox x:Name="checkboxProjectsTimeinterval" FontSize="14" Checked="checkboxProjectsTimeinterval_Checked" Unchecked="checkboxProjectsTimeinterval_Unchecked">Zeitraum</CheckBox>
                                         </GroupBox.Header>
                                         <StackPanel>
                                             <TextBlock Margin="0,5">
                                                 <Label Content="Von:"  Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                                                <DatePicker x:Name="datepickerProjectFrom" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" SelectedDate="{x:Static sys:DateTime.Today}" IsEnabled="False"/>
+                                                <DatePicker x:Name="datepickerProjectsFrom" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" SelectedDate="{x:Static sys:DateTime.Today}" IsEnabled="False"/>
                                             </TextBlock>
                                             <TextBlock>
                                                 <Label Content="Bis:" Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                                                <DatePicker x:Name="datepickerProjectTill" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" SelectedDate="{x:Static sys:DateTime.Today}" IsEnabled="False"/>
+                                                <DatePicker x:Name="datepickerProjectsTill" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" SelectedDate="{x:Static sys:DateTime.Today}" IsEnabled="False"/>
                                             </TextBlock>
                                         </StackPanel>
                                     </GroupBox>
                                     <GroupBox MinHeight="100">
                                         <GroupBox.Header>
-                                            <CheckBox x:Name="checkboxProjectsCustomer" FontSize="14" Content="Kunden"/>
+                                            <CheckBox x:Name="checkboxProjectsCustomer" FontSize="14" Content="Kunden" Checked="checkboxProjectsCustomer_Checked" Unchecked="checkboxProjectsCustomer_Unchecked"/>
                                         </GroupBox.Header>
                                         <ListBox x:Name="listboxProjectsCustomers" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="180" Height="80" IsEnabled="False"/>
                                     </GroupBox>
                                     <GroupBox MinHeight="100">
                                         <GroupBox.Header>
-                                            <CheckBox x:Name="checkboxProjectsEmployees" FontSize="14" Content="Mitarbeiter"/>
+                                            <CheckBox x:Name="checkboxProjectsEmployees" FontSize="14" Content="Mitarbeiter" Checked="checkboxProjectsEmployees_Checked" Unchecked="checkboxProjectsEmployees_Unchecked"/>
                                         </GroupBox.Header>
                                         <ListBox x:Name="listboxProjectsEmployees" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="180" Height="80" IsEnabled="False"/>
                                     </GroupBox>
@@ -274,7 +274,7 @@
                                 <StackPanel Orientation="Horizontal">
                                     <GroupBox Height="Auto">
                                         <GroupBox.Header>
-                                            <CheckBox x:Name="checkboxActivitiesTimeinterval" FontSize="14">Zeitraum</CheckBox>
+                                            <CheckBox x:Name="checkboxActivitiesTimeinterval" FontSize="14" Checked="checkboxActivitiesTimeinterval_Checked" Unchecked="checkboxActivitiesTimeinterval_Unchecked">Zeitraum</CheckBox>
                                         </GroupBox.Header>
                                         <StackPanel>
                                             <TextBlock Margin="0,5">
@@ -289,7 +289,7 @@
                                     </GroupBox>
                                     <GroupBox MinHeight="100">
                                         <GroupBox.Header>
-                                            <CheckBox x:Name="checkboxActivitiesEmployee" FontSize="14" Content="Mitarbeiter"/>
+                                            <CheckBox x:Name="checkboxActivitiesEmployee" FontSize="14" Content="Mitarbeiter" Checked="checkboxActivitiesEmployee_Checked" Unchecked="checkboxActivitiesEmployee_Unchecked"/>
                                         </GroupBox.Header>
                                         <ListBox x:Name="listboxActivitiesEmployees" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="180" Height="80" IsEnabled="False"/>
                                     </GroupBox>

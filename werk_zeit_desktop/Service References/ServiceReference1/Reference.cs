@@ -220,6 +220,38 @@ namespace WpfApplication3.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/restoreEmployees", ReplyAction="*")]
         System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.restoreEmployeesResponse> restoreEmployeesAsync(WpfApplication3.ServiceReference1.restoreEmployeesRequest request);
         
+        // CODEGEN: Der Nachrichtenvertrag wird generiert, da der Wrappernamespace () von Nachricht "updateActivityRequest" nicht mit dem Standardwert (urn:dajana) übereinstimmt.
+        [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/updateActivity", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        WpfApplication3.ServiceReference1.updateActivityResponse updateActivity(WpfApplication3.ServiceReference1.updateActivityRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/updateActivity", ReplyAction="*")]
+        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.updateActivityResponse> updateActivityAsync(WpfApplication3.ServiceReference1.updateActivityRequest request);
+        
+        // CODEGEN: Der Nachrichtenvertrag wird generiert, da der Wrappernamespace () von Nachricht "updateCustomerRequest" nicht mit dem Standardwert (urn:dajana) übereinstimmt.
+        [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/updateCustomer", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        WpfApplication3.ServiceReference1.updateCustomerResponse updateCustomer(WpfApplication3.ServiceReference1.updateCustomerRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/updateCustomer", ReplyAction="*")]
+        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.updateCustomerResponse> updateCustomerAsync(WpfApplication3.ServiceReference1.updateCustomerRequest request);
+        
+        // CODEGEN: Der Nachrichtenvertrag wird generiert, da der Wrappernamespace () von Nachricht "updateEmployeeRequest" nicht mit dem Standardwert (urn:dajana) übereinstimmt.
+        [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/updateEmployee", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        WpfApplication3.ServiceReference1.updateEmployeeResponse updateEmployee(WpfApplication3.ServiceReference1.updateEmployeeRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/updateEmployee", ReplyAction="*")]
+        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.updateEmployeeResponse> updateEmployeeAsync(WpfApplication3.ServiceReference1.updateEmployeeRequest request);
+        
+        // CODEGEN: Der Nachrichtenvertrag wird generiert, da der Wrappernamespace () von Nachricht "updateProjectRequest" nicht mit dem Standardwert (urn:dajana) übereinstimmt.
+        [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/updateProject", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        WpfApplication3.ServiceReference1.updateProjectResponse updateProject(WpfApplication3.ServiceReference1.updateProjectRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://193.196.143.148/soap/index.php/updateProject", ReplyAction="*")]
+        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.updateProjectResponse> updateProjectAsync(WpfApplication3.ServiceReference1.updateProjectRequest request);
+        
         [System.ServiceModel.OperationContractAttribute(Action="rpc", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TableDataActivities))]
@@ -603,44 +635,52 @@ namespace WpfApplication3.ServiceReference1 {
         public string Vorname;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=3)]
-        public string GebTag;
+        public string Anschrift;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=4)]
-        public string Abteilung;
+        public string GebTag;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=5)]
-        public string TelNrMobil;
+        public string Abteilung;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=6)]
-        public string TelNrFestnetz;
+        public string TelNrMobil;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=7)]
-        public string EMail;
+        public string TelNrFestnetz;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=8)]
-        public int Berechtigungsstufe;
+        public string EMail;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=9)]
-        public int PIN;
+        public string Regelsarbeitszeit;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=10)]
-        public bool Status;
+        public int Status;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=11)]
+        public int Berechtigungsstufe;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=12)]
+        public int PIN;
         
         public createemployeeRequest() {
         }
         
-        public createemployeeRequest(int MitarbeiterNr, string Nachname, string Vorname, string GebTag, string Abteilung, string TelNrMobil, string TelNrFestnetz, string EMail, int Berechtigungsstufe, int PIN, bool Status) {
+        public createemployeeRequest(int MitarbeiterNr, string Nachname, string Vorname, string Anschrift, string GebTag, string Abteilung, string TelNrMobil, string TelNrFestnetz, string EMail, string Regelsarbeitszeit, int Status, int Berechtigungsstufe, int PIN) {
             this.MitarbeiterNr = MitarbeiterNr;
             this.Nachname = Nachname;
             this.Vorname = Vorname;
+            this.Anschrift = Anschrift;
             this.GebTag = GebTag;
             this.Abteilung = Abteilung;
             this.TelNrMobil = TelNrMobil;
             this.TelNrFestnetz = TelNrFestnetz;
             this.EMail = EMail;
+            this.Regelsarbeitszeit = Regelsarbeitszeit;
+            this.Status = Status;
             this.Berechtigungsstufe = Berechtigungsstufe;
             this.PIN = PIN;
-            this.Status = Status;
         }
     }
     
@@ -1067,6 +1107,198 @@ namespace WpfApplication3.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="updateActivity", WrapperNamespace="", IsWrapped=true)]
+    public partial class updateActivityRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+        public int idAktivitaeten;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=1)]
+        public string Aktivitaetenname;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=2)]
+        public string Aktivitaetenbeschreibung;
+        
+        public updateActivityRequest() {
+        }
+        
+        public updateActivityRequest(int idAktivitaeten, string Aktivitaetenname, string Aktivitaetenbeschreibung) {
+            this.idAktivitaeten = idAktivitaeten;
+            this.Aktivitaetenname = Aktivitaetenname;
+            this.Aktivitaetenbeschreibung = Aktivitaetenbeschreibung;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="updateActivityResponse", WrapperNamespace="", IsWrapped=true)]
+    public partial class updateActivityResponse {
+        
+        public updateActivityResponse() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="updateCustomer", WrapperNamespace="", IsWrapped=true)]
+    public partial class updateCustomerRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+        public int KundenNr;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=1)]
+        public string Nachname;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=2)]
+        public string Vorname;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=3)]
+        public string Anschrift;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=4)]
+        public string Firmenname;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=5)]
+        public string TelNrMobil;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=6)]
+        public string TelNrFestnetz;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=7)]
+        public string EMail;
+        
+        public updateCustomerRequest() {
+        }
+        
+        public updateCustomerRequest(int KundenNr, string Nachname, string Vorname, string Anschrift, string Firmenname, string TelNrMobil, string TelNrFestnetz, string EMail) {
+            this.KundenNr = KundenNr;
+            this.Nachname = Nachname;
+            this.Vorname = Vorname;
+            this.Anschrift = Anschrift;
+            this.Firmenname = Firmenname;
+            this.TelNrMobil = TelNrMobil;
+            this.TelNrFestnetz = TelNrFestnetz;
+            this.EMail = EMail;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="updateCustomerResponse", WrapperNamespace="", IsWrapped=true)]
+    public partial class updateCustomerResponse {
+        
+        public updateCustomerResponse() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="updateEmployee", WrapperNamespace="", IsWrapped=true)]
+    public partial class updateEmployeeRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+        public int PersNr;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=1)]
+        public string Nachname;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=2)]
+        public string Vorname;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=3)]
+        public string Anschrift;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=4)]
+        public string EMail;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=5)]
+        public string TelNrMobil;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=6)]
+        public string TelNrFestnetz;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=7)]
+        public string Abteilung;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=8)]
+        public string Regelarbeitszeit;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=9)]
+        public int Berechtigungsstufe;
+        
+        public updateEmployeeRequest() {
+        }
+        
+        public updateEmployeeRequest(int PersNr, string Nachname, string Vorname, string Anschrift, string EMail, string TelNrMobil, string TelNrFestnetz, string Abteilung, string Regelarbeitszeit, int Berechtigungsstufe) {
+            this.PersNr = PersNr;
+            this.Nachname = Nachname;
+            this.Vorname = Vorname;
+            this.Anschrift = Anschrift;
+            this.EMail = EMail;
+            this.TelNrMobil = TelNrMobil;
+            this.TelNrFestnetz = TelNrFestnetz;
+            this.Abteilung = Abteilung;
+            this.Regelarbeitszeit = Regelarbeitszeit;
+            this.Berechtigungsstufe = Berechtigungsstufe;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="updateEmployeeResponse", WrapperNamespace="", IsWrapped=true)]
+    public partial class updateEmployeeResponse {
+        
+        public updateEmployeeResponse() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="updateProject", WrapperNamespace="", IsWrapped=true)]
+    public partial class updateProjectRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+        public int idProjekt;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=1)]
+        public string Projektname;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=2)]
+        public string Projektbeschreibung;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=3)]
+        public int customer_KundenNr;
+        
+        public updateProjectRequest() {
+        }
+        
+        public updateProjectRequest(int idProjekt, string Projektname, string Projektbeschreibung, int customer_KundenNr) {
+            this.idProjekt = idProjekt;
+            this.Projektname = Projektname;
+            this.Projektbeschreibung = Projektbeschreibung;
+            this.customer_KundenNr = customer_KundenNr;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="updateProjectResponse", WrapperNamespace="", IsWrapped=true)]
+    public partial class updateProjectResponse {
+        
+        public updateProjectResponse() {
+        }
+    }
+    
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
@@ -1083,10 +1315,6 @@ namespace WpfApplication3.ServiceReference1 {
         
         private System.DateTime endeField;
         
-        private string projektField;
-        
-        private string aktivitaetField;
-        
         private int dauerArbeitszeitField;
         
         private int ueberstundenField;
@@ -1099,7 +1327,13 @@ namespace WpfApplication3.ServiceReference1 {
         
         private int gesamtDauerArbeitszeitField;
         
-        private int statusField;
+        private string notizenField;
+        
+        private int employees_PersNrField;
+        
+        private int projects_idProjektField;
+        
+        private int activities_idAktivitaetenField;
         
         /// <remarks/>
         public int idArbeitszeit {
@@ -1145,28 +1379,6 @@ namespace WpfApplication3.ServiceReference1 {
             set {
                 this.endeField = value;
                 this.RaisePropertyChanged("Ende");
-            }
-        }
-        
-        /// <remarks/>
-        public string Projekt {
-            get {
-                return this.projektField;
-            }
-            set {
-                this.projektField = value;
-                this.RaisePropertyChanged("Projekt");
-            }
-        }
-        
-        /// <remarks/>
-        public string Aktivitaet {
-            get {
-                return this.aktivitaetField;
-            }
-            set {
-                this.aktivitaetField = value;
-                this.RaisePropertyChanged("Aktivitaet");
             }
         }
         
@@ -1239,13 +1451,46 @@ namespace WpfApplication3.ServiceReference1 {
         }
         
         /// <remarks/>
-        public int Status {
+        public string Notizen {
             get {
-                return this.statusField;
+                return this.notizenField;
             }
             set {
-                this.statusField = value;
-                this.RaisePropertyChanged("Status");
+                this.notizenField = value;
+                this.RaisePropertyChanged("Notizen");
+            }
+        }
+        
+        /// <remarks/>
+        public int employees_PersNr {
+            get {
+                return this.employees_PersNrField;
+            }
+            set {
+                this.employees_PersNrField = value;
+                this.RaisePropertyChanged("employees_PersNr");
+            }
+        }
+        
+        /// <remarks/>
+        public int projects_idProjekt {
+            get {
+                return this.projects_idProjektField;
+            }
+            set {
+                this.projects_idProjektField = value;
+                this.RaisePropertyChanged("projects_idProjekt");
+            }
+        }
+        
+        /// <remarks/>
+        public int activities_idAktivitaeten {
+            get {
+                return this.activities_idAktivitaetenField;
+            }
+            set {
+                this.activities_idAktivitaetenField = value;
+                this.RaisePropertyChanged("activities_idAktivitaeten");
             }
         }
         
@@ -1272,8 +1517,6 @@ namespace WpfApplication3.ServiceReference1 {
         private string aktivitaetennameField;
         
         private string aktivitaetenbeschreibungField;
-        
-        private int statusField;
         
         /// <remarks/>
         public int idAktivitaeten {
@@ -1308,17 +1551,6 @@ namespace WpfApplication3.ServiceReference1 {
             }
         }
         
-        /// <remarks/>
-        public int Status {
-            get {
-                return this.statusField;
-            }
-            set {
-                this.statusField = value;
-                this.RaisePropertyChanged("Status");
-            }
-        }
-        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -1343,9 +1575,7 @@ namespace WpfApplication3.ServiceReference1 {
         
         private string projektbeschreibungField;
         
-        private int customer_KundenNrField;
-        
-        private int statusField;
+        private string firmennameField;
         
         /// <remarks/>
         public int idProjekt {
@@ -1381,24 +1611,13 @@ namespace WpfApplication3.ServiceReference1 {
         }
         
         /// <remarks/>
-        public int customer_KundenNr {
+        public string Firmenname {
             get {
-                return this.customer_KundenNrField;
+                return this.firmennameField;
             }
             set {
-                this.customer_KundenNrField = value;
-                this.RaisePropertyChanged("customer_KundenNr");
-            }
-        }
-        
-        /// <remarks/>
-        public int Status {
-            get {
-                return this.statusField;
-            }
-            set {
-                this.statusField = value;
-                this.RaisePropertyChanged("Status");
+                this.firmennameField = value;
+                this.RaisePropertyChanged("Firmenname");
             }
         }
         
@@ -1438,9 +1657,9 @@ namespace WpfApplication3.ServiceReference1 {
         
         private string abteilungField;
         
-        private System.DateTime regelarbeitszeitField;
+        private string regelarbeitszeitField;
         
-        private int statusField;
+        private string berechtigungsnameField;
         
         /// <remarks/>
         public int PersNr {
@@ -1543,8 +1762,7 @@ namespace WpfApplication3.ServiceReference1 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.SoapElementAttribute(DataType="time")]
-        public System.DateTime Regelarbeitszeit {
+        public string Regelarbeitszeit {
             get {
                 return this.regelarbeitszeitField;
             }
@@ -1555,13 +1773,13 @@ namespace WpfApplication3.ServiceReference1 {
         }
         
         /// <remarks/>
-        public int Status {
+        public string berechtigungsname {
             get {
-                return this.statusField;
+                return this.berechtigungsnameField;
             }
             set {
-                this.statusField = value;
-                this.RaisePropertyChanged("Status");
+                this.berechtigungsnameField = value;
+                this.RaisePropertyChanged("berechtigungsname");
             }
         }
         
@@ -1598,8 +1816,6 @@ namespace WpfApplication3.ServiceReference1 {
         private string telNrFestnetzField;
         
         private string eMailField;
-        
-        private int statusField;
         
         /// <remarks/>
         public int KundenNr {
@@ -1686,17 +1902,6 @@ namespace WpfApplication3.ServiceReference1 {
             set {
                 this.eMailField = value;
                 this.RaisePropertyChanged("EMail");
-            }
-        }
-        
-        /// <remarks/>
-        public int Status {
-            get {
-                return this.statusField;
-            }
-            set {
-                this.statusField = value;
-                this.RaisePropertyChanged("Status");
             }
         }
         
@@ -1885,19 +2090,21 @@ namespace WpfApplication3.ServiceReference1 {
             return base.Channel.createemployee(request);
         }
         
-        public int createemployee(int MitarbeiterNr, string Nachname, string Vorname, string GebTag, string Abteilung, string TelNrMobil, string TelNrFestnetz, string EMail, int Berechtigungsstufe, int PIN, bool Status) {
+        public int createemployee(int MitarbeiterNr, string Nachname, string Vorname, string Anschrift, string GebTag, string Abteilung, string TelNrMobil, string TelNrFestnetz, string EMail, string Regelsarbeitszeit, int Status, int Berechtigungsstufe, int PIN) {
             WpfApplication3.ServiceReference1.createemployeeRequest inValue = new WpfApplication3.ServiceReference1.createemployeeRequest();
             inValue.MitarbeiterNr = MitarbeiterNr;
             inValue.Nachname = Nachname;
             inValue.Vorname = Vorname;
+            inValue.Anschrift = Anschrift;
             inValue.GebTag = GebTag;
             inValue.Abteilung = Abteilung;
             inValue.TelNrMobil = TelNrMobil;
             inValue.TelNrFestnetz = TelNrFestnetz;
             inValue.EMail = EMail;
+            inValue.Regelsarbeitszeit = Regelsarbeitszeit;
+            inValue.Status = Status;
             inValue.Berechtigungsstufe = Berechtigungsstufe;
             inValue.PIN = PIN;
-            inValue.Status = Status;
             WpfApplication3.ServiceReference1.createemployeeResponse retVal = ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).createemployee(inValue);
             return retVal.@return;
         }
@@ -1907,19 +2114,21 @@ namespace WpfApplication3.ServiceReference1 {
             return base.Channel.createemployeeAsync(request);
         }
         
-        public System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.createemployeeResponse> createemployeeAsync(int MitarbeiterNr, string Nachname, string Vorname, string GebTag, string Abteilung, string TelNrMobil, string TelNrFestnetz, string EMail, int Berechtigungsstufe, int PIN, bool Status) {
+        public System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.createemployeeResponse> createemployeeAsync(int MitarbeiterNr, string Nachname, string Vorname, string Anschrift, string GebTag, string Abteilung, string TelNrMobil, string TelNrFestnetz, string EMail, string Regelsarbeitszeit, int Status, int Berechtigungsstufe, int PIN) {
             WpfApplication3.ServiceReference1.createemployeeRequest inValue = new WpfApplication3.ServiceReference1.createemployeeRequest();
             inValue.MitarbeiterNr = MitarbeiterNr;
             inValue.Nachname = Nachname;
             inValue.Vorname = Vorname;
+            inValue.Anschrift = Anschrift;
             inValue.GebTag = GebTag;
             inValue.Abteilung = Abteilung;
             inValue.TelNrMobil = TelNrMobil;
             inValue.TelNrFestnetz = TelNrFestnetz;
             inValue.EMail = EMail;
+            inValue.Regelsarbeitszeit = Regelsarbeitszeit;
+            inValue.Status = Status;
             inValue.Berechtigungsstufe = Berechtigungsstufe;
             inValue.PIN = PIN;
-            inValue.Status = Status;
             return ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).createemployeeAsync(inValue);
         }
         
@@ -2274,6 +2483,136 @@ namespace WpfApplication3.ServiceReference1 {
             WpfApplication3.ServiceReference1.restoreEmployeesRequest inValue = new WpfApplication3.ServiceReference1.restoreEmployeesRequest();
             inValue.id = id;
             return ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).restoreEmployeesAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WpfApplication3.ServiceReference1.updateActivityResponse WpfApplication3.ServiceReference1.zeiterfassungPortType.updateActivity(WpfApplication3.ServiceReference1.updateActivityRequest request) {
+            return base.Channel.updateActivity(request);
+        }
+        
+        public void updateActivity(int idAktivitaeten, string Aktivitaetenname, string Aktivitaetenbeschreibung) {
+            WpfApplication3.ServiceReference1.updateActivityRequest inValue = new WpfApplication3.ServiceReference1.updateActivityRequest();
+            inValue.idAktivitaeten = idAktivitaeten;
+            inValue.Aktivitaetenname = Aktivitaetenname;
+            inValue.Aktivitaetenbeschreibung = Aktivitaetenbeschreibung;
+            WpfApplication3.ServiceReference1.updateActivityResponse retVal = ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).updateActivity(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.updateActivityResponse> WpfApplication3.ServiceReference1.zeiterfassungPortType.updateActivityAsync(WpfApplication3.ServiceReference1.updateActivityRequest request) {
+            return base.Channel.updateActivityAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.updateActivityResponse> updateActivityAsync(int idAktivitaeten, string Aktivitaetenname, string Aktivitaetenbeschreibung) {
+            WpfApplication3.ServiceReference1.updateActivityRequest inValue = new WpfApplication3.ServiceReference1.updateActivityRequest();
+            inValue.idAktivitaeten = idAktivitaeten;
+            inValue.Aktivitaetenname = Aktivitaetenname;
+            inValue.Aktivitaetenbeschreibung = Aktivitaetenbeschreibung;
+            return ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).updateActivityAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WpfApplication3.ServiceReference1.updateCustomerResponse WpfApplication3.ServiceReference1.zeiterfassungPortType.updateCustomer(WpfApplication3.ServiceReference1.updateCustomerRequest request) {
+            return base.Channel.updateCustomer(request);
+        }
+        
+        public void updateCustomer(int KundenNr, string Nachname, string Vorname, string Anschrift, string Firmenname, string TelNrMobil, string TelNrFestnetz, string EMail) {
+            WpfApplication3.ServiceReference1.updateCustomerRequest inValue = new WpfApplication3.ServiceReference1.updateCustomerRequest();
+            inValue.KundenNr = KundenNr;
+            inValue.Nachname = Nachname;
+            inValue.Vorname = Vorname;
+            inValue.Anschrift = Anschrift;
+            inValue.Firmenname = Firmenname;
+            inValue.TelNrMobil = TelNrMobil;
+            inValue.TelNrFestnetz = TelNrFestnetz;
+            inValue.EMail = EMail;
+            WpfApplication3.ServiceReference1.updateCustomerResponse retVal = ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).updateCustomer(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.updateCustomerResponse> WpfApplication3.ServiceReference1.zeiterfassungPortType.updateCustomerAsync(WpfApplication3.ServiceReference1.updateCustomerRequest request) {
+            return base.Channel.updateCustomerAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.updateCustomerResponse> updateCustomerAsync(int KundenNr, string Nachname, string Vorname, string Anschrift, string Firmenname, string TelNrMobil, string TelNrFestnetz, string EMail) {
+            WpfApplication3.ServiceReference1.updateCustomerRequest inValue = new WpfApplication3.ServiceReference1.updateCustomerRequest();
+            inValue.KundenNr = KundenNr;
+            inValue.Nachname = Nachname;
+            inValue.Vorname = Vorname;
+            inValue.Anschrift = Anschrift;
+            inValue.Firmenname = Firmenname;
+            inValue.TelNrMobil = TelNrMobil;
+            inValue.TelNrFestnetz = TelNrFestnetz;
+            inValue.EMail = EMail;
+            return ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).updateCustomerAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WpfApplication3.ServiceReference1.updateEmployeeResponse WpfApplication3.ServiceReference1.zeiterfassungPortType.updateEmployee(WpfApplication3.ServiceReference1.updateEmployeeRequest request) {
+            return base.Channel.updateEmployee(request);
+        }
+        
+        public void updateEmployee(int PersNr, string Nachname, string Vorname, string Anschrift, string EMail, string TelNrMobil, string TelNrFestnetz, string Abteilung, string Regelarbeitszeit, int Berechtigungsstufe) {
+            WpfApplication3.ServiceReference1.updateEmployeeRequest inValue = new WpfApplication3.ServiceReference1.updateEmployeeRequest();
+            inValue.PersNr = PersNr;
+            inValue.Nachname = Nachname;
+            inValue.Vorname = Vorname;
+            inValue.Anschrift = Anschrift;
+            inValue.EMail = EMail;
+            inValue.TelNrMobil = TelNrMobil;
+            inValue.TelNrFestnetz = TelNrFestnetz;
+            inValue.Abteilung = Abteilung;
+            inValue.Regelarbeitszeit = Regelarbeitszeit;
+            inValue.Berechtigungsstufe = Berechtigungsstufe;
+            WpfApplication3.ServiceReference1.updateEmployeeResponse retVal = ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).updateEmployee(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.updateEmployeeResponse> WpfApplication3.ServiceReference1.zeiterfassungPortType.updateEmployeeAsync(WpfApplication3.ServiceReference1.updateEmployeeRequest request) {
+            return base.Channel.updateEmployeeAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.updateEmployeeResponse> updateEmployeeAsync(int PersNr, string Nachname, string Vorname, string Anschrift, string EMail, string TelNrMobil, string TelNrFestnetz, string Abteilung, string Regelarbeitszeit, int Berechtigungsstufe) {
+            WpfApplication3.ServiceReference1.updateEmployeeRequest inValue = new WpfApplication3.ServiceReference1.updateEmployeeRequest();
+            inValue.PersNr = PersNr;
+            inValue.Nachname = Nachname;
+            inValue.Vorname = Vorname;
+            inValue.Anschrift = Anschrift;
+            inValue.EMail = EMail;
+            inValue.TelNrMobil = TelNrMobil;
+            inValue.TelNrFestnetz = TelNrFestnetz;
+            inValue.Abteilung = Abteilung;
+            inValue.Regelarbeitszeit = Regelarbeitszeit;
+            inValue.Berechtigungsstufe = Berechtigungsstufe;
+            return ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).updateEmployeeAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WpfApplication3.ServiceReference1.updateProjectResponse WpfApplication3.ServiceReference1.zeiterfassungPortType.updateProject(WpfApplication3.ServiceReference1.updateProjectRequest request) {
+            return base.Channel.updateProject(request);
+        }
+        
+        public void updateProject(int idProjekt, string Projektname, string Projektbeschreibung, int customer_KundenNr) {
+            WpfApplication3.ServiceReference1.updateProjectRequest inValue = new WpfApplication3.ServiceReference1.updateProjectRequest();
+            inValue.idProjekt = idProjekt;
+            inValue.Projektname = Projektname;
+            inValue.Projektbeschreibung = Projektbeschreibung;
+            inValue.customer_KundenNr = customer_KundenNr;
+            WpfApplication3.ServiceReference1.updateProjectResponse retVal = ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).updateProject(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.updateProjectResponse> WpfApplication3.ServiceReference1.zeiterfassungPortType.updateProjectAsync(WpfApplication3.ServiceReference1.updateProjectRequest request) {
+            return base.Channel.updateProjectAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WpfApplication3.ServiceReference1.updateProjectResponse> updateProjectAsync(int idProjekt, string Projektname, string Projektbeschreibung, int customer_KundenNr) {
+            WpfApplication3.ServiceReference1.updateProjectRequest inValue = new WpfApplication3.ServiceReference1.updateProjectRequest();
+            inValue.idProjekt = idProjekt;
+            inValue.Projektname = Projektname;
+            inValue.Projektbeschreibung = Projektbeschreibung;
+            inValue.customer_KundenNr = customer_KundenNr;
+            return ((WpfApplication3.ServiceReference1.zeiterfassungPortType)(this)).updateProjectAsync(inValue);
         }
         
         public WpfApplication3.ServiceReference1.TableDataWorkingTimes[] loadtableworkingtimes() {

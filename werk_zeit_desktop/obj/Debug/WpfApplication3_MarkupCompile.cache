@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\stefan\Desktop\desktop_anwendung.git\branches\Version1.4\werk_zeit_desktop\obj\Debug\
+C:\Users\stefan\Desktop\repository\branches\Version1.5\werk_zeit_desktop\obj\Debug\
 WpfApplication3
 none
 false
 DEBUG;TRACE
-C:\Users\stefan\Desktop\desktop_anwendung.git\branches\Version1.4\werk_zeit_desktop\App.xaml
-7982101948
+C:\Users\stefan\Desktop\repository\branches\Version1.5\werk_zeit_desktop\App.xaml
+12-1169924890
 
-13426922737
-161052291533
-WorkingTimeWindow.xaml;Login.xaml;MainWindow.xaml;ActivityWindow.xaml;CustomerWindow.xaml;EmployeeWindow.xaml;ProjectWindow.xaml;
+18-2072559116
+171964655953
+CreateWindows\WorkingTimeWindow.xaml;EditWindows\EditActivityWindow.xaml;EditWindows\EditCustomerWindow.xaml;EditWindows\EditEmployeeWindow.xaml;EditWindows\EditProjectWindow.xaml;EditWindows\EditWorkingTimeWindow.xaml;Login.xaml;MainWindow.xaml;CreateWindows\ActivityWindow.xaml;CreateWindows\CustomerWindow.xaml;CreateWindows\EmployeeWindow.xaml;CreateWindows\ProjectWindow.xaml;
 
 False
 
